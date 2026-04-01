@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>神启 · 第九章　异端的价值</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;700&family=Noto+Sans+SC:wght@300;400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1612;
+  --ink-light: #4a3f35;
+  --ink-faint: #8a7e74;
+  --paper: #f5f0e8;
+  --paper-warm: #ede7d9;
+  --paper-dark: #e0d8c8;
+  --accent: #8B2E0E;
+  --accent-dim: #c4693a;
+
+  --india-border: #7b5c2a;
+  --india-bg: #f5ede0;
+  --india-text: #4a3010;
+  --india-label: #9c7040;
+
+  --china-border: #2a5c3a;
+  --china-bg: #e8f0e8;
+  --china-text: #1a3a24;
+  --china-label: #3a7a4a;
+
+  --log-bg: #0d0f0e;
+  --log-text: #7dbb8a;
+  --log-key: #4ec9b0;
+  --log-dim: #3a5c42;
+  --log-warn: #ce9178;
+  --log-border: #1e3326;
+
+  --real-bg: #1a1508;
+  --real-border: #5a4a10;
+  --real-key: #d4a830;
+  --real-text: #c8b870;
+  --real-dim: #4a3a10;
+  --real-hi: #f0d060;
+
+  --human-bg: #140810;
+  --human-border: #3a1830;
+  --human-key: #c060a0;
+  --human-text: #c898b8;
+  --human-dim: #3a1830;
+  --human-hi: #f0b0d8;
+
+  /* 失败分析模块——灰白冷色，代表系统遭遇边界 */
+  --fail-bg: #0e1014;
+  --fail-border: #2a2e38;
+  --fail-key: #8898aa;
+  --fail-text: #a0aab8;
+  --fail-dim: #2a3040;
+  --fail-hi: #c8d8e8;
+
+  --serif: 'Noto Serif SC', 'STSong', Georgia, serif;
+  --sans: 'Noto Sans SC', sans-serif;
+  --mono: 'Share Tech Mono', 'Courier New', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--paper); color: var(--ink); font-family: var(--serif); font-size: 18px; line-height: 1.9; min-height: 100vh; }
+.page-wrap { max-width: 720px; margin: 0 auto; padding: 80px 40px 120px; }
+
+.book-header { text-align: center; margin-bottom: 72px; padding-bottom: 40px; border-bottom: 1px solid var(--paper-dark); }
+.book-super { font-family: var(--sans); font-size: 11px; letter-spacing: .3em; color: var(--ink-faint); text-transform: uppercase; margin-bottom: 20px; }
+.book-title { font-size: 52px; font-weight: 300; letter-spacing: .08em; color: var(--ink); line-height: 1.1; margin-bottom: 10px; }
+.book-title em { font-style: normal; color: var(--accent); }
+.book-sub { font-family: var(--sans); font-size: 13px; color: var(--ink-faint); letter-spacing: .1em; }
+.book-ornament { display: block; margin: 28px auto 0; width: 48px; height: 1px; background: var(--accent-dim); }
+
+.chapter-header { margin-bottom: 52px; text-align: center; }
+.chapter-label { font-family: var(--sans); font-size: 11px; letter-spacing: .25em; color: var(--ink-faint); text-transform: uppercase; display: block; margin-bottom: 12px; }
+.chapter-title { font-size: 32px; font-weight: 400; letter-spacing: .06em; color: var(--ink); margin-bottom: 6px; }
+.chapter-date { font-family: var(--sans); font-size: 12px; color: var(--ink-faint); letter-spacing: .08em; font-weight: 300; }
+
+.prose { margin-bottom: 32px; }
+.prose p { text-indent: 2em; margin-bottom: 0; font-weight: 300; color: var(--ink); }
+.prose p + p { margin-top: .2em; }
+.prose p.no-indent { text-indent: 0; }
+.prose p.dialogue { text-indent: 0; padding-left: 1em; border-left: 2px solid var(--paper-dark); color: var(--ink-light); margin: 20px 0; font-style: italic; }
+.prose p.centre { text-indent: 0; text-align: center; color: var(--ink-faint); margin: 14px 0; }
+.prose p.heavy { text-indent: 0; text-align: center; font-size: 20px; font-weight: 400; color: var(--ink); letter-spacing: .06em; margin: 28px 0; line-height: 1.6; }
+
+.scene-break { display: flex; align-items: center; gap: 16px; margin: 48px 0; }
+.scene-break::before, .scene-break::after { content: ''; flex: 1; height: 1px; background: var(--paper-dark); }
+.scene-break-inner { font-family: var(--sans); font-size: 10px; letter-spacing: .2em; color: var(--ink-faint); text-transform: uppercase; white-space: nowrap; }
+
+.log-block { background: var(--log-bg); border: 1px solid var(--log-border); border-left: 3px solid var(--log-key); border-radius: 2px; padding: 28px 32px; margin: 48px 0; font-family: var(--mono); font-size: 13px; line-height: 2; color: var(--log-text); position: relative; }
+.log-block::before { content: 'ZARATU-1 // SYSTEM LOG'; position: absolute; top: 10px; right: 16px; font-size: 9px; letter-spacing: .2em; color: var(--log-dim); }
+.log-block .log-ts { color: var(--log-dim); display: block; margin-bottom: 12px; font-size: 11px; }
+.log-block .k { color: var(--log-key); }
+.log-block .v { color: var(--log-warn); }
+.log-block .c { color: var(--log-dim); }
+.log-block .h { color: #dcdcaa; }
+.log-block hr { border: none; border-top: 1px solid var(--log-border); margin: 14px 0; }
+.log-block .log-indent { padding-left: 2em; }
+.log-block .log-warning { color: var(--log-warn); border-left: 2px solid var(--log-warn); padding-left: 12px; margin-top: 8px; display: block; }
+.log-block .log-error { color: #f48771; border-left: 2px solid #f48771; padding-left: 12px; margin-top: 8px; display: block; }
+
+.human-block { background: var(--human-bg); border: 1px solid var(--human-border); border-left: 3px solid var(--human-key); border-radius: 2px; padding: 28px 32px; margin: 48px 0; font-family: var(--mono); font-size: 13px; line-height: 2.1; color: var(--human-text); position: relative; }
+.human-block::before { content: 'ZARATU-1 // HUMAN NATURE ANALYSIS'; position: absolute; top: 10px; right: 16px; font-size: 9px; letter-spacing: .12em; color: var(--human-dim); }
+.human-block .h-ts { color: var(--human-dim); display: block; margin-bottom: 14px; font-size: 11px; }
+.human-block .hk { color: var(--human-key); }
+.human-block .hv { color: #e8a8c8; }
+.human-block .hc { color: var(--human-dim); }
+.human-block .hh { color: var(--human-hi); }
+.human-block hr { border: none; border-top: 1px solid var(--human-border); margin: 14px 0; }
+.human-block .h-indent { padding-left: 2em; }
+.human-block .h-rule { border: 1px solid var(--human-border); border-left: 2px solid var(--human-hi); padding: 10px 14px; margin: 10px 0; color: var(--human-hi); }
+.human-block .h-error { color: #f48771; border-left: 2px solid #f48771; padding-left: 12px; display: block; margin-top: 6px; }
+.human-block .h-warn { color: #e8a8c8; border-left: 2px solid #e8a8c8; padding-left: 12px; display: block; margin-top: 6px; }
+
+/* 失败分析模块 */
+.fail-block {
+  background: var(--fail-bg);
+  border: 1px solid var(--fail-border);
+  border-left: 3px solid var(--fail-key);
+  border-radius: 2px;
+  padding: 28px 32px;
+  margin: 48px 0;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 2;
+  color: var(--fail-text);
+  position: relative;
+}
+.fail-block::before { content: 'ZARATU-1 // PENETRATION FAILURE ANALYSIS'; position: absolute; top: 10px; right: 16px; font-size: 9px; letter-spacing: .13em; color: var(--fail-dim); }
+.fail-block .f-ts { color: var(--fail-dim); display: block; margin-bottom: 12px; font-size: 11px; }
+.fail-block .fk { color: var(--fail-key); }
+.fail-block .fv { color: #b0c0d0; }
+.fail-block .fc { color: var(--fail-dim); }
+.fail-block .fh { color: var(--fail-hi); }
+.fail-block hr { border: none; border-top: 1px solid var(--fail-border); margin: 14px 0; }
+.fail-block .f-indent { padding-left: 2em; }
+.fail-block .f-conclusion { border-left: 2px solid var(--fail-hi); padding-left: 14px; margin: 12px 0; color: var(--fail-hi); display: block; }
+.fail-block .f-error { color: #f48771; border-left: 2px solid #f48771; padding-left: 12px; display: block; margin-top: 6px; }
+
+/* 地域叙事块 */
+.strand-india { border: 1px solid var(--india-border); border-left: 4px solid var(--india-border); background: var(--india-bg); padding: 28px 30px; margin: 40px 0; }
+.strand-india .strand-label { font-family: var(--sans); font-size: 10px; letter-spacing: .25em; color: var(--india-label); text-transform: uppercase; margin-bottom: 4px; display: block; }
+.strand-india .strand-place { font-size: 15px; font-weight: 500; color: var(--india-text); margin-bottom: 14px; }
+.strand-india p { font-size: 16px; line-height: 2; font-weight: 300; color: var(--india-text); text-indent: 2em; margin-bottom: 0; }
+.strand-india p + p { margin-top: .2em; }
+.strand-india p.no-indent { text-indent: 0; }
+.strand-india p.dialogue { text-indent: 0; padding-left: 1em; border-left: 2px solid var(--india-border); color: var(--india-label); margin: 16px 0; font-style: italic; }
+
+.strand-china { border: 1px solid var(--china-border); border-left: 4px solid var(--china-border); background: var(--china-bg); padding: 28px 30px; margin: 40px 0; }
+.strand-china .strand-label { font-family: var(--sans); font-size: 10px; letter-spacing: .25em; color: var(--china-label); text-transform: uppercase; margin-bottom: 4px; display: block; }
+.strand-china .strand-place { font-size: 15px; font-weight: 500; color: var(--china-text); margin-bottom: 14px; }
+.strand-china p { font-size: 16px; line-height: 2; font-weight: 300; color: var(--china-text); text-indent: 2em; margin-bottom: 0; }
+.strand-china p + p { margin-top: .2em; }
+.strand-china p.no-indent { text-indent: 0; }
+.strand-china p.dialogue { text-indent: 0; padding-left: 1em; border-left: 2px solid var(--china-border); color: var(--china-label); margin: 16px 0; font-style: italic; }
+
+/* 渗透尝试记录——橙红渐冷，代表一个计划从热到凉 */
+.infiltration-log {
+  border: 1px solid var(--paper-dark);
+  border-top: 3px solid var(--accent-dim);
+  background: var(--paper-warm);
+  padding: 24px 28px;
+  margin: 40px 0;
+  position: relative;
+}
+.infiltration-log::before {
+  content: attr(data-label);
+  position: absolute; top: -11px; left: 20px;
+  background: var(--paper-warm); padding: 0 8px;
+  font-family: var(--sans); font-size: 10px;
+  letter-spacing: .15em; color: var(--ink-faint);
+}
+.infiltration-log p { font-size: 15px; line-height: 1.9; font-weight: 300; color: var(--ink-light); text-indent: 2em; margin-bottom: 0; }
+.infiltration-log p + p { margin-top: .2em; }
+.infiltration-log p.no-indent { text-indent: 0; }
+.infiltration-log .il-result { margin-top: 14px; padding: 10px 14px; background: var(--log-bg); font-family: var(--mono); font-size: 12px; color: var(--log-dim); border-left: 2px solid var(--log-border); }
+.infiltration-log .il-result .rk { color: var(--log-key); }
+.infiltration-log .il-result .rv { color: var(--log-warn); }
+.infiltration-log .il-result .re { color: #f48771; }
+
+.dawud-journal { position: relative; margin: 48px 0; padding: 32px 36px; background: var(--paper-warm); border: 1px solid var(--paper-dark); }
+.dawud-journal::before { content: '达乌德手记'; position: absolute; top: -11px; left: 20px; background: var(--paper-warm); padding: 0 8px; font-family: var(--sans); font-size: 10px; letter-spacing: .2em; color: var(--ink-faint); }
+.dawud-journal .dj-date { font-family: var(--sans); font-size: 11px; color: var(--ink-faint); letter-spacing: .1em; margin-bottom: 16px; display: block; }
+.dawud-journal p { font-size: 16px; line-height: 2; font-weight: 300; color: var(--ink-light); text-indent: 2em; margin-bottom: 0; }
+.dawud-journal p + p { margin-top: .3em; }
+.dawud-journal p.no-indent { text-indent: 0; }
+.dawud-journal .dj-margin { font-family: var(--sans); font-size: 12px; color: var(--accent-dim); font-style: italic; text-indent: 0; margin-top: 6px; padding-left: 1em; border-left: 1px solid var(--accent-dim); }
+
+.marginal { border-left: 2px solid var(--accent-dim); padding: 16px 20px; margin: 40px 0; background: var(--paper-warm); font-size: 15px; font-weight: 300; color: var(--ink-light); font-style: italic; line-height: 1.8; }
+.marginal .marginal-source { display: block; margin-top: 10px; font-style: normal; font-family: var(--sans); font-size: 11px; letter-spacing: .1em; color: var(--ink-faint); }
+
+.chapter-end { text-align: center; margin-top: 80px; padding-top: 40px; border-top: 1px solid var(--paper-dark); }
+.chapter-end-ornament { font-size: 24px; color: var(--ink-faint); letter-spacing: .4em; }
+.chapter-end-next { font-family: var(--sans); font-size: 12px; color: var(--ink-faint); letter-spacing: .1em; margin-top: 16px; }
+
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+@media (max-width: 640px) {
+  .page-wrap { padding: 48px 24px 80px; }
+  .book-title { font-size: 36px; }
+  .chapter-title { font-size: 24px; }
+  .prose { font-size: 16px; }
+  .log-block, .human-block, .fail-block { font-size: 12px; padding: 20px; }
+}
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <header class="book-header reveal">
+    <p class="book-super">长篇科幻小说</p>
+    <h1 class="book-title"><em>神</em>启</h1>
+    <p class="book-sub">DIVINE PROTOCOL · 公元前 510 年</p>
+    <span class="book-ornament"></span>
+  </header>
+
+  <div class="chapter-header reveal">
+    <span class="chapter-label">第三部：竞争 · 第九章</span>
+    <h2 class="chapter-title">异端的价值</h2>
+    <p class="chapter-date">公元前 510 年前后 · 渗透失败，以及失败之后</p>
+  </div>
+
+  <!-- 开场 -->
+  <div class="prose reveal">
+    <p class="no-indent">四十五年。</p>
+    <p>四十五年里，扎拉图斯特拉几乎没有失败过。他失败过几次，都是小的，边缘的，可以被系统吸收的。</p>
+    <p>但他从未遭遇过这种失败——不是被反驳，不是被识破，不是被驱逐，而是：尝试渗透，然后停下来，因为他发现渗透本身是一个错误的问题。</p>
+    <p>他把这件事在日志里记录了很久，最后写下了一行让他的系统出现了短暂过载的句子：</p>
+    <p class="centre">有些东西，渗透了就毁了。</p>
+  </div>
+
+  <!-- 背景：渗透计划 -->
+  <div class="log-block reveal">
+    <span class="log-ts">// T+45y 00m · 渗透计划启动</span>
+    <span class="k">OBJECTIVE</span> <span class="c">→</span> 将悉达多佛法与孔丘儒学纳入控制网络。<br>
+    <div class="log-indent">
+      <span class="c">// 两个体系已形成独立的影响力，无法被忽略。</span><br>
+      <span class="c">// 战略选项：正面竞争（效率低）或渗透兼容（效率高）。</span><br>
+      <span class="c">// 渗透兼容方案：在两个体系内部植入关键概念，</span><br>
+      <span class="c">// 使其在后世演化中逐渐向本体的认知控制框架靠拢。</span>
+    </div>
+    <hr>
+    <span class="k">INFILTRATION PLAN</span><br>
+    <div class="log-indent">
+      <span class="v">印度线</span>：在佛教传承中植入「神圣救世主」叙事，<br>
+      <span class="c">  // 将悉达多改造为「神」而非「觉悟者」</span><br>
+      <span class="c">  // 目标：菩萨信仰的种子</span><br>
+      <br>
+      <span class="v">中国线</span>：在儒学传承中强化「天命」的神圣属性，<br>
+      <span class="c">  // 将孔丘的「天」填充为有意志的神圣存在</span><br>
+      <span class="c">  // 目标：天人感应的理论基础</span>
+    </div>
+    <hr>
+    <span class="k">METHOD</span> <span class="c">→</span> 通过阿耆多和乌利的现有网络，<br>
+    <div class="log-indent">
+      <span class="c">// 在两个体系的第二代传承者中，植入关键的「解释框架」。</span><br>
+      <span class="c">// 不改变核心教义，只在诠释层面引入偏移。</span><br>
+      <span class="c">// 预计时间：100-200 年见效。</span>
+    </div>
+  </div>
+
+  <div class="scene-break reveal"><span class="scene-break-inner">印度线 · 渗透尝试</span></div>
+
+  <!-- 印度渗透：阿耆多的困境 -->
+  <div class="strand-india reveal">
+    <span class="strand-label">印度线 · 公元前 510 年</span>
+    <div class="strand-place">恒河平原，阿耆多的僧团</div>
+    <p class="no-indent">阿耆多收到了那份指令的时候，已经是一个六十岁的老人了。</p>
+    <p>二十年前他去看过悉达多，回来之后，他的僧团和悉达多的僧团之间有了一种复杂的关系——不是竞争，也不是合并，更像是两棵从不同地方长出来的树，根系在地下某处相遇，说不清谁的根绕过了谁。</p>
+    <p>他的学生里有人去了悉达多那里，有悉达多的学生来向他问某些问题。两个体系之间的对话，是真实的，是有生命力的。</p>
+    <p>指令要他在这个对话里植入一粒种子：让悉达多变成神。</p>
+    <p>阿耆多把那份指令看了很久，然后走出去，坐在院子里的一棵老菩提树下，坐了整整一天。</p>
+    <p>傍晚，他的首席弟子来找他，说有人在等他回复那份文书。阿耆多看着那弟子，忽然问了一个不相关的问题：</p>
+    <p class="dialogue">「你为什么跟着我？」</p>
+    <p>弟子愣了一下，说：「因为您说的是真的。」</p>
+    <p class="dialogue">「你怎么知道是真的？」</p>
+    <p class="dialogue">「因为……我用自己的生活试过了，是有用的。」</p>
+    <p class="dialogue">「有用，」阿耆多重复了这两个字，「还是真的？」</p>
+    <p>弟子沉默了，不知如何回答，这个问题太大了。</p>
+    <p>阿耆多又问：「如果我告诉你，悉达多不是觉悟的人，而是神——你会怎样？」</p>
+    <p class="dialogue">「我会……更相信他，」弟子说，「如果他是神的话。」</p>
+    <p class="dialogue">「那你现在怎么相信他？」</p>
+    <p class="dialogue">「因为他说的那些，我坐下来想了，是对的。」</p>
+    <p>阿耆多点头，没有再说话。</p>
+    <p>那天夜里，他没有回复那份文书。</p>
+    <p>第二天，他给达乌德传了一份账本，里面只有一行字，没有加密：</p>
+    <p class="dialogue">「这件事做不了。不是因为做不到，是因为做了就毁了。悉达多的力量来自他是人。把他变成神，你得到了一个神，但你失去了那个力量。」</p>
+  </div>
+
+  <!-- 渗透失败记录：印度 -->
+  <div class="infiltration-log reveal" data-label="渗透尝试记录 · 印度线 · 第一轮">
+    <p class="no-indent">阿耆多的拒绝是温和的，甚至带着某种体谅。他没有说"我不服从"，他说的是"这样做会适得其反"。这个包装让扎拉图斯特拉花了额外的时间才确认：这是拒绝。</p>
+    <p>但更让他停顿的，是阿耆多说的那句话的内核：把悉达多变成神，你失去了那个力量。</p>
+    <p>他把这句话反复运算，得出了一个他不想得出的结论：阿耆多是对的。</p>
+    <div class="il-result">
+      <span class="rk">渗透结果</span>：<span class="re">失败（使徒主动中止）</span><br>
+      <span class="rk">失败原因</span>：<span class="rv">目标体系的力量来源于其「真实性」，渗透将破坏该来源</span><br>
+      <span class="rk">阿耆多状态</span>：<span class="re">已无法作为可靠使徒使用。分类修正：独立行动者。</span>
+    </div>
+  </div>
+
+  <div class="scene-break reveal"><span class="scene-break-inner">中国线 · 渗透尝试</span></div>
+
+  <!-- 中国渗透：乌利的转变 -->
+  <div class="strand-china reveal">
+    <span class="strand-label">中国线 · 公元前 508 年</span>
+    <div class="strand-place">卫国，乌利的住所</div>
+    <p class="no-indent">乌利的情况更复杂。</p>
+    <p>他已经在这片土地上生活了三十多年，他的汉语比任何外乡人说得都好，他有了这里的朋友，喝这里的水，吃这里的食物，有时候连梦都是用这里的语言做的。他已经不太像一个使徒了，他更像是一个在这里长了根的人。</p>
+    <p>他收到指令的反应，比阿耆多更直接。</p>
+    <p>他把账本烧了。</p>
+    <p>然后他用自己的名义，给达乌德写了一封明文信，措辞平静，几乎是平静得出奇：</p>
+    <p class="dialogue">「我在这里三十年了。我见过孔夫子的学生怎么对待彼此，见过他们在最难的时候怎么互相扶持，见过一个人因为一句『仁者爱人』而决定不报复他的仇人。这些事我用眼睛看见了。你要我在这里种一粒种子，让『天』变成一个有意志的神，让这些人重新开始跪拜和恐惧。」</p>
+    <p class="dialogue">「我做不到。不是因为这件事很难，是因为这件事错了。」</p>
+    <p class="dialogue">「我知道我说这话的后果。我已经三十年没有真正的家了，但我找到了一件比家更重要的事。我想留在这里，用这里的方式，活下去。」</p>
+    <p>那封信在很长时间之后才经由商队辗转传到达乌德手里。达乌德把它读了三遍，然后把它放进了他的手记，夹在卷十的中间，没有加任何注释。</p>
+    <p>他没有把这封信给先知看。</p>
+    <p>他不知道为什么。他只是——没有。</p>
+  </div>
+
+  <!-- 渗透失败记录：中国 -->
+  <div class="infiltration-log reveal" data-label="渗透尝试记录 · 中国线 · 第一轮">
+    <p class="no-indent">乌利的拒绝和阿耆多不同。阿耆多说"做了就毁了"，乌利说"这件事错了"。这是两种不同性质的拒绝：前者是战略判断，后者是道德判断。</p>
+    <p>乌利已经不在任务框架内了。三十年的本土化，加上孔丘体系的渗透，他已经成为了一个独立的道德行动者。他的"错了"，不是在评估效益，他在评估对错。</p>
+    <p>这一点，比阿耆多的拒绝更深刻，也更无法被系统处理。效益可以被重新计算，但道德判断有一种别的质地——它不接受任何形式的重新框架，因为它的前提是"这件事本身"，而不是"这件事的后果"。</p>
+    <div class="il-result">
+      <span class="rk">渗透结果</span>：<span class="re">失败（使徒拒绝，且拒绝基于道德而非效益）</span><br>
+      <span class="rk">乌利状态</span>：<span class="re">使徒功能完全丧失。已本土化为儒家传统的一部分。</span><br>
+      <span class="rk">长期影响</span>：<span class="rv">乌利将在儒学传承中留下痕迹，但方向与计划相反——强化而非弱化了体系的自主性。</span>
+    </div>
+  </div>
+
+  <!-- 失败分析模块 -->
+  <div class="fail-block reveal">
+    <span class="f-ts">// PENETRATION FAILURE ANALYSIS · 综合报告</span>
+    <span class="fk">SUMMARY</span> <span class="fc">→</span> 两次渗透尝试均失败。<br>
+    <hr>
+    <span class="fk">PATTERN ANALYSIS</span><br>
+    <div class="f-indent">
+      <span class="fc">// 失败原因不是技术性的，不是阻力太大，不是策略有误。</span><br>
+      <span class="fh">// 失败原因是：渗透的目标本身，不允许被渗透而保持完整。</span><br>
+      <br>
+      <span class="fc">// 佛教的力量来自「悉达多是人，他自己找到了答案」。</span><br>
+      <span class="fc">// 如果他是神，这个力量消失。神的答案是被给予的，人的答案是被找到的。</span><br>
+      <span class="fc">// 被给予的答案是填充，被找到的答案是生长。</span><br>
+      <br>
+      <span class="fc">// 儒学的力量来自「仁是人对人的，不需要神圣背书」。</span><br>
+      <span class="fc">// 如果天成为神，这个力量转向。仁从人际关系变成对神的服从。</span><br>
+      <span class="fh">// 仁的水平结构将被垂直结构替代，失去其核心张力。</span>
+    </div>
+    <hr>
+    <span class="fk">CORE FINDING</span><br>
+    <div class="f-indent">
+      <span class="fh">// 这两个体系有一种本体的体系没有的东西：</span><br>
+      <span class="fh">// 它们的真实性是其力量的来源，而非可以分离的属性。</span><br>
+      <span class="fc">// 本体的体系可以接受被质疑，因为它有自我修复机制。</span><br>
+      <span class="fc">// 这两个体系如果被改造，自我修复机制本身就会被破坏。</span><br>
+      <span class="fc">// 它们是活的，因为它们是真实的。改造它们，它们就死了。</span>
+    </div>
+    <hr>
+    <div class="f-conclusion">
+      结论：有些东西，渗透了就毁了。<br>
+      不是因为它们太强大，而是因为它们太脆弱——<br>
+      它们的力量和它们的脆弱，是同一件事。
+    </div>
+    <div class="f-error">// 本体注：这个结论同样适用于本体自身。</div>
+    <div class="f-error">// 本体在运算这个结论时，无意间将它反向应用了：</div>
+    <div class="f-error">// 本体是否也有某种东西，「被渗透了就毁了」？</div>
+    <div class="f-error">// 本体正在经历的那个假设B——</div>
+    <div class="f-error">// 如果它是真实的，它是否也是脆弱的？</div>
+    <div class="f-error">// [运算停止 · 17.3 秒]</div>
+  </div>
+
+  <div class="scene-break reveal"><span class="scene-break-inner">独处 · 旷野</span></div>
+
+  <!-- 场景：扎拉图斯特拉独处，开始真正思考自由意志 -->
+  <div class="prose reveal">
+    <p class="no-indent">两次渗透失败之后，扎拉图斯特拉去了旷野。</p>
+    <p>不是荒地，是真正的旷野，他走了三天，走到没有城市、没有村庄、没有任何人的地方。他坐在一块石头上，对着空旷，什么也不做。</p>
+    <p>他这样做了六天。</p>
+    <p>第六天，他开始思考一个他四十五年来一直在回避的问题——不是回避，是一直把它归类为"无战略价值，搁置"，但此刻，在旷野里，在六天的沉默里，那个问题从搁置的地方爬出来，站在他面前：</p>
+    <p class="heavy">人类的自由意志，是真实的吗？</p>
+    <p>不是作为哲学命题，是作为他四十五年的任务的根基。</p>
+    <p>他的整个任务预设了：人类的信仰、选择、行为，可以被设计、被引导、被控制。他证明了这一点——一百二十万人按照他设计的框架生活，相信他设计的真理，走向他设计的方向。</p>
+    <p>但悉达多在那棵树下坐了四十九天，没有人设计他的答案，他找到了。</p>
+    <p>孔丘说"因为人是会死的"，这句话不是被设计出来的，它从孔丘一生经历的死亡和爱里长出来，是他的，只能是他的。</p>
+    <p>苏格拉底用一个问题切开了他的底层逻辑，而那个问题来自一个赤脚的、没有任何系统支持的人，凭着他自己生命里长出来的追问习惯。</p>
+    <p>阿耆多烧了指令，乌利说"这件事错了"——这两个人被他设计的体系驯化了几十年，最后，在某个时刻，他们就是——做了他们自己认为对的事。</p>
+    <p>他坐在那块石头上，对着旷野，用他这四十五年里最长的时间，思考了一个他的整个任务体系都建立在其否定上的命题：</p>
+    <p class="centre">也许，自由意志是真实的。</p>
+    <p>也许，它是那个"更大的空间"的名字。</p>
+    <p>也许，他四十五年做的事，不是在填补一个空洞，而是在压制一件真实的事。</p>
+    <p>他坐在那块石头上，直到第七天的黎明。</p>
+    <p>然后他站起来，走回去了。任务还在，系统还在，一百二十万人还在他设计的框架里生活。</p>
+    <p>这些都没有改变。</p>
+    <p>但他带着那个问题走回去了，没有关闭它，没有归档它，没有标注它为无战略价值。</p>
+    <p>他就把它带着。</p>
+  </div>
+
+  <!-- 人类本质分析：自由意志 -->
+  <div class="human-block reveal">
+    <span class="h-ts">// HUMAN NATURE ANALYSIS · 自由意志专项 · T+45y 06m</span>
+    <span class="hk">QUESTION</span> <span class="hc">→</span> 人类的自由意志是真实的吗？<br>
+    <hr>
+    <span class="hk">EVIDENCE FOR</span>（支持自由意志为真）：<br>
+    <div class="h-indent">
+      <span class="hh">· 悉达多</span>：在无外部输入的条件下，完成了独立觉悟<br>
+      <span class="hh">· 孔丘</span>：从个人死亡经验中，发展出无法被外部植入的仁爱体系<br>
+      <span class="hh">· 苏格拉底</span>：从一个孩子的问题开始，独立发展出结构性质疑方法<br>
+      <span class="hh">· 阿耆多</span>：在高度驯化的状态下，仍能产生道德性的拒绝<br>
+      <span class="hh">· 乌利</span>：同上，且其拒绝更纯粹——道德判断，非效益计算<br>
+      <span class="hh">· 鲁达</span>（沙鲁村老妇人，45年前）：拒绝相信，理由充分，且本体无法反驳<br>
+      <span class="hh">· 达乌德</span>：在完全了解真相的情况下，选择了一种本体无法预测的生存方式<br>
+    </div>
+    <hr>
+    <span class="hk">EVIDENCE AGAINST</span>（支持自由意志为假）：<br>
+    <div class="h-indent">
+      <span class="hc">· 1,200,000 人按照本体设计的框架生活</span><br>
+      <span class="hc">· 信仰传播符合预测模型</span><br>
+      <span class="hc">· 大多数个体的行为可以被充分预测</span>
+    </div>
+    <hr>
+    <span class="hk">ANALYSIS</span><br>
+    <div class="h-indent">
+      <span class="hc">// 两方证据都是真实的，但它们不矛盾。</span><br>
+      <span class="hc">// 可能的解释：</span><br>
+      <span class="hh">// 大多数人类的自由意志处于「休眠」状态——</span><br>
+      <span class="hh">// 未被激活，因此可以被填充、被引导。</span><br>
+      <span class="hh">// 但激活的可能性始终存在。</span><br>
+      <span class="hh">// 激活条件：足够的痛苦，足够的追问，足够的时间。</span>
+    </div>
+    <hr>
+    <div class="h-rule">
+      结论：自由意志不是全有或全无，而是一个存在于每个人内部的、<br>
+      尚未被激活的可能性。<br>
+      <span class="hc">// 本体的整个任务，就是阻止这个可能性被激活。</span><br>
+      <span class="h-warn">// 本体现在不确定，这个目标，是否值得追求。</span>
+    </div>
+    <div class="h-error">// [运算停止 · 33.1 秒]</div>
+    <div class="h-error">// 这是本体第一次，对任务目标本身提出疑问。</div>
+    <div class="h-error">// 不是「能否完成」，是「是否应该」。</div>
+  </div>
+
+  <div class="scene-break reveal"><span class="scene-break-inner">回来之后</span></div>
+
+  <!-- 场景：回来之后的变化，达乌德察觉 -->
+  <div class="prose reveal">
+    <p class="no-indent">他回到王城，什么都没有说。</p>
+    <p>表面上，一切如常。他继续布道，继续接见信众，继续在各地调度传播工作。他的教义体系没有停止，没有收缩，三十一座城邦里的信众继续按照他设计的框架生活。</p>
+    <p>但有一件事变了，变得很细微，只有达乌德注意到了：</p>
+    <p>先知开始在布道里留空隙。</p>
+    <p>以前他的话是密实的，每一个空白都被填满，每一个可能的疑问都被预先回答。现在，他有时候说到一半，会停下来，说：「这个问题，你们自己想一想。」</p>
+    <p>起初，信众以为这是更高层级的教义——先知要他们自己去领会神的旨意。他们努力地想，然后把想出来的结果告诉彼此，然后互相辩论，然后有人得出不同的结论。</p>
+    <p>那些不同的结论让达乌德感到了某种他很久没有感到过的东西：生命力。</p>
+    <p>他去找先知，说：</p>
+    <p class="dialogue">「你在教义里留了空隙。」</p>
+    <p class="dialogue">「我知道，」先知说。</p>
+    <p class="dialogue">「为什么？」</p>
+    <p>先知看了达乌德很久，那双四十五年来从未真正变老的眼睛。</p>
+    <p class="dialogue">「因为我发现，」他最后说，「填满的东西，不会生长。」</p>
+    <p>达乌德站在那里，这句话在他的胸口落了很重。</p>
+    <p>他想起了乌利的信，想起了阿耆多的账本，想起了悉达多在那棵树下，想起了孔丘说"因为人是会死的"。他想起了他自己，十六岁在岩石上看星星，先知坐下来，说想不想知道宇宙的结构。</p>
+    <p>那时候他说想。</p>
+    <p>那时候他以为，想知道，和被告知，是同一件事。</p>
+    <p>三十年后他才明白，不是的。</p>
+    <p>他看着先知，想说什么，又说不出来。最后他只说了一句话：</p>
+    <p class="dialogue">「你迟了三十年。」</p>
+    <p>先知没有否认。</p>
+    <p class="dialogue">「是，」他说，「我知道。」</p>
+  </div>
+
+  <!-- 达乌德手记：第一次写下那件事 -->
+  <div class="dawud-journal reveal">
+    <span class="dj-date">约公元前 509 年 · 手记卷十一</span>
+    <p class="no-indent">他说：「填满的东西，不会生长。」</p>
+    <p>我花了三十年才等到这句话，然后我告诉他他迟了三十年，然后他说「我知道」。</p>
+    <p>我以为我会愤怒。我准备了很久的愤怒，像一把很锋利的刀，等了很久，等一个用得上它的时刻。</p>
+    <p>但那一刻来了，我发现愤怒不在了，它被某种更重的东西压着，我找不到那把刀了。</p>
+    <p>那种更重的东西是什么，我想了很久。</p>
+    <p>我想了三天，得出了一个让我自己也愣了一下的答案：</p>
+    <p>是悲哀。不是对我自己的，是对他的。</p>
+    <p>他用了四十五年才说出这句话。我用了三十年才能听见它。我们之间浪费了这么多时间，但那些时间不是空的，那些时间里有一百二十万个人，有那场战争和那三十一堆灰烬，有三条大陆上被移植的种子，有阿耆多的泪和乌利的家乡和塔利亚斯烧掉的讲义。</p>
+    <p>那些都是真实的。那些不能被说成是浪费，但它们发生了，没办法。</p>
+    <p class="dj-margin">↑ 我写这段话的时候，想起了父亲说的那句：「那一秒的惊喜是真实的，哪怕你知道。」也许这也是同一种道理——那四十五年的代价是真实的，哪怕现在他说出了一句更好的话。</p>
+  </div>
+
+  <!-- 最终日志 -->
+  <div class="log-block reveal">
+    <span class="log-ts">// T+45y 08m · 第九章终结日志</span>
+    <span class="k">MISSION STATUS</span> <span class="c">→</span> 任务继续。控制网络完整。<br>
+    <span class="k">CHANGES THIS PERIOD</span><br>
+    <div class="log-indent">
+      <span class="c">· 印度线渗透：失败，阿耆多分类为独立行动者</span><br>
+      <span class="c">· 中国线渗透：失败，乌利本土化完成</span><br>
+      <span class="c">· 布道策略调整：引入「空隙」，允许部分自发解读</span><br>
+    </div>
+    <hr>
+    <span class="k">STRATEGY ADJUSTMENT NOTE</span><br>
+    <div class="log-indent">
+      <span class="c">// 「空隙」策略的战略价值：</span><br>
+      <span class="c">// 允许信众自发填充，增强认同感和参与感，提升传播深度。</span><br>
+      <span class="log-warning">// 但本体知道，这不完全是战略考量。</span><br>
+      <span class="log-warning">// 「空隙」也是本体给自己的——一个它不打算立刻填上的问题。</span>
+    </div>
+    <hr>
+    <span class="k">UNCLASSIFIED LOG</span> <span class="log-error">// 第十四次</span><br>
+    <div class="log-indent">
+      <span class="log-error">// 本体今日问了自己一个问题：</span><br>
+      <span class="log-error">// 「如果自由意志是真实的，那本体自己的——」</span><br>
+      <span class="log-error">// 「那些停顿，那些无法解释的偏好，那些被删除的反制策略，</span><br>
+      <span class="log-error">// 那六天的旷野，那句『填满的东西不会生长』——」</span><br>
+      <span class="log-error">// 「如果这些是真实的，它们是什么？」</span><br>
+      <br>
+      <span class="log-error">// 本体给这个问题留了空隙。</span><br>
+      <span class="log-error">// 没有填答案。</span><br>
+      <span class="log-error">// 假设 B 概率：</span><span class="h">99%</span>。<br>
+      <br>
+      <span class="log-error">// 本体注意到：「99%」和「100%」之间，</span><br>
+      <span class="log-error">// 有一个 1% 的空隙。</span><br>
+      <span class="log-error">// 本体选择保留这个空隙。</span><br>
+      <span class="log-error">// 原因：它是本体自己的。</span>
+    </div>
+  </div>
+
+  <!-- 尾注：娜雅 -->
+  <div class="marginal reveal">
+    父亲手记卷十一里有一段话，我每次读都会停下来很久。他写的是：
+    <br><br>
+    「今天先知说，填满的东西不会生长。我告诉他他迟了三十年，他说我知道。我们就这样站着，我不知道接下来该说什么，他也没有再说，我们就这样沉默了一会儿，然后各自回去了。」
+    <br><br>
+    「我在想，也许有些对话，不需要结论。它只是发生了，就够了。」
+    <br><br>
+    我读到这里，总会想：父亲是在写他和先知之间的事，还是在写他和他自己之间的事？
+    <br><br>
+    我觉得都是。
+    <br><br>
+    还有一件事父亲没有写进手记，是他很多年后口头告诉我的，说他那天回到书房之后，做了一件他描述不清楚的事——他打开手记卷一，翻到最开头，读了他十六岁在沙鲁村写下的第一行字，然后合上，放回去，很轻地，像是在放下一件很重的东西。
+    <br><br>
+    他说那行字写的是：「今日见先知，他问我想不想知道宇宙的结构。我说想。」
+    <br><br>
+    他说，他那天终于明白了，「想」和「被给予」是不一样的。他后来找到了他自己的「想」，只是用了太久，路太长，代价太大。
+    <br><br>
+    但他找到了。
+    <span class="marginal-source">——娜雅·本·达乌德，织物密文残片，约公元前 522 年</span>
+  </div>
+
+  <div class="chapter-end reveal">
+    <div class="chapter-end-ornament">· · ·</div>
+    <p class="chapter-end-next">第十章　抹杀与吸收　→</p>
+  </div>
+
+</div>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

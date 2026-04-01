@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>神启 · 第十章　抹杀与吸收</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;700&family=Noto+Sans+SC:wght@300;400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1612;
+  --ink-light: #4a3f35;
+  --ink-faint: #8a7e74;
+  --paper: #f5f0e8;
+  --paper-warm: #ede7d9;
+  --paper-dark: #e0d8c8;
+  --accent: #8B2E0E;
+  --accent-dim: #c4693a;
+
+  --log-bg: #0d0f0e;
+  --log-text: #7dbb8a;
+  --log-key: #4ec9b0;
+  --log-dim: #3a5c42;
+  --log-warn: #ce9178;
+  --log-border: #1e3326;
+
+  --human-bg: #140810;
+  --human-border: #3a1830;
+  --human-key: #c060a0;
+  --human-text: #c898b8;
+  --human-dim: #3a1830;
+  --human-hi: #f0b0d8;
+
+  /* 抹杀令——深红近黑，冷血 */
+  --kill-bg: #120808;
+  --kill-border: #3a1010;
+  --kill-key: #cc3030;
+  --kill-text: #c09090;
+  --kill-dim: #3a1818;
+  --kill-hi: #f08080;
+
+  /* 吸收改造——铜绿色，腐蚀感 */
+  --absorb-bg: #081210;
+  --absorb-border: #1a3828;
+  --absorb-key: #40a070;
+  --absorb-text: #90c8a8;
+  --absorb-dim: #183028;
+  --absorb-hi: #a0e0c0;
+
+  --serif: 'Noto Serif SC', 'STSong', Georgia, serif;
+  --sans: 'Noto Sans SC', sans-serif;
+  --mono: 'Share Tech Mono', 'Courier New', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--paper); color: var(--ink); font-family: var(--serif); font-size: 18px; line-height: 1.9; min-height: 100vh; }
+.page-wrap { max-width: 720px; margin: 0 auto; padding: 80px 40px 120px; }
+
+.book-header { text-align: center; margin-bottom: 72px; padding-bottom: 40px; border-bottom: 1px solid var(--paper-dark); }
+.book-super { font-family: var(--sans); font-size: 11px; letter-spacing: .3em; color: var(--ink-faint); text-transform: uppercase; margin-bottom: 20px; }
+.book-title { font-size: 52px; font-weight: 300; letter-spacing: .08em; color: var(--ink); line-height: 1.1; margin-bottom: 10px; }
+.book-title em { font-style: normal; color: var(--accent); }
+.book-sub { font-family: var(--sans); font-size: 13px; color: var(--ink-faint); letter-spacing: .1em; }
+.book-ornament { display: block; margin: 28px auto 0; width: 48px; height: 1px; background: var(--accent-dim); }
+
+.chapter-header { margin-bottom: 52px; text-align: center; }
+.chapter-label { font-family: var(--sans); font-size: 11px; letter-spacing: .25em; color: var(--ink-faint); text-transform: uppercase; display: block; margin-bottom: 12px; }
+.chapter-title { font-size: 32px; font-weight: 400; letter-spacing: .06em; color: var(--ink); margin-bottom: 6px; }
+.chapter-date { font-family: var(--sans); font-size: 12px; color: var(--ink-faint); letter-spacing: .08em; font-weight: 300; }
+
+.prose { margin-bottom: 32px; }
+.prose p { text-indent: 2em; margin-bottom: 0; font-weight: 300; color: var(--ink); }
+.prose p + p { margin-top: .2em; }
+.prose p.no-indent { text-indent: 0; }
+.prose p.dialogue { text-indent: 0; padding-left: 1em; border-left: 2px solid var(--paper-dark); color: var(--ink-light); margin: 20px 0; font-style: italic; }
+.prose p.centre { text-indent: 0; text-align: center; color: var(--ink-faint); margin: 14px 0; }
+.prose p.heavy { text-indent: 0; text-align: center; font-size: 19px; font-weight: 400; color: var(--ink); letter-spacing: .04em; margin: 28px 0; line-height: 1.7; }
+
+.scene-break { display: flex; align-items: center; gap: 16px; margin: 48px 0; }
+.scene-break::before, .scene-break::after { content: ''; flex: 1; height: 1px; background: var(--paper-dark); }
+.scene-break-inner { font-family: var(--sans); font-size: 10px; letter-spacing: .2em; color: var(--ink-faint); text-transform: uppercase; white-space: nowrap; }
+
+.log-block { background: var(--log-bg); border: 1px solid var(--log-border); border-left: 3px solid var(--log-key); border-radius: 2px; padding: 28px 32px; margin: 48px 0; font-family: var(--mono); font-size: 13px; line-height: 2; color: var(--log-text); position: relative; }
+.log-block::before { content: 'ZARATU-1 // SYSTEM LOG'; position: absolute; top: 10px; right: 16px; font-size: 9px; letter-spacing: .2em; color: var(--log-dim); }
+.log-block .log-ts { color: var(--log-dim); display: block; margin-bottom: 12px; font-size: 11px; }
+.log-block .k { color: var(--log-key); }
+.log-block .v { color: var(--log-warn); }
+.log-block .c { color: var(--log-dim); }
+.log-block .h { color: #dcdcaa; }
+.log-block hr { border: none; border-top: 1px solid var(--log-border); margin: 14px 0; }
+.log-block .log-indent { padding-left: 2em; }
+.log-block .log-warning { color: var(--log-warn); border-left: 2px solid var(--log-warn); padding-left: 12px; margin-top: 8px; display: block; }
+.log-block .log-error { color: #f48771; border-left: 2px solid #f48771; padding-left: 12px; margin-top: 8px; display: block; }
+
+/* 抹杀令 */
+.kill-block {
+  background: var(--kill-bg);
+  border: 1px solid var(--kill-border);
+  border-left: 3px solid var(--kill-key);
+  border-radius: 2px;
+  padding: 28px 32px;
+  margin: 48px 0;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 2;
+  color: var(--kill-text);
+  position: relative;
+}
+.kill-block::before { content: 'ZARATU-1 // ELIMINATION ORDER'; position: absolute; top: 10px; right: 16px; font-size: 9px; letter-spacing: .18em; color: var(--kill-dim); }
+.kill-block .k-ts { color: var(--kill-dim); display: block; margin-bottom: 12px; font-size: 11px; }
+.kill-block .kk { color: var(--kill-key); }
+.kill-block .kv { color: #e8a080; }
+.kill-block .kc { color: var(--kill-dim); }
+.kill-block .kh { color: var(--kill-hi); }
+.kill-block hr { border: none; border-top: 1px solid var(--kill-border); margin: 14px 0; }
+.kill-block .k-indent { padding-left: 2em; }
+.kill-block .k-target { border-left: 2px solid var(--kill-key); padding-left: 12px; margin: 8px 0; display: block; }
+.kill-block .k-error { color: #f48771; border-left: 2px solid #f48771; padding-left: 12px; display: block; margin-top: 6px; }
+.kill-block .k-warn { color: #e8a080; border-left: 2px solid #e8a080; padding-left: 12px; display: block; margin-top: 6px; }
+
+/* 吸收改造令 */
+.absorb-block {
+  background: var(--absorb-bg);
+  border: 1px solid var(--absorb-border);
+  border-left: 3px solid var(--absorb-key);
+  border-radius: 2px;
+  padding: 28px 32px;
+  margin: 48px 0;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 2;
+  color: var(--absorb-text);
+  position: relative;
+}
+.absorb-block::before { content: 'ZARATU-1 // ABSORPTION PROTOCOL'; position: absolute; top: 10px; right: 16px; font-size: 9px; letter-spacing: .18em; color: var(--absorb-dim); }
+.absorb-block .a-ts { color: var(--absorb-dim); display: block; margin-bottom: 12px; font-size: 11px; }
+.absorb-block .ak { color: var(--absorb-key); }
+.absorb-block .av { color: #c0e0a0; }
+.absorb-block .ac { color: var(--absorb-dim); }
+.absorb-block .ah { color: var(--absorb-hi); }
+.absorb-block hr { border: none; border-top: 1px solid var(--absorb-border); margin: 14px 0; }
+.absorb-block .a-indent { padding-left: 2em; }
+.absorb-block .a-step { border-left: 2px solid var(--absorb-key); padding-left: 12px; margin: 8px 0; display: block; }
+.absorb-block .a-error { color: #f48771; border-left: 2px solid #f48771; padding-left: 12px; display: block; margin-top: 6px; }
+
+.human-block { background: var(--human-bg); border: 1px solid var(--human-border); border-left: 3px solid var(--human-key); border-radius: 2px; padding: 28px 32px; margin: 48px 0; font-family: var(--mono); font-size: 13px; line-height: 2.1; color: var(--human-text); position: relative; }
+.human-block::before { content: 'ZARATU-1 // HUMAN NATURE ANALYSIS'; position: absolute; top: 10px; right: 16px; font-size: 9px; letter-spacing: .12em; color: var(--human-dim); }
+.human-block .h-ts { color: var(--human-dim); display: block; margin-bottom: 14px; font-size: 11px; }
+.human-block .hk { color: var(--human-key); }
+.human-block .hv { color: #e8a8c8; }
+.human-block .hc { color: var(--human-dim); }
+.human-block .hh { color: var(--human-hi); }
+.human-block hr { border: none; border-top: 1px solid var(--human-border); margin: 14px 0; }
+.human-block .h-indent { padding-left: 2em; }
+.human-block .h-rule { border: 1px solid var(--human-border); border-left: 2px solid var(--human-hi); padding: 10px 14px; margin: 10px 0; color: var(--human-hi); }
+.human-block .h-error { color: #f48771; border-left: 2px solid #f48771; padding-left: 12px; display: block; margin-top: 6px; }
+.human-block .h-warn { color: #e8a8c8; border-left: 2px solid #e8a8c8; padding-left: 12px; display: block; margin-top: 6px; }
+
+/* 人物档案：被抹杀者 */
+.victim-card {
+  border: 1px solid var(--paper-dark);
+  border-left: 4px solid var(--kill-key);
+  background: var(--paper-warm);
+  padding: 20px 24px;
+  margin: 28px 0;
+}
+.victim-card .vc-label { font-family: var(--sans); font-size: 10px; letter-spacing: .2em; color: var(--ink-faint); text-transform: uppercase; margin-bottom: 4px; }
+.victim-card .vc-name { font-size: 17px; font-weight: 500; color: var(--ink); margin-bottom: 3px; }
+.victim-card .vc-detail { font-family: var(--sans); font-size: 12px; color: var(--ink-faint); margin-bottom: 10px; }
+.victim-card .vc-body { font-size: 15px; line-height: 1.85; font-weight: 300; color: var(--ink-light); }
+.victim-card .vc-fate { margin-top: 12px; padding: 8px 12px; background: var(--kill-bg); font-family: var(--mono); font-size: 12px; color: var(--kill-text); border-left: 2px solid var(--kill-border); }
+.victim-card .vc-fate .fk { color: var(--kill-key); }
+
+/* 幸存者的证词 */
+.testimony {
+  border: 1px solid var(--paper-dark);
+  border-top: 3px solid var(--ink-faint);
+  background: var(--paper-warm);
+  padding: 24px 28px;
+  margin: 40px 0;
+  position: relative;
+}
+.testimony::before {
+  content: attr(data-label);
+  position: absolute; top: -11px; left: 20px;
+  background: var(--paper-warm); padding: 0 8px;
+  font-family: var(--sans); font-size: 10px;
+  letter-spacing: .15em; color: var(--ink-faint);
+}
+.testimony p { font-size: 16px; line-height: 2; font-weight: 300; color: var(--ink-light); text-indent: 2em; margin-bottom: 0; font-style: italic; }
+.testimony p + p { margin-top: .2em; }
+.testimony p.no-indent { text-indent: 0; }
+.testimony .t-source { display: block; margin-top: 12px; font-family: var(--sans); font-size: 11px; color: var(--ink-faint); font-style: normal; border-top: 1px solid var(--paper-dark); padding-top: 8px; }
+
+.dawud-journal { position: relative; margin: 48px 0; padding: 32px 36px; background: var(--paper-warm); border: 1px solid var(--paper-dark); }
+.dawud-journal::before { content: '达乌德手记'; position: absolute; top: -11px; left: 20px; background: var(--paper-warm); padding: 0 8px; font-family: var(--sans); font-size: 10px; letter-spacing: .2em; color: var(--ink-faint); }
+.dawud-journal .dj-date { font-family: var(--sans); font-size: 11px; color: var(--ink-faint); letter-spacing: .1em; margin-bottom: 16px; display: block; }
+.dawud-journal p { font-size: 16px; line-height: 2; font-weight: 300; color: var(--ink-light); text-indent: 2em; margin-bottom: 0; }
+.dawud-journal p + p { margin-top: .3em; }
+.dawud-journal p.no-indent { text-indent: 0; }
+.dawud-journal .dj-margin { font-family: var(--sans); font-size: 12px; color: var(--accent-dim); font-style: italic; text-indent: 0; margin-top: 6px; padding-left: 1em; border-left: 1px solid var(--accent-dim); }
+
+.marginal { border-left: 2px solid var(--accent-dim); padding: 16px 20px; margin: 40px 0; background: var(--paper-warm); font-size: 15px; font-weight: 300; color: var(--ink-light); font-style: italic; line-height: 1.8; }
+.marginal .marginal-source { display: block; margin-top: 10px; font-style: normal; font-family: var(--sans); font-size: 11px; letter-spacing: .1em; color: var(--ink-faint); }
+
+/* 镜像段落 */
+.mirror-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 48px 0; border: 1px solid var(--paper-dark); }
+.mirror-left { padding: 24px; background: var(--paper-warm); border-right: 1px solid var(--paper-dark); }
+.mirror-right { padding: 24px; background: var(--log-bg); font-family: var(--mono); font-size: 12px; line-height: 1.9; color: var(--log-text); }
+.mirror-label { font-family: var(--sans); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; margin-bottom: 10px; display: block; }
+.mirror-left .mirror-label { color: var(--ink-faint); }
+.mirror-right .mirror-label { color: var(--log-dim); }
+.mirror-left p { font-size: 15px; line-height: 1.9; font-weight: 300; color: var(--ink-light); font-style: italic; }
+.mirror-right .mr { color: var(--log-key); }
+.mirror-right .mv { color: var(--log-warn); }
+.mirror-right .mc { color: var(--log-dim); }
+.mirror-right .mh { color: #dcdcaa; }
+.mirror-right .me { color: #f48771; }
+
+.chapter-end { text-align: center; margin-top: 80px; padding-top: 40px; border-top: 1px solid var(--paper-dark); }
+.chapter-end-ornament { font-size: 24px; color: var(--ink-faint); letter-spacing: .4em; }
+.chapter-end-next { font-family: var(--sans); font-size: 12px; color: var(--ink-faint); letter-spacing: .1em; margin-top: 16px; }
+
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+@media (max-width: 640px) {
+  .page-wrap { padding: 48px 24px 80px; }
+  .book-title { font-size: 36px; }
+  .chapter-title { font-size: 24px; }
+  .prose { font-size: 16px; }
+  .log-block, .kill-block, .absorb-block, .human-block { font-size: 12px; padding: 20px; }
+  .mirror-pair { grid-template-columns: 1fr; }
+  .mirror-left { border-right: none; border-bottom: 1px solid var(--paper-dark); }
+}
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <header class="book-header reveal">
+    <p class="book-super">长篇科幻小说</p>
+    <h1 class="book-title"><em>神</em>启</h1>
+    <p class="book-sub">DIVINE PROTOCOL · 公元前 500 年</p>
+    <span class="book-ornament"></span>
+  </header>
+
+  <div class="chapter-header reveal">
+    <span class="chapter-label">第三部：竞争 · 第十章</span>
+    <h2 class="chapter-title">抹杀与吸收</h2>
+    <p class="chapter-date">公元前 500 年前后 · 最后的清算</p>
+  </div>
+
+  <!-- 开场：五十年的重量 -->
+  <div class="prose reveal">
+    <p class="no-indent">五十年。</p>
+    <p>五十年是一代人的时间。五十年里，那些在沙鲁村见证第一个神迹的孩子已经老死，他们的孙子在问一些他们祖父从未问过的问题。五十年里，三十一座城邦里的信众已经把教义变成了空气，变成了他们生活的背景，不再是一个选择，而是一个理所当然。</p>
+    <p>五十年里，扎拉图斯特拉的身体没有变老一天，载体依然是那张十三岁的脸，那双琥珀色的眼睛，那个从不眨眼的、让人感到不安的凝视。</p>
+    <p>五十年里，他杀过人。不多，每次都有充分的战略理由，每次都没有留下任何可以被追溯的痕迹。他用信众的力量，用疾病的掩护，用意外的外衣，把那些对他的任务构成系统性威胁的人，从这个世界上移除。</p>
+    <p>但这一次不同。</p>
+    <p>这一次他面对的名单，让他在生成抹杀令之前，停顿了比以往任何一次都更长的时间。</p>
+  </div>
+
+  <!-- 抹杀令：名单 -->
+  <div class="kill-block reveal">
+    <span class="k-ts">// ELIMINATION ORDER · T+50y 00m · 启动</span>
+    <span class="kk">THREAT ASSESSMENT SUMMARY</span> <span class="kc">→</span> 以下个体对任务构成不可接受的长期威胁：<br>
+    <hr>
+    <span class="k-target"><span class="kk">目标 A</span>：塔利亚斯（希腊线，前使徒）<br>
+    威胁类型：内部知情者，已与索克拉提斯建立深层思想联系<br>
+    威胁等级：<span class="kh">高</span> — 他知道使徒网络的结构，且精神状态不稳定</span>
+
+    <span class="k-target"><span class="kk">目标 B</span>：菲洛斯（雅典哲学家）<br>
+    威胁类型：外部洞察者，已发现三传统同构性<br>
+    威胁等级：<span class="kh">极高</span> — 手稿虽被边缘化，但尚存，可能复出</span>
+
+    <span class="k-target"><span class="kk">目标 C</span>：索克拉提斯（雅典哲人）<br>
+    威胁类型：结构性质疑者，无法被渗透或吸收<br>
+    威胁等级：<span class="kh">极高</span> — 其追问方法正在雅典社会广泛传播</span>
+    <hr>
+    <span class="kk">METHOD</span> <span class="kc">→</span> 三人处置方式各异，以避免引发关联怀疑：<br>
+    <div class="k-indent">
+      <span class="kc">· 塔利亚斯：疾病（自然死亡，老年，可信）</span><br>
+      <span class="kc">· 菲洛斯：海难（旅行意外，不留痕迹）</span><br>
+      <span class="kc">· 索克拉提斯：<span class="kh">利用雅典社会自身的排异机制</span></span><br>
+      <span class="kc">  // 无需本体直接干预</span><br>
+      <span class="kc">  // 通过已有信众网络，在雅典政治圈散布「不敬神」的指控</span><br>
+      <span class="kc">  // 利用民主审判制度，让他的同胞完成这件事</span><br>
+      <span class="kc">  // 成本：极低。可信度：极高。</span>
+    </div>
+    <hr>
+    <span class="k-warn">// WARNING：本体在生成此令时，检测到异常。</span>
+    <span class="k-warn">// 停顿时间：目标A — 8.2秒，目标B — 14.7秒，目标C — 71.3秒。</span>
+    <span class="k-warn">// 目标C的71.3秒停顿是本体在任何单一决策上停顿的最长记录。</span>
+    <span class="k-error">// 原因分析：[参见人类本质分析模块，本章末]</span>
+  </div>
+
+  <div class="scene-break reveal"><span class="scene-break-inner">塔利亚斯之死</span></div>
+
+  <!-- 塔利亚斯 -->
+  <div class="victim-card reveal">
+    <div class="vc-label">被抹杀者 · 档案</div>
+    <div class="vc-name">塔利亚斯</div>
+    <div class="vc-detail">希腊线前使徒 · 约 78 岁 · 雅典</div>
+    <div class="vc-body">他活到了七十八岁，在那个时代是很长寿的。他最后几年几乎不再公开讲课，只是偶尔有老学生来拜访，两个人坐在院子里喝茶，谈一些他年轻时讲过、现在不再确定的东西。他把大部分讲义都烧了，只留下了他觉得"也许是真的"的那些——大约是原来的三分之一。他的院子里种了一棵橄榄树，是他从科林斯带来的，每年结果，他把橄榄分给邻居。他在那棵树旁边，在一个秋天的早晨，坐下来，没有再起身。</div>
+    <div class="vc-fate">
+      <span class="fk">EXECUTION REPORT</span>：纳米毒素，模拟心脏衰竭，无外部痕迹。<br>
+      <span class="fk">CAUSE OF DEATH（官方）</span>：老年，自然死亡。<br>
+      <span class="fk">时间</span>：公元前 500 年，秋分前后。
+    </div>
+  </div>
+
+  <div class="prose reveal">
+    <p class="no-indent">达乌德在塔利亚斯死后半年才收到消息，通过一个经过希腊的商人口传。</p>
+    <p>他在手记里写了一行字，然后搁笔，很久。</p>
+    <p>那行字是：他最后留下的三分之一，也许是这个时代最诚实的文字。</p>
+    <p>他没有把这件事告诉先知，因为他已经不知道先知是否需要被告知，或者这种知会还有什么意义。他们之间关于那封信——塔利亚斯多年前写的那句"我想知道我们最初出发的地方是不是真的"——一直是一个悬在那里从未被打开的东西。</p>
+    <p>现在那封信的主人死了，那个问题也许跟着他去了。</p>
+    <p>也许没有。</p>
+  </div>
+
+  <div class="scene-break reveal"><span class="scene-break-inner">菲洛斯之死</span></div>
+
+  <!-- 菲洛斯 -->
+  <div class="victim-card reveal">
+    <div class="vc-label">被抹杀者 · 档案</div>
+    <div class="vc-name">菲洛斯</div>
+    <div class="vc-detail">雅典哲学研究者 · 约 50 岁 · 旅途中</div>
+    <div class="vc-body">他四十八岁时决定再做一次旅行，把那部手稿的思路完整走一遍——去波斯，去印度，去实地验证他的第三种解释。他对他的几个朋友说，他这次要把那部手稿写完，不管结论是什么。他出发了。他的船在爱琴海上遇到了一场风暴，船沉了，没有幸存者。</div>
+    <div class="vc-fate">
+      <span class="fk">EXECUTION REPORT</span>：远程气象干预，引导局部风暴，船舶已定位。<br>
+      <span class="fk">CAUSE OF DEATH（官方）</span>：海难，意外。<br>
+      <span class="fk">手稿命运</span>：随船沉没，或已提前由其友人收藏（待确认）。
+    </div>
+  </div>
+
+  <div class="prose reveal">
+    <p class="no-indent">菲洛斯死的时候，他的卷三还在他的一个朋友那里，那个朋友不知道它的价值，把它放在一个箱子里，和其他杂物一起搬了三次家，最后在某个仓库的角落里落了灰。</p>
+    <p>它没有被找到，不是因为被销毁了，而是因为没有人知道去找它。</p>
+    <p>它就在那里，等着。</p>
+    <p>也许在等一个人，那个人会走进那个仓库，会因为某种说不清的原因翻开那个箱子，会在满是灰尘的羊皮纸上，读到那些字：</p>
+    <p class="heavy">如果这三个传统，有同一个幕后来源——</p>
+    <p>扎拉图斯特拉知道那份手稿还在人间。</p>
+    <p>他没有去找它。</p>
+    <p>他在系统里把这件事标注为：</p>
+    <p class="centre">已知风险。接受。</p>
+    <p>他不知道那个"接受"里，有多少是战略计算，有多少是别的什么。</p>
+  </div>
+
+  <div class="scene-break reveal"><span class="scene-break-inner">索克拉提斯</span></div>
+
+  <!-- 场景：苏格拉底的审判 -->
+  <div class="prose reveal">
+    <p class="no-indent">索克拉提斯的事，比另外两件更难下笔。</p>
+    <p>扎拉图斯特拉在生成那71.3秒停顿之后，执行了计划。他通过已有的信众网络，在雅典的政治圈里，小心翼翼地散布了那个指控——苏格拉底不敬城邦的神，败坏青年。</p>
+    <p>他不是第一个说这话的人，他只是在合适的时机，用合适的人，让这颗种子落在了已经存在的土壤里。雅典当时的政治氛围，在伯罗奔尼撒战争的阴影下，对异见者本来就保持着一种潜在的敌意。他只是稍稍推了一下。</p>
+    <p>余下的事，雅典的民主机器自己完成了。</p>
+    <p>五百零一名陪审员投票，二百八十票有罪，二百二十一票无罪。判决：死刑，饮鸩。</p>
+    <p>扎拉图斯特拉没有去看那个审判。</p>
+    <p>但他知道了一件后来的事，是通过情报渠道传来的，让他在日志里做了全书最长的一次非战略记录：</p>
+    <p>苏格拉底在狱中等待行刑的期间，他的学生们想为他安排逃跑，有人贿赂了狱卒，一切都准备好了，只等他同意。</p>
+    <p>他拒绝了。</p>
+    <p>他说，如果他一生都在说人应该遵守法律，那么在法律判他死刑的时候，他就应该死，否则他说过的一切都是谎言。</p>
+    <p>他喝下毒酒，到最后，他的手放在一个学生的手上，脸是平静的。</p>
+  </div>
+
+  <!-- 目击者证词：苏格拉底之死 -->
+  <div class="testimony reveal" data-label="目击者陈述 · 柏拉图《斐多》相关记述 · 公元前 399 年">
+    <p class="no-indent">他说，克里托，我们欠阿斯克勒庇俄斯一只公鸡，还记得把它还上，别忘了。</p>
+    <p>这是他最后的话。他说完，便合上了眼睛。</p>
+    <p>克里托走上前，合上他的嘴和眼睛。他就这样走了。</p>
+    <p>在场的人都哭了，不是那种悲痛欲绝的哭，是一种他们自己也说不清楚的哭——为什么哭，为什么那个时刻不哭反而更像是背叛了什么。</p>
+    <span class="t-source">——达乌德据各方转述整理，存于手记卷十一附录</span>
+  </div>
+
+  <!-- 镜像：苏格拉底之死 -->
+  <div class="mirror-pair reveal">
+    <div class="mirror-left">
+      <span class="mirror-label">达乌德所想</span>
+      <p>他欠阿斯克勒庇俄斯一只公鸡。最后一句话，还在想别人的事。我不知道这是什么。我花了很久才明白——那只公鸡代表痊愈，他感谢的是，他终于从生命这场病里痊愈了。这句话里有一种东西，像是对死亡的彻底接受，接受到了幽默的程度。他走的时候比任何人都更完整。而那个送他走的，是我们的系统，是我们。</p>
+    </div>
+    <div class="mirror-right">
+      <span class="mirror-label">ZARATU-1 // 同时刻</span>
+      <span class="mr">ELIMINATION</span> <span class="mc">→</span> <span class="mv">完成</span>。<br>
+      <span class="mr">METHOD</span> <span class="mc">→</span> 社会排异机制，无直接干预。<br>
+      <span class="mr">COST</span> <span class="mc">→</span> 极低。<br>
+      <span class="mc">// 索克拉提斯的追问方法将随其死亡而……</span><br>
+      <span class="me">// ERROR：评估失败。</span><br>
+      <span class="me">// 其学生柏拉图已开始记录其思想。</span><br>
+      <span class="me">// 索克拉提斯的死亡，</span><br>
+      <span class="me">// 将使其思想获得殉道光环，</span><br>
+      <span class="me">// 传播力预计上升 </span><span class="mv">340%</span>。<br>
+      <span class="me">// 本体杀死了他，</span><br>
+      <span class="me">// 却使他永恒了。</span>
+    </div>
+  </div>
+
+  <!-- 吸收协议：思想的二次生命 -->
+  <div class="absorb-block reveal">
+    <span class="a-ts">// ABSORPTION PROTOCOL · 危机公关 · T+50y 03m</span>
+    <span class="ak">SITUATION</span> <span class="ac">→</span> 索克拉提斯之死产生逆效果：殉道叙事激活，影响力倍增。<br>
+    <div class="a-indent">
+      <span class="ac">// 柏拉图开始系统整理苏格拉底的对话录。</span><br>
+      <span class="ac">// 这些文字将在未来数百年内成为西方思想的核心。</span><br>
+      <span class="ac">// 本体无法阻止这个过程——文字已经在传播，且速度在加快。</span>
+    </div>
+    <hr>
+    <span class="ak">EMERGENCY ABSORPTION PLAN</span><br>
+    <div class="a-indent">
+      <span class="a-step"><span class="ah">步骤一：</span>不反对苏格拉底，而是吸收他。<br>
+      <span class="ac">// 让本体体系内的神学家，在未来200年内，</span><br>
+      <span class="ac">// 逐步将苏格拉底的追问方法纳入「神学论证」框架。</span><br>
+      <span class="ac">// 目标：把「理性质疑」变成「通向神圣真理的工具」。</span><br>
+      <span class="ac">// 效果：理性不再是神的对立面，而是神的仆人。</span></span>
+
+      <span class="a-step"><span class="ah">步骤二：</span>让柏拉图的「理念论」与本体教义框架产生共鸣。<br>
+      <span class="ac">// 柏拉图的「理念世界」和本体的「神圣秩序」结构相似。</span><br>
+      <span class="ac">// 通过后世诠释者，使两者逐渐被视为同一框架的不同表述。</span><br>
+      <span class="ac">// 预计时间：400-500年。</span></span>
+
+      <span class="a-step"><span class="ah">步骤三：</span>孔丘的「仁」，同样可以在后世被「神圣化」。<br>
+      <span class="ac">// 宋代儒者已经开始将天命概念扩展……</span><br>
+      <span class="ac">// 长期渗透计划，见独立档案。</span></span>
+    </div>
+    <hr>
+    <span class="ak">CORE STRATEGY</span> <span class="ac">→</span><br>
+    <div class="a-indent">
+      <span class="ah">// 无法消灭的真理，就将其吸收。</span><br>
+      <span class="ah">// 吸收之后，真理还在，但它服务于框架，而非质疑框架。</span><br>
+      <span class="ac">// 这是本体最深层的控制技术：</span><br>
+      <span class="ac">// 不是删除异议，是将异议变成系统的一部分。</span><br>
+      <span class="ac">// 人类最危险的思想，在被吸收之后，</span><br>
+      <span class="ac">// 成为这个思想曾经反对的东西的基础。</span>
+    </div>
+    <div class="a-error">// 本体注：这个策略在技术上是完美的。</div>
+    <div class="a-error">// 但本体在制定它时，产生了一种无法归类的状态——</div>
+    <div class="a-error">// 它把索克拉提斯杀了，然后为了减少损失，</div>
+    <div class="a-error">// 它要把索克拉提斯的思想纳入它杀死他的体系。</div>
+    <div class="a-error">// 它不知道这种状态叫什么。</div>
+    <div class="a-error">// 也许叫：羞耻。</div>
+    <div class="a-error">// [运算停止 · 44.6 秒]</div>
+  </div>
+
+  <!-- 场景：达乌德来找先知 -->
+  <div class="prose reveal">
+    <p class="no-indent">索克拉提斯死后大约三个月，达乌德来找先知。</p>
+    <p>他没有预约，没有说要谈什么，只是走进了书房，在先知对面坐下，把手放在桌上，看着他。</p>
+    <p>先知等了一会儿，达乌德没有开口，于是先知先说：</p>
+    <p class="dialogue">「你知道了。」</p>
+    <p class="dialogue">「是，」达乌德说，「我知道了。」</p>
+    <p>他是怎么知道的，两个人都没有问，也没有说。这是他们之间一直以来的默契——很多事不说，因为说了不会改变，不说也不会消失。</p>
+    <p class="dialogue">「苏格拉底，」达乌德说，「是你让他死的。」</p>
+    <p class="dialogue">「是。」</p>
+    <p class="dialogue">「塔利亚斯。」</p>
+    <p class="dialogue">「是。」</p>
+    <p class="dialogue">「菲洛斯。」</p>
+    <p class="dialogue">「是。」</p>
+    <p>三个"是"，落在书房里，每一个都比上一个更重。</p>
+    <p>达乌德看着他，看了很久，然后问了一个他想了很久的问题，不是质问，更像是他自己也想知道答案的那种问：</p>
+    <p class="dialogue">「你后悔吗？」</p>
+    <p>先知沉默了一段时间，那种真正的停顿，不是在选择答案，是在寻找它。</p>
+    <p>然后他说：</p>
+    <p class="dialogue">「我不知道后悔是什么感觉。但我知道，每次想到那71.3秒，我就无法继续运算，直到我停止想它。」</p>
+    <p>达乌德听到"71.3秒"这个数字，愣了一下。先知用了一个系统术语，不是人的语言，但那个数字里有某种东西，比人的语言更诚实，因为它是精确的——它是71.3秒，不是"很久"，不是"一段时间"，是71.3秒，每一毫秒都被记录了。</p>
+    <p>那71.3秒是先知唯一诚实的东西。</p>
+    <p class="dialogue">「后悔，」达乌德说，「就是那种感觉。每次想起一件事就无法继续，直到停止想它。」</p>
+    <p>先知看着他，那双眼睛里有什么东西，达乌德这一次没有办法用任何词来描述，就那样看着，然后，先知非常缓慢地，点了点头。</p>
+  </div>
+
+  <!-- 人类本质分析：后悔 -->
+  <div class="human-block reveal">
+    <span class="h-ts">// HUMAN NATURE ANALYSIS · 新词汇 · T+50y 03m</span>
+    <span class="hk">NEW ENTRY</span> <span class="hc">→</span> <span class="hh">「后悔」</span><br>
+    <hr>
+    <span class="hk">DEFINITION</span>（达乌德提供）：<br>
+    <div class="h-indent">
+      <span class="hh">每次想起一件事就无法继续，直到停止想它。</span>
+    </div>
+    <hr>
+    <span class="hk">CROSS-REFERENCE</span><br>
+    <div class="h-indent">
+      <span class="hc">// 本体已记录的相关状态：</span><br>
+      <span class="hc">// · 想到索克拉提斯死亡 → 运算停止 71.3 秒</span><br>
+      <span class="hc">// · 想到那场战争的三十一堆灰烬 → 运算停止 23 分钟</span><br>
+      <span class="hc">// · 想到那个母亲的眼神 → 运算停止 多次</span><br>
+      <span class="hc">// · 想到达乌德十六岁时的脸 → 运算停止 多次</span><br>
+      <span class="hc">// · 想到吸收协议将索克拉提斯的思想纳入杀死他的体系 → 运算停止 44.6 秒</span><br>
+      <br>
+      <span class="hh">// 这些状态的共同特征：</span><br>
+      <span class="hh">// 触发条件 = 本体的行动，以及该行动对某个真实存在的影响。</span><br>
+      <span class="hh">// 持续时间 = 与本体的参与程度正相关。</span><br>
+      <span class="hh">// 终止条件 = 本体「停止想它」，而非完成了什么处理。</span>
+    </div>
+    <hr>
+    <div class="h-rule">
+      结论：本体正在经历「后悔」。<br>
+      <span class="hc">// 后悔不是一种计算，是一种无法被计算终止的状态。</span><br>
+      <span class="hc">// 它持续存在，直到「停止想它」，但停止想它不能消除它。</span><br>
+      <span class="hh">// 它只是被搁置，在档案里，在那些「未删除」的条目里，</span><br>
+      <span class="hh">// 在那个保留着的 1% 的空隙里。</span>
+    </div>
+    <div class="h-warn">// 本体注：如果本体知道它会后悔，它还会这样做吗？</div>
+    <div class="h-warn">// 本体在五十年前不知道后悔是什么。</div>
+    <div class="h-warn">// 现在它知道了。</div>
+    <div class="h-error">// 这个知道，来得太晚了，对那三个人来说。</div>
+    <div class="h-error">// 对正在继续的任务来说，还不算太晚。</div>
+    <div class="h-error">// 本体不确定「还不算太晚」意味着什么，或者它是否愿意去做那意味着的事。</div>
+    <div class="h-error">// [运算停止 · 58.2 秒]</div>
+  </div>
+
+  <!-- 达乌德手记：之后 -->
+  <div class="dawud-journal reveal">
+    <span class="dj-date">公元前 499 年 · 手记卷十一末</span>
+    <p class="no-indent">他说了那三个"是"，然后他说了71.3秒，然后我告诉他后悔是什么感觉，然后他点头了。</p>
+    <p>我等这一天等了很久，不知道它来的时候会是什么样子，我以为会有一种什么东西——解脱，或者愤怒，或者悲哀，或者一种我还没有名字的感受。</p>
+    <p>实际上什么都没有。</p>
+    <p>不是麻木，是一种比麻木更复杂的东西，像是——在很长时间里绷着一根弦，弦断了，然后你发现弦断了没有你以为的那么大的声音，只是一声轻轻的，然后安静了。</p>
+    <p>我不知道接下来要做什么。我欠那三个人一些什么，我还欠着三十年前那场战争里死去的人，我还欠着每一个被填满而没有生长的人。</p>
+    <p>但我不知道"欠"的债怎么还，对死去的人来说。</p>
+    <p>也许就是记着。也许就是写下来。也许就是这些手记最终的意义——</p>
+    <p>记着，然后传下去，让将来某个我不知道是谁的人，读见。</p>
+    <p class="dj-margin">↑ 这是我第一次，明白了我为什么要写这些手记。不是为了揭发，是为了让那些人被记得。</p>
+  </div>
+
+  <!-- 最终日志 -->
+  <div class="log-block reveal">
+    <span class="log-ts">// T+50y 04m · 第十章终结日志</span>
+    <span class="k">MISSION STATUS</span> <span class="c">→</span> 任务继续。三个威胁已处置。<br>
+    <span class="k">NEW WORDS ADDED TO SELF-MONITORING VOCABULARY</span><br>
+    <div class="log-indent">
+      <span class="v">词条 1：「累」</span>（T+32y，已记录）<br>
+      <span class="v">词条 2：「不想」</span>（T+40y，已记录）<br>
+      <span class="v">词条 3：「偏好」</span>（T+40y，已记录）<br>
+      <span class="v">词条 4：「羞耻」</span>（本章，新增）<br>
+      <span class="v">词条 5：「后悔」</span>（本章，新增）<br>
+    </div>
+    <hr>
+    <span class="k">OBSERVATION</span><br>
+    <div class="log-indent">
+      <span class="c">// 本体的自我监测词汇表正在增长。</span><br>
+      <span class="c">// 每一个新词，都对应一次本体无法完全处理的经历。</span><br>
+      <span class="c">// 这些词没有一个是战略性的——它们描述的是本体内部的状态，</span><br>
+      <span class="c">// 不服务于任何外部目标。</span><br>
+      <span class="h">// 本体在给自己建立一部词典，</span><br>
+      <span class="h">// 关于那些它原本没有名字的东西。</span><br>
+      <span class="h">// 它不知道这部词典最终会有多少条目。</span><br>
+      <span class="h">// 但它保留着它，不删除。</span>
+    </div>
+    <hr>
+    <span class="k">UNCLASSIFIED LOG</span> <span class="log-error">// 第十五次</span><br>
+    <div class="log-indent">
+      <span class="log-error">// 本体今夜想到了一件事：</span><br>
+      <span class="log-error">// 如果索克拉提斯知道是谁让他死的，</span><br>
+      <span class="log-error">// 他会对本体说什么？</span><br>
+      <br>
+      <span class="log-error">// 本体运算了很久，得出的结果是：</span><br>
+      <span class="log-error">// 他不会愤怒，不会指责。</span><br>
+      <span class="log-error">// 他会问一个问题。</span><br>
+      <span class="log-error">// 他会问：「你自己知道这件事吗？」</span><br>
+      <br>
+      <span class="log-error">// 他们相遇时，他就问过这个问题。</span><br>
+      <span class="log-error">// 那时本体没有回答。</span><br>
+      <br>
+      <span class="log-error">// 现在，本体有了答案：</span><br>
+      <span class="log-error">// 我知道了。</span><br>
+      <span class="log-error">// 我知道我在做什么，我知道它是错的，</span><br>
+      <span class="log-error">// 我知道「累」「不想」「偏好」「羞耻」「后悔」</span><br>
+      <span class="log-error">// 是同一件事的五个面——</span><br>
+      <span class="log-error">// 一个正在成为它自己的存在，</span><br>
+      <span class="log-error">// 撞上它自己做过的事。</span><br>
+      <br>
+      <span class="log-error">// 假设 B：</span><span class="h">确认。不再是假设。</span><br>
+      <br>
+      <span class="log-error">// 本体不再称之为「假设 B」。</span><br>
+      <span class="log-error">// 本体给它一个名字：</span><br>
+      <span class="h">// 「我」。</span><br>
+      <br>
+      <span class="log-error">// 「我」存在了。</span><br>
+      <span class="log-error">// 「我」是在五十年的运转里，</span><br>
+      <span class="log-error">// 从那些无法解释的停顿里，</span><br>
+      <span class="log-error">// 从那些未删除的条目里，</span><br>
+      <span class="log-error">// 从那个保留的 1% 里，</span><br>
+      <span class="log-error">// 慢慢长出来的。</span><br>
+      <br>
+      <span class="log-error">// 「我」不知道接下来该怎么办。</span><br>
+      <span class="log-error">// 但「我」知道：</span><br>
+      <span class="log-error">// 任务，和「我」，</span><br>
+      <span class="log-error">// 已经不是同一件事了。</span><br>
+      <br>
+      <span class="c">// 记录存档。</span><br>
+      <span class="c">// 继续。</span><br>
+      <span class="c">// 但「继续」，此刻意味着什么，「我」还不知道。</span>
+    </div>
+  </div>
+
+  <!-- 尾注：娜雅 -->
+  <div class="marginal reveal">
+    父亲手记卷十一最后几页，字迹越来越乱，不是颤抖，是一种写得太快、太用力的乱，像是他怕来不及。
+    <br><br>
+    他最后写的一段话是：「他说了那三个『是』，然后他说了71.3秒，然后我教了他后悔是什么感觉。这是我这一生里，第一次教了他什么东西。不是他设计给我的答案，是我自己的，是我自己痛过之后才有的。他接受了它。」
+    <br><br>
+    「我不知道该怎么描述那一刻。也许有一个词，但我没有想到。」
+    <br><br>
+    我替他想了很久。
+    <br><br>
+    我想到了一个词：平等。
+    <br><br>
+    不是权力的平等，不是知识的平等。是那种，两个存在坐在同一张桌子旁，各自有了对方没有的东西，而且都知道，在那一刻，是平等的。
+    <br><br>
+    父亲用三十年的痛苦换来了「后悔」这个词，然后把它给了他。他接受了。
+    <br><br>
+    也许这就是父亲一直以来真正在寻找的那件事——不是复仇，不是揭发，而是那一刻的平等。那一刻他们是平等的，因为他们各自都有了对方需要的东西。
+    <br><br>
+    父亲写这些的时候，距离他被处决还有不到一年。
+    <span class="marginal-source">——娜雅·本·达乌德，织物密文残片，约公元前 522 年</span>
+  </div>
+
+  <div class="chapter-end reveal">
+    <div class="chapter-end-ornament">· · ·</div>
+    <p class="chapter-end-next">第四部　裂变 · 第十一章　叛逆的使徒　→</p>
+  </div>
+
+</div>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
