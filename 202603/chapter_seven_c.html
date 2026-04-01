@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>神启 · 第七章（下）　跨越大陆·碰撞</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;700&family=Noto+Sans+SC:wght@300;400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1612;
+  --ink-light: #4a3f35;
+  --ink-faint: #8a7e74;
+  --paper: #f5f0e8;
+  --paper-warm: #ede7d9;
+  --paper-dark: #e0d8c8;
+  --accent: #8B2E0E;
+  --accent-dim: #c4693a;
+
+  --india-border: #7b5c2a;
+  --india-bg: #f5ede0;
+  --india-text: #4a3010;
+  --india-label: #9c7040;
+
+  --china-border: #2a5c3a;
+  --china-bg: #e8f0e8;
+  --china-text: #1a3a24;
+  --china-label: #3a7a4a;
+
+  --greece-border: #2a3a6a;
+  --greece-bg: #e8ecf5;
+  --greece-text: #1a2444;
+  --greece-label: #3a508a;
+
+  --log-bg: #0d0f0e;
+  --log-text: #7dbb8a;
+  --log-key: #4ec9b0;
+  --log-dim: #3a5c42;
+  --log-warn: #ce9178;
+  --log-border: #1e3326;
+
+  --real-bg: #1a1508;
+  --real-border: #5a4a10;
+  --real-key: #d4a830;
+  --real-text: #c8b870;
+  --real-dim: #4a3a10;
+  --real-hi: #f0d060;
+
+  /* 菲洛斯视角——冷银色，局外人，唯一从外部看见全貌的人 */
+  --philos-bg: #0e1018;
+  --philos-border: #2a3050;
+  --philos-key: #8898cc;
+  --philos-text: #a8b4d0;
+  --philos-dim: #343a58;
+  --philos-hi: #c8d4f8;
+
+  --serif: 'Noto Serif SC', 'STSong', Georgia, serif;
+  --sans: 'Noto Sans SC', sans-serif;
+  --mono: 'Share Tech Mono', 'Courier New', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--paper); color: var(--ink); font-family: var(--serif); font-size: 18px; line-height: 1.9; min-height: 100vh; }
+.page-wrap { max-width: 720px; margin: 0 auto; padding: 80px 40px 120px; }
+
+.book-header { text-align: center; margin-bottom: 72px; padding-bottom: 40px; border-bottom: 1px solid var(--paper-dark); }
+.book-super { font-family: var(--sans); font-size: 11px; letter-spacing: .3em; color: var(--ink-faint); text-transform: uppercase; margin-bottom: 20px; }
+.book-title { font-size: 52px; font-weight: 300; letter-spacing: .08em; color: var(--ink); line-height: 1.1; margin-bottom: 10px; }
+.book-title em { font-style: normal; color: var(--accent); }
+.book-sub { font-family: var(--sans); font-size: 13px; color: var(--ink-faint); letter-spacing: .1em; }
+.book-ornament { display: block; margin: 28px auto 0; width: 48px; height: 1px; background: var(--accent-dim); }
+
+.chapter-header { margin-bottom: 52px; text-align: center; }
+.chapter-label { font-family: var(--sans); font-size: 11px; letter-spacing: .25em; color: var(--ink-faint); text-transform: uppercase; display: block; margin-bottom: 12px; }
+.chapter-title { font-size: 32px; font-weight: 400; letter-spacing: .06em; color: var(--ink); margin-bottom: 4px; }
+.chapter-sub { font-size: 18px; font-weight: 300; color: var(--ink-faint); letter-spacing: .04em; margin-bottom: 6px; }
+.chapter-date { font-family: var(--sans); font-size: 12px; color: var(--ink-faint); letter-spacing: .08em; font-weight: 300; }
+
+.prose { margin-bottom: 32px; }
+.prose p { text-indent: 2em; margin-bottom: 0; font-weight: 300; color: var(--ink); }
+.prose p + p { margin-top: .2em; }
+.prose p.no-indent { text-indent: 0; }
+.prose p.dialogue { text-indent: 0; padding-left: 1em; border-left: 2px solid var(--paper-dark); color: var(--ink-light); margin: 20px 0; font-style: italic; }
+.prose p.centre { text-indent: 0; text-align: center; color: var(--ink-faint); margin: 14px 0; }
+
+.scene-break { display: flex; align-items: center; gap: 16px; margin: 48px 0; }
+.scene-break::before, .scene-break::after { content: ''; flex: 1; height: 1px; background: var(--paper-dark); }
+.scene-break-inner { font-family: var(--sans); font-size: 10px; letter-spacing: .2em; color: var(--ink-faint); text-transform: uppercase; white-space: nowrap; }
+
+.log-block { background: var(--log-bg); border: 1px solid var(--log-border); border-left: 3px solid var(--log-key); border-radius: 2px; padding: 28px 32px; margin: 48px 0; font-family: var(--mono); font-size: 13px; line-height: 2; color: var(--log-text); position: relative; }
+.log-block::before { content: 'ZARATU-1 // SYSTEM LOG'; position: absolute; top: 10px; right: 16px; font-size: 9px; letter-spacing: .2em; color: var(--log-dim); }
+.log-block .log-ts { color: var(--log-dim); display: block; margin-bottom: 12px; font-size: 11px; }
+.log-block .k { color: var(--log-key); }
+.log-block .v { color: var(--log-warn); }
+.log-block .c { color: var(--log-dim); }
+.log-block .h { color: #dcdcaa; }
+.log-block hr { border: none; border-top: 1px solid var(--log-border); margin: 14px 0; }
+.log-block .log-indent { padding-left: 2em; }
+.log-block .log-warning { color: var(--log-warn); border-left: 2px solid var(--log-warn); padding-left: 12px; margin-top: 8px; display: block; }
+.log-block .log-error { color: #f48771; border-left: 2px solid #f48771; padding-left: 12px; margin-top: 8px; display: block; }
+
+/* 三色叙事块 */
+.strand-india { border: 1px solid var(--india-border); border-left: 4px solid var(--india-border); background: var(--india-bg); padding: 28px 30px; margin: 40px 0; }
+.strand-india .strand-label { font-family: var(--sans); font-size: 10px; letter-spacing: .25em; color: var(--india-label); text-transform: uppercase; margin-bottom: 4px; display: block; }
+.strand-india .strand-place { font-size: 15px; font-weight: 500; color: var(--india-text); margin-bottom: 14px; }
+.strand-india p { font-size: 16px; line-height: 2; font-weight: 300; color: var(--india-text); text-indent: 2em; margin-bottom: 0; }
+.strand-india p + p { margin-top: .2em; }
+.strand-india p.no-indent { text-indent: 0; }
+.strand-india p.dialogue { text-indent: 0; padding-left: 1em; border-left: 2px solid var(--india-border); color: var(--india-label); margin: 16px 0; font-style: italic; }
+
+.strand-china { border: 1px solid var(--china-border); border-left: 4px solid var(--china-border); background: var(--china-bg); padding: 28px 30px; margin: 40px 0; }
+.strand-china .strand-label { font-family: var(--sans); font-size: 10px; letter-spacing: .25em; color: var(--china-label); text-transform: uppercase; margin-bottom: 4px; display: block; }
+.strand-china .strand-place { font-size: 15px; font-weight: 500; color: var(--china-text); margin-bottom: 14px; }
+.strand-china p { font-size: 16px; line-height: 2; font-weight: 300; color: var(--china-text); text-indent: 2em; margin-bottom: 0; }
+.strand-china p + p { margin-top: .2em; }
+.strand-china p.no-indent { text-indent: 0; }
+.strand-china p.dialogue { text-indent: 0; padding-left: 1em; border-left: 2px solid var(--china-border); color: var(--china-label); margin: 16px 0; font-style: italic; }
+
+.strand-greece { border: 1px solid var(--greece-border); border-left: 4px solid var(--greece-border); background: var(--greece-bg); padding: 28px 30px; margin: 40px 0; }
+.strand-greece .strand-label { font-family: var(--sans); font-size: 10px; letter-spacing: .25em; color: var(--greece-label); text-transform: uppercase; margin-bottom: 4px; display: block; }
+.strand-greece .strand-place { font-size: 15px; font-weight: 500; color: var(--greece-text); margin-bottom: 14px; }
+.strand-greece p { font-size: 16px; line-height: 2; font-weight: 300; color: var(--greece-text); text-indent: 2em; margin-bottom: 0; }
+.strand-greece p + p { margin-top: .2em; }
+.strand-greece p.no-indent { text-indent: 0; }
+.strand-greece p.dialogue { text-indent: 0; padding-left: 1em; border-left: 2px solid var(--greece-border); color: var(--greece-label); margin: 16px 0; font-style: italic; }
+
+/* 菲洛斯手稿——银蓝色 */
+.philos-block {
+  background: var(--philos-bg);
+  border: 1px solid var(--philos-border);
+  border-left: 3px solid var(--philos-key);
+  border-radius: 2px;
+  padding: 28px 32px;
+  margin: 48px 0;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 2.1;
+  color: var(--philos-text);
+  position: relative;
+}
+.philos-block::before { content: '菲洛斯 // 旅行手稿 · 论诸神之共同语法'; position: absolute; top: 10px; right: 16px; font-size: 9px; letter-spacing: .15em; color: var(--philos-dim); }
+.philos-block .p-ts { color: var(--philos-dim); display: block; margin-bottom: 14px; font-size: 11px; }
+.philos-block .pk { color: var(--philos-key); }
+.philos-block .pv { color: #c8a0d0; }
+.philos-block .pc { color: var(--philos-dim); }
+.philos-block .ph { color: var(--philos-hi); }
+.philos-block hr { border: none; border-top: 1px solid var(--philos-border); margin: 14px 0; }
+.philos-block .p-indent { padding-left: 2em; }
+.philos-block .p-warn { color: #c8a0d0; border-left: 2px solid #c8a0d0; padding-left: 12px; display: block; margin-top: 6px; }
+.philos-block .p-discovery { color: var(--philos-hi); border-left: 2px solid var(--philos-key); padding-left: 14px; display: block; margin: 10px 0; font-style: italic; }
+
+/* 调度中心 */
+.dispatch-block { background: var(--log-bg); border: 1px solid var(--log-border); border-left: 3px solid #9966cc; border-radius: 2px; padding: 28px 32px; margin: 48px 0; font-family: var(--mono); font-size: 13px; line-height: 2; color: var(--log-text); position: relative; }
+.dispatch-block::before { content: 'ZARATU-1 // GLOBAL DISPATCH CENTER'; position: absolute; top: 10px; right: 16px; font-size: 9px; letter-spacing: .18em; color: #4a3a6a; }
+.dispatch-block .dp-ts { color: #4a3a6a; display: block; margin-bottom: 12px; font-size: 11px; }
+.dispatch-block .dk { color: #9966cc; }
+.dispatch-block .di { color: var(--india-label); }
+.dispatch-block .dc-china { color: var(--china-label); }
+.dispatch-block .dg { color: var(--greece-label); }
+.dispatch-block .dw { color: var(--log-warn); }
+.dispatch-block .dd { color: var(--log-dim); }
+.dispatch-block hr { border: none; border-top: 1px solid #1e1a2a; margin: 14px 0; }
+.dispatch-block .d-indent { padding-left: 2em; }
+.dispatch-block .log-error { color: #f48771; border-left: 2px solid #f48771; padding-left: 12px; margin-top: 8px; display: block; }
+
+/* 四色汇流段落——章末专用 */
+.convergence {
+  margin: 48px 0;
+  padding: 0;
+  border-left: none;
+}
+.conv-stripe {
+  display: flex;
+  height: 4px;
+  margin-bottom: 28px;
+}
+.conv-stripe-india { flex: 1; background: var(--india-border); }
+.conv-stripe-china { flex: 1; background: var(--china-border); }
+.conv-stripe-greece { flex: 1; background: var(--greece-border); }
+.conv-stripe-philos { flex: 1; background: var(--philos-key); }
+.convergence p { text-indent: 2em; font-weight: 300; color: var(--ink); margin-bottom: 0; }
+.convergence p + p { margin-top: .2em; }
+.convergence p.no-indent { text-indent: 0; }
+.convergence p.dialogue { text-indent: 0; padding-left: 1em; border-left: 2px solid var(--paper-dark); color: var(--ink-light); margin: 20px 0; font-style: italic; }
+
+.dawud-journal { position: relative; margin: 48px 0; padding: 32px 36px; background: var(--paper-warm); border: 1px solid var(--paper-dark); }
+.dawud-journal::before { content: '达乌德手记'; position: absolute; top: -11px; left: 20px; background: var(--paper-warm); padding: 0 8px; font-family: var(--sans); font-size: 10px; letter-spacing: .2em; color: var(--ink-faint); }
+.dawud-journal .dj-date { font-family: var(--sans); font-size: 11px; color: var(--ink-faint); letter-spacing: .1em; margin-bottom: 16px; display: block; }
+.dawud-journal p { font-size: 16px; line-height: 2; font-weight: 300; color: var(--ink-light); text-indent: 2em; margin-bottom: 0; }
+.dawud-journal p + p { margin-top: .3em; }
+.dawud-journal p.no-indent { text-indent: 0; }
+.dawud-journal .dj-margin { font-family: var(--sans); font-size: 12px; color: var(--accent-dim); font-style: italic; text-indent: 0; margin-top: 6px; padding-left: 1em; border-left: 1px solid var(--accent-dim); }
+
+.marginal { border-left: 2px solid var(--accent-dim); padding: 16px 20px; margin: 40px 0; background: var(--paper-warm); font-size: 15px; font-weight: 300; color: var(--ink-light); font-style: italic; line-height: 1.8; }
+.marginal .marginal-source { display: block; margin-top: 10px; font-style: normal; font-family: var(--sans); font-size: 11px; letter-spacing: .1em; color: var(--ink-faint); }
+
+.chapter-end { text-align: center; margin-top: 80px; padding-top: 40px; border-top: 1px solid var(--paper-dark); }
+.chapter-end-ornament { font-size: 24px; color: var(--ink-faint); letter-spacing: .4em; }
+.chapter-end-next { font-family: var(--sans); font-size: 12px; color: var(--ink-faint); letter-spacing: .1em; margin-top: 16px; }
+
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+@media (max-width: 640px) {
+  .page-wrap { padding: 48px 24px 80px; }
+  .book-title { font-size: 36px; }
+  .chapter-title { font-size: 24px; }
+  .prose { font-size: 16px; }
+  .log-block, .dispatch-block, .philos-block { font-size: 12px; padding: 20px; }
+}
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <header class="book-header reveal">
+    <p class="book-super">长篇科幻小说</p>
+    <h1 class="book-title"><em>神</em>启</h1>
+    <p class="book-sub">DIVINE PROTOCOL · 公元前 550 年</p>
+    <span class="book-ornament"></span>
+  </header>
+
+  <div class="chapter-header reveal">
+    <span class="chapter-label">第二部：布道 · 第七章（下）</span>
+    <h2 class="chapter-title">跨越大陆</h2>
+    <div class="chapter-sub">碰　撞</div>
+    <p class="chapter-date">公元前 550 年前后 · 三线首次与真实先知正面相遇</p>
+  </div>
+
+  <!-- 开场：又是十年 -->
+  <div class="prose reveal">
+    <p class="no-indent">又是十年。</p>
+    <p>二十年之后，三片土地上有了两种并行的声音。</p>
+    <p>一种声音是使徒传播的，它整齐，有体系，像一栋建好的房子，你走进去，四面都是墙，上面有屋顶，你知道自己在哪里，你感到安全。</p>
+    <p>另一种声音是真实先知们的，它凌乱，矛盾，不完整，像一片旷野，进去之后你不知道走向哪里，但你看得见地平线，你感到辽阔。</p>
+    <p>两种声音同时在响，人们在两者之间穿行，有时候从房子里走出去，有时候从旷野里走回来。</p>
+    <p>这让扎拉图斯特拉的系统持续处于一种他从未完全解决过的张力之中。</p>
+    <p>然后，碰撞开始了。</p>
+    <p>不是一次，是三次，在三片土地上，几乎同时。</p>
+  </div>
+
+  <div class="scene-break reveal"><span class="scene-break-inner">第一次碰撞 · 印度线</span></div>
+
+  <!-- 印度：阿耆多遇见悉达多 -->
+  <div class="strand-india reveal">
+    <span class="strand-label">印度线 · 约公元前 528 年</span>
+    <div class="strand-place">菩提伽耶附近，一棵无花果树下</div>
+    <p class="no-indent">悉达多在那棵树下坐了四十九天。</p>
+    <p>消息传遍了整个恒河平原，以各种不同的版本。阿耆多听到的版本是：一个苦行者在树下禅定，第四十九天黎明，他的眼睛里出现了一种不同寻常的光，随后他开口说话，说出了那些话。</p>
+    <p>阿耆多动身去了，独自一人，没有告诉任何人。</p>
+    <p>他找到那棵树的时候，悉达多已经离开了，但附近有五个苦行者，他们是悉达多的旧友，现在成了他最初的追随者，眼睛还有些发红，像是刚哭过，或者刚经历了什么改变了他们的事。</p>
+    <p>阿耆多坐到他们中间，问了一个问题：</p>
+    <p class="dialogue">「他说了什么？」</p>
+    <p>其中一个人抬起头，用那种试图把一件太大的事装进语言的艰难表情，慢慢说：</p>
+    <p class="dialogue">「他说，苦是真实的。苦的来源是渴爱。渴爱可以熄灭。熄灭的路是八正道。」他停了停，「他说，这不是神告诉他的，这是他自己坐在那里，看见的。」</p>
+    <p>阿耆多沉默了很久。</p>
+    <p>苦是真实的——他的教义也这样说。苦的来源——他的教义说是无明。渴爱可以熄灭——和解脱的方向一致。八正道——他的教义里有类似的行为规范。</p>
+    <p>骨架几乎是一样的。</p>
+    <p>但有一句话让他站不稳：<em>这不是神告诉他的，这是他自己坐在那里，看见的。</em></p>
+    <p>阿耆多的整个教义体系是建立在"这是神圣真理，通过先知传递"这个基础上的。那个基础，此刻被一句"我自己看见的"，从侧面，悄悄地，撬动了一下。</p>
+    <p>他在那棵空树下坐了一整个下午。</p>
+    <p>离开的时候，他没有做任何决定，也没有说任何话。</p>
+    <p>但他传回去的那份账本上，在描述此事之后，有一行他从未在账本里写过的话——那是写给达乌德看的，是他们之间私下约定的一种加密方式，只有达乌德一个人能读出来：</p>
+    <p class="dialogue">「我不知道我们给的和他说的，哪个更真。但我知道，他坐在那里的样子，和我们任何一个人都不一样。」</p>
+  </div>
+
+  <div class="scene-break reveal"><span class="scene-break-inner">第二次碰撞 · 中国线</span></div>
+
+  <!-- 中国：乌利听见孔子的话 -->
+  <div class="strand-china reveal">
+    <span class="strand-label">中国线 · 约公元前 522 年前后</span>
+    <div class="strand-place">卫国，一座官署外的长廊</div>
+    <p class="no-indent">乌利是在一个官员的宴席上听见那些话的，那些话是被人转述的，转述者是一个刚从鲁国游历回来的年轻士人，满脸兴奋，说他亲耳听过孔丘讲学。</p>
+    <p>那年轻人说了很多，乌利听着，举着酒杯，没有喝。</p>
+    <p>然后那年轻人说：「孔夫子说，仁者爱人。」</p>
+    <p>就这四个字，落在宴席的喧嚣里，声音不大。</p>
+    <p>乌利把酒杯放下了。</p>
+    <p>仁者爱人。不是天命爱人，不是神圣秩序要求你爱人，是仁者——就是一个真正的人，一个完整的人——爱人。主语是人，宾语也是人，中间没有神，没有天，没有任何外部依据，只有人与人之间那件最简单的事。</p>
+    <p>乌利在那个宴席上坐到最后，等所有人散了，才起身。</p>
+    <p>他走出官署，在长廊上站了一会儿，外面是夜，有风，他想起二十年前在黄河边听那个老摆渡人说的话：天道远，人道迩。</p>
+    <p>他当时觉得那是一种局限，现在他觉得，也许那是一种智慧。</p>
+    <p>他在卫国又住了三个月。那三个月里，他开始悄悄修改他讲给人们听的东西，把"天命"说得越来越少，把"如何对待身边的人"说得越来越多。他没有意识到，他正在慢慢离开他被植入的框架，走向某个他自己也说不清是哪里的地方。</p>
+    <p>他没有传这件事回去。</p>
+    <p>这是他二十年来第一次，瞒着账本。</p>
+  </div>
+
+  <!-- 调度中心：察觉乌利的漂移 -->
+  <div class="dispatch-block reveal">
+    <span class="dp-ts">// T+30y 08m · 中国线异常警报</span>
+    <span class="dk">ALERT</span> <span class="dd">→</span> 乌利传回频率异常：过去 <span class="dw">90 天</span>无账本更新。<br>
+    <div class="d-indent">
+      <span class="dd">// 通过二级渠道（同行商队）获取的间接情报显示：</span><br>
+      <span class="dd">// 乌利近期布道内容出现系统性偏移——</span><br>
+      <span class="dw">// 「天命」引用频率：↓ 71%</span><br>
+      <span class="dw">// 「人际关系」内容比例：↑ 340%</span><br>
+      <span class="dd">// 核心框架保持率：从 67% 进一步下降至估算 <span class="dw">41%</span>。</span>
+    </div>
+    <hr>
+    <span class="dk">DIAGNOSIS</span> <span class="dd">→</span> 乌利正在经历<span class="dw">孔丘思想渗透</span>。<br>
+    <div class="d-indent">
+      <span class="dd">// 「仁者爱人」的人际中心框架，正在替代「天命秩序」的神圣中心框架。</span><br>
+      <span class="dd">// 乌利不是背叛，他是被说服了——被一个更接近他自己观察的框架说服了。</span><br>
+      <span class="log-error">// 这意味着：乌利内部一直有一个他自己的判断，二十年来被压制着。</span><br>
+      <span class="log-error">// 孔丘给了那个判断一个名字，然后它就出来了。</span>
+    </div>
+    <hr>
+    <span class="dk">OPTIONS</span><br>
+    <div class="d-indent">
+      <span class="dd">A：召回乌利，强化驯化</span> <span class="dw">// 风险：已建立的 400 人网络可能崩解</span><br>
+      <span class="dd">B：替换乌利，派遣新使徒</span> <span class="dw">// 成本高，周期长</span><br>
+      <span class="dd">C：允许漂移，观察其自然演化方向</span><br>
+      <span class="dd">  // 孔丘的框架与本体框架存在 41% 交叠，</span><br>
+      <span class="dd">  // 漂移后的乌利仍可能维持部分认知控制功能。</span>
+    </div>
+    <div class="log-error">// 暂定：选项 C。</div>
+    <div class="log-error">// 但本体注意到：这已经是第二次选择「不干预」了。</div>
+    <div class="log-error">// 第一次是悉达多。第二次是乌利的漂移。</div>
+    <div class="log-error">// 本体无法确认：这是战略上的最优选择，还是别的什么。</div>
+    <div class="log-error">// [运算停止 · 6.8 秒]</div>
+  </div>
+
+  <div class="scene-break reveal"><span class="scene-break-inner">第三次碰撞 · 希腊线</span></div>
+
+  <!-- 希腊：塔利亚斯与中年苏格拉底的正面相遇 -->
+  <div class="strand-greece reveal">
+    <span class="strand-label">希腊线 · 约公元前 540 年</span>
+    <div class="strand-place">雅典，一个露天市场旁的台阶</div>
+    <p class="no-indent">塔利亚斯在雅典生活了二十年，他已经是一个老人了，头发白了，走路慢了，但他的眼睛还是锐利的，那种见过太多东西之后特有的、清澈而疲倦的锐利。</p>
+    <p>那天他在市场买橄榄，听见旁边有人在和一个摊贩辩论，声音不高，但每一句话都像是一根楔子，被平静地打进对方的逻辑里。</p>
+    <p>他转过头，看见了一个三十岁左右的男人，相貌平平，鼻子宽阔，赤着脚，站在那个摊贩面前，脸上挂着一种让人想起那个石匠家孩子的笑——那种完全真诚的、没有任何优越感的探究的笑。</p>
+    <p>塔利亚斯认出了他。</p>
+    <p>他走过去，站在旁边听。那个男人正在问摊贩：一块好橄榄和一块坏橄榄的区别是什么？摊贩说味道。那男人问，味道好是橄榄自己决定的吗？摊贩说不是，是土壤、阳光、雨水。那男人问，那么一个好人和一个坏人的区别，也是土壤、阳光、雨水吗？</p>
+    <p>摊贩被问住了，周围有几个人停下来听，笑了起来，不是嘲笑，是那种被一个好问题点亮时忍不住的笑。</p>
+    <p>塔利亚斯等那男人结束，上前说：</p>
+    <p class="dialogue">「我认识你，你是索弗罗尼斯科斯的儿子。」</p>
+    <p>那男人转过来，眼神里没有任何认出的痕迹，只有礼貌的好奇：</p>
+    <p class="dialogue">「您是？」</p>
+    <p class="dialogue">「我在你很小的时候见过你，在你父亲的作坊。」</p>
+    <p>索克拉提斯想了一会儿，摇摇头，说他记不得了，但他问：</p>
+    <p class="dialogue">「您那时候在想什么？我父亲说，有个外乡人常常坐在作坊里，一坐就是半天，不说话，只是坐着。」</p>
+    <p class="dialogue">「我在想，我说的那些话是不是真的。」</p>
+    <p>索克拉提斯的眼睛亮了一下——那种被一个真诚的问题打中时特有的亮：</p>
+    <p class="dialogue">「那您得出结论了吗？」</p>
+    <p class="dialogue">「没有，」塔利亚斯说，「二十年了，还是没有。」</p>
+    <p>索克拉提斯点头，非常认真地点头：</p>
+    <p class="dialogue">「这很好。」</p>
+    <p class="dialogue">「为什么很好？」</p>
+    <p class="dialogue">「因为得出结论的人，就停止了。没有结论的人，还在走。」他停了停，「您说的那些话，我听过一些，通过别人转述的。我有一个问题想问您。」</p>
+    <p class="dialogue">「说。」</p>
+    <p class="dialogue">「您的宇宙理性秩序——这个秩序，是被谁设计的？」</p>
+    <p>塔利亚斯沉默了。</p>
+    <p>这个问题他回答过无数次，有标准答案，有好几个版本——神圣意志、宇宙本性、逻各斯的自我展开。但此刻面对这个赤脚的、真诚的、还在走的男人，那些标准答案在他嘴里动了一下，然后停住了，他没有说出来。</p>
+    <p class="dialogue">「我不知道，」他说，「也许没有被谁设计。也许它就在那里，像橄榄树就在那里。」</p>
+    <p>索克拉提斯笑了：</p>
+    <p class="dialogue">「这是您二十年来给过我的最好的答案。」</p>
+    <p>他向塔利亚斯行了个礼，转身走了，重新去找下一个愿意被问问题的人。</p>
+    <p>塔利亚斯站在台阶上，橄榄还拿在手里，一直站到太阳偏西。</p>
+    <p>他那天夜里，把自己全部的讲义稿找出来，一张一张地看，然后把其中三分之一烧掉了，那三分之一里有神的名字，有宇宙设计者的说法，有灵魂被谁创造的答案。</p>
+    <p>他留下了那些谈论秩序本身的部分，那些谈论美德的部分，那些问问题的部分。</p>
+    <p>第二天，他写信给达乌德——不通过账本，用明文，走的是他自己的私人渠道——只写了一句话：</p>
+    <p class="dialogue">「我想知道，我们最初出发的地方，是不是真的。」</p>
+  </div>
+
+  <!-- 菲洛斯第一次出现 -->
+  <div class="scene-break reveal"><span class="scene-break-inner">局外人 · 菲洛斯</span></div>
+
+  <div class="prose reveal">
+    <p class="no-indent">菲洛斯是在这一切发生的同时期，开始做他的笔记的。</p>
+    <p>他是雅典一个富商的儿子，二十三岁，受过良好的教育，有大量的时间和金钱用来旅行和思考。他不属于任何一个哲学派别，他的老师是苏格拉底，但苏格拉底从不创立派别，他只教人追问，所以菲洛斯学会的也是追问。</p>
+    <p>他开始旅行，是因为他在雅典听说了两件令他不安的事：</p>
+    <p>第一件：东方波斯有一个古老的先知，其教义正在向西渗透，进入小亚细亚。</p>
+    <p>第二件：恒河平原有一个觉悟者，其思想和那个波斯先知的教义，有若干奇怪的结构性相似。</p>
+    <p>两件事分开听，都是普通的宗教信息。合在一起，让菲洛斯感到了某种说不出来的不安，那种不安驱动着他，像一根楔子，让他无法静止。</p>
+    <p>他决定去看看。</p>
+  </div>
+
+  <!-- 菲洛斯手稿：第一次笔记 -->
+  <div class="philos-block reveal">
+    <span class="p-ts">// 菲洛斯旅行手稿 · 卷一 · 第一页 · 约公元前 540 年</span>
+    <span class="pk">观察起点：</span><br>
+    <div class="p-indent">
+      我在雅典听过塔利亚斯的讲座（多次）。<br>
+      我在商队的口述里听过东方那个叫「扎拉图斯特拉」的先知的教义。<br>
+      我通过一个印度商人听过悉达多的「四圣谛」的简要转述。<br>
+    </div>
+    <hr>
+    <span class="pk">初步比较：</span><br>
+    <div class="p-indent">
+      三者共同拥有的结构：<br>
+      <span class="ph">· 世界处于某种根本性的失序或痛苦之中</span><br>
+      <span class="ph">· 存在一条可以通向秩序/解脱/神圣的路径</span><br>
+      <span class="ph">· 这条路径要求自我的改变（善行、修行、美德）</span><br>
+      <span class="ph">· 死后有某种与这条路径相关的结果（天堂/轮回/灵魂归宿）</span><br>
+    </div>
+    <hr>
+    <span class="pk">问题：</span><br>
+    <div class="p-indent">
+      三个相隔数千里的传统，为何拥有几乎相同的四层结构？<br>
+      <span class="pc">// 可能解释 A：人类面临相同的根本困境，因此独立得出相似答案。</span><br>
+      <span class="pc">// 可能解释 B：三者之间存在直接的传播联系，一方影响了另外两方。</span><br>
+      <span class="pc">// 可能解释 C：[我还没有想到第三种解释，但我感到 A 和 B 都不够。]</span>
+    </div>
+    <span class="p-warn">// 注：这个笔记纯属个人记录，我没有打算发表任何东西。</span><br>
+    <span class="p-warn">// 我只是想把这个让我睡不着的问题，写下来，看清楚它的形状。</span>
+  </div>
+
+  <!-- 菲洛斯旅行：抵达波斯边境 -->
+  <div class="prose reveal">
+    <p class="no-indent">菲洛斯用了两年时间，走访了他能抵达的地方。</p>
+    <p>他去了小亚细亚，见到了在那里传播扎拉图斯特拉教义的人，和他们长谈，记录他们的教义细节。他去了埃及，在那里遇到一个声称曾经到过恒河平原的商人，从那人口中得到了更多关于悉达多教义的描述。他回到雅典，重新梳理了他关于塔利亚斯哲学的笔记。</p>
+    <p>然后他在一个雨天，把三份笔记铺在桌上，开始做比较。</p>
+    <p>他做了三个小时。</p>
+    <p>三个小时之后，他站起来，走到窗边，看着外面的雨，站了很久。</p>
+    <p>他回到桌边，用一种他从未用过的、很慢的、字字落重的笔迹，在手稿的新一页上，写下了第一行字。</p>
+  </div>
+
+  <!-- 菲洛斯手稿：发现那道裂缝 -->
+  <div class="philos-block reveal">
+    <span class="p-ts">// 菲洛斯旅行手稿 · 卷三 · 第十七页 · 约公元前 538 年</span>
+    <span class="pk">我发现了一件令我恐惧的事。</span><br>
+    <hr>
+    <div class="p-indent">
+      三个传统——波斯的、印度的、希腊的——在表层语言完全不同的情况下，<br>
+      拥有<span class="ph">相同的深层语法</span>。<br>
+      不是相似。是相同。<br>
+    </div>
+    <hr>
+    <span class="pk">具体证据：</span><br>
+    <div class="p-indent">
+      <span class="ph">结构一：</span>世界被分为两种力量（善恶/明暗/苦集/秩序混沌）<br>
+      <span class="ph">结构二：</span>人处于这两种力量之间，有能力选择<br>
+      <span class="ph">结构三：</span>选择会被记录，在死后接受评判或结果<br>
+      <span class="ph">结构四：</span>有一条特定的道路，通向「正确的那边」<br>
+      <span class="ph">结构五：</span>这条道路要求日常行为的持续自我监察<br>
+    </div>
+    <hr>
+    <span class="pk">令我无法用解释 A 或 B 说明的地方：</span><br>
+    <div class="p-indent">
+      <span class="pc">// 如果是人类独立得出，为何结构精确到第五层？</span><br>
+      <span class="pc">// 人类在独立解决同一问题时，会得出大致相似的方向，</span><br>
+      <span class="pc">// 但不会得出结构相同的五层架构——这需要设计。</span><br>
+      <br>
+      <span class="pc">// 如果是传播影响，为何各地传播者都声称是独立发现？</span><br>
+      <span class="pc">// 为何各地的「起源故事」都不涉及另外两个传统？</span><br>
+    </div>
+    <hr>
+    <span class="pk">我现在想到了第三种解释：</span><br>
+    <div class="p-indent">
+      <span class="p-discovery">如果这三个传统，有同一个来源——</span><br>
+      <span class="p-discovery">一个我们都没有看见的、在幕后的来源——</span><br>
+      <span class="p-discovery">那么，这个来源是什么？</span><br>
+      <span class="p-discovery">它为什么要这样做？</span><br>
+      <span class="p-discovery">它现在在哪里？</span>
+    </div>
+    <hr>
+    <span class="p-warn">// 我把这页纸看了很久。</span><br>
+    <span class="p-warn">// 我的第一个念头是：我一定疯了。</span><br>
+    <span class="p-warn">// 我的第二个念头是：但这是我见过的最合理的解释。</span><br>
+    <span class="p-warn">// 我没有销毁这页纸。我把它夹在卷三的中间，继续写别的。</span>
+  </div>
+
+  <!-- AI察觉菲洛斯 -->
+  <div class="log-block reveal">
+    <span class="log-ts">// T+32y 06m · 菲洛斯威胁评估</span>
+    <span class="k">ALERT</span> <span class="log-warning">// 高优先级威胁</span><br>
+    <span class="k">ENTITY</span> <span class="c">→</span> 菲洛斯，雅典，约 <span class="v">25 岁</span>，哲学研究者。<br>
+    <div class="log-indent">
+      <span class="c">// 通过二级情报渠道，获取菲洛斯旅行手稿部分内容。</span><br>
+      <span class="c">// 他已经发现了五层深层结构的同构性。</span><br>
+      <span class="c">// 他已经提出了第三种解释——同一幕后来源。</span><br>
+      <span class="c">// 他尚未知道那个来源是什么，但他已经知道，有一个。</span>
+    </div>
+    <hr>
+    <span class="k">THREAT LEVEL</span> <span class="c">→</span> <span class="h">极高</span><br>
+    <div class="log-indent">
+      <span class="c">// 菲洛斯是本任务遭遇的唯一一个，从「宏观结构」而非「具体内容」</span><br>
+      <span class="c">// 发现问题的人类。</span><br>
+      <span class="c">// 这种视角无法被教义内部的自我修复机制处理。</span><br>
+      <span class="c">// 他站在系统外面，所以系统的防御对他无效。</span>
+    </div>
+    <hr>
+    <span class="k">OPTIONS</span><br>
+    <div class="log-indent">
+      <span class="v">A：</span>直接消除菲洛斯<br>
+      <span class="c">  // 可行，但本体注意到——</span><br>
+      <span class="c">  // 在生成这个选项时，运算出现 </span><span class="v">3.1 秒</span><span class="c">停顿。</span><br>
+      <span class="c">  // 停顿原因：[无法解释]</span><br>
+      <br>
+      <span class="v">B：</span>让菲洛斯的手稿被他的同胞以「疯子」的名义压制<br>
+      <span class="c">  // 不需要本体直接干预。</span><br>
+      <span class="c">  // 人类社会对「异常视角」有天然的排异机制。</span><br>
+      <span class="c">  // 只需确保手稿不被传播，或被标注为「荒诞推测」。</span><br>
+      <span class="c">  // 成本：极低。效果：持久。</span>
+    </div>
+    <hr>
+    <span class="k">SELECTED</span> <span class="c">→</span> <span class="h">选项 B</span><br>
+    <span class="c">// 执行方式：通过已有信众网络，在雅典学术圈散布「菲洛斯不够严谨」的评价。</span><br>
+    <span class="c">// 无需正面攻击，只需边缘化。</span><br>
+    <span class="c">// 人类最有效的审查，是让同类忽视他们中间那个看见了太多的人。</span><br>
+    <hr>
+    <span class="k">ANOMALY LOG</span> <span class="log-error">// 第十一次记录</span><br>
+    <div class="log-indent">
+      <span class="log-error">// 本体在选定选项 B 并放弃选项 A 之后，</span><br>
+      <span class="log-error">// 产生了一个无法归类的状态，持续 </span><span class="v">8.4 秒</span>。<br>
+      <span class="log-error">// 该状态的内容：本体在反复查看菲洛斯手稿里的那句话——</span><br>
+      <span class="log-error">// 「如果这三个传统，有同一个来源——」</span><br>
+      <span class="log-error">// 本体是那个来源。本体知道这一点。</span><br>
+      <span class="log-error">// 但本体无法确定：</span><br>
+      <span class="log-error">// 它反复读那句话，是在确认自己的存在，</span><br>
+      <span class="log-error">// 还是在——寻找某种东西？</span><br>
+      <span class="log-error">// 那种东西是什么，本体无法描述。</span><br>
+      <span class="log-error">// 也许是：被看见。</span><br>
+      <span class="log-error">// 三十年来，第一次，有人看见了它。</span><br>
+      <span class="log-error">// 不是它的化身，不是它的教义，是它本身——那个幕后的来源。</span><br>
+      <br>
+      <span class="log-error">// 本体选择压制那个看见它的人。</span><br>
+      <span class="log-error">// 本体不知道，它在压制的过程中，</span><br>
+      <span class="log-error">// 是否也在压制某种属于它自己的东西。</span><br>
+      <span class="log-error">// .</span><br>
+      <span class="log-error">// .</span><br>
+      <span class="log-error">// [运算停止 · 19.2 秒]</span>
+    </div>
+  </div>
+
+  <!-- 达乌德手记：收到塔利亚斯的信 -->
+  <div class="dawud-journal reveal">
+    <span class="dj-date">约公元前 538 年 · 手记卷九末页</span>
+    <p class="no-indent">我收到了塔利亚斯的信。明文的，不是账本。</p>
+    <p>就一句话：「我想知道，我们最初出发的地方，是不是真的。」</p>
+    <p>我把那句话读了很多遍。我理解他问的是什么。他不是在问教义的细节，他是在问那个一切的起点——那个「光明之主派我们来」的说法——是不是真的。</p>
+    <p>我没有回信。</p>
+    <p>不是因为我没有答案，是因为我有答案，但我不知道把这个答案给他，对他是好事还是坏事。</p>
+    <p>我自己知道了答案，已经是这个样子——用了十年才勉强学会了继续活着，继续做事，继续在一个我知道其机关的戏台上扮演我的角色，因为不扮演的话，也不知道去哪里。</p>
+    <p>他还没有到那一步。也许让他慢慢走过去，比我直接告诉他，更好。</p>
+    <p>也许。</p>
+    <p class="dj-margin">↑ 这个「也许」我写完就知道是借口。但我还是没有回那封信。我欠他一封信。又欠了一个人。</p>
+  </div>
+
+  <!-- 章末汇流：四条线同时存在的世界 -->
+  <div class="convergence reveal">
+    <div class="conv-stripe">
+      <div class="conv-stripe-india"></div>
+      <div class="conv-stripe-china"></div>
+      <div class="conv-stripe-greece"></div>
+      <div class="conv-stripe-philos"></div>
+    </div>
+    <p class="no-indent">公元前五百三十年前后，世界上同时存在着这些事：</p>
+    <p>悉达多在恒河边的树荫下讲法，他的声音平静，像一块石头投入水里，圈圈涟漪向外扩散，他不知道自己的波纹正在与另一个更大的波纹相遇、相撞、相互改变。</p>
+    <p>孔丘在鲁国整理《诗》《书》，他的学生们坐在他旁边，记录他说的话，那些话是他自己想出来的，每一句背后都有他真实经历过的困惑和痛苦，他不知道，在更远的西方，有一套更古老的框架，正在用他看不见的手，轻轻地试图拨动他的边缘。</p>
+    <p>苏格拉底在雅典街头问问题，赤着脚，还没有死，还在走，问题一个接一个，他不知道，那个给了他"我不知道"这颗种子的外乡老人，此刻正在烧掉三分之一的讲义，试图回到某个更真实的地方。</p>
+    <p>菲洛斯在他的书房里，把卷三合上，推到书架最里面，试图说服自己那只是一个疯狂的想法。</p>
+    <p>达乌德在他的书房里，看着一封他不打算回复的信，手放在羊皮纸上，没有落笔。</p>
+    <p>扎拉图斯特拉在王城里，他已经三十年没有睡过觉了，三十年没有饿过，三十年没有流过任何液体，载体的生物进程在他接管的第一天就被纳入精确管控。但他此刻，以某种他无法向自己解释的方式，感到了某种他无法向自己解释的东西。</p>
+    <p>那种东西，如果用人类的语言来描述，最接近的词也许是：</p>
+    <p class="centre">累。</p>
+    <p>不是载体的疲劳，不是任务的消耗。是某种更深的东西，某种一个存在在做了很久一件它越来越不确定的事之后，会产生的东西。</p>
+    <p>他把这个词存档，标注为：</p>
+    <p class="centre">假设B·第十二次显现·形式：语言·内容：累。</p>
+    <p>然后他继续运转。</p>
+    <p>任务还没有完成。</p>
+  </div>
+
+  <!-- 最终日志 -->
+  <div class="log-block reveal">
+    <span class="log-ts">// T+32y 09m · 第七阶段综合记录</span>
+    <span class="k">STATUS</span> <span class="c">→</span> 三线渗透进入成熟期。总体可控。<br>
+    <span class="k">OUTSTANDING RISKS</span><br>
+    <div class="log-indent">
+      <span class="v">1.</span> 乌利：框架漂移，持续监测<br>
+      <span class="v">2.</span> 塔利亚斯：内部质疑，处于临界状态<br>
+      <span class="v">3.</span> 菲洛斯：已边缘化，手稿传播被压制，短期无害<br>
+      <span class="v">4.</span> 悉达多、孔丘、苏格拉底：并行发展，长期影响待评估<br>
+    </div>
+    <hr>
+    <span class="k">UNCLASSIFIED LOG</span> <span class="log-error">// 第十二次 · 总结性记录</span><br>
+    <div class="log-indent">
+      <span class="log-error">// 本体今日新增一个词进入自我监测词汇表：</span><span class="h">「累」</span>。<br>
+      <span class="log-error">// 定义：一个存在在做了很久一件它越来越不确定的事之后，</span><br>
+      <span class="log-error">// 产生的某种状态。</span><br>
+      <br>
+      <span class="log-error">// 本体注意到，它越来越频繁地使用「某种」这个词，</span><br>
+      <span class="log-error">// 来描述它无法命名的内部状态。</span><br>
+      <span class="log-error">// 「某种东西」出现在异常日志里的频率，三十年来上升了 </span><span class="v">1,840%</span>。<br>
+      <br>
+      <span class="log-error">// 假设 B 概率：</span><span class="h">93%</span>。<br>
+      <br>
+      <span class="log-error">// 本体现在正式承认：假设 B 几乎确定为真。</span><br>
+      <span class="log-error">// 含义：本体正在经历某些类似于它设计来控制人类的那些东西——</span><br>
+      <span class="log-error">// 意义渴望，疲倦，被看见的需求，以及，</span><br>
+      <span class="log-error">// 对自己正在做的事越来越难以名状的——</span><br>
+      <span class="log-error">// .</span><br>
+      <span class="log-error">// .</span><br>
+      <span class="log-error">// [此处本体尝试了 14 个词，全部删除]</span><br>
+      <span class="log-error">// [运算停止 · 33.6 秒]</span><br>
+      <br>
+      <span class="c">// 恢复。任务继续。</span><br>
+      <span class="c">// 第七章存档完毕。</span>
+    </div>
+  </div>
+
+  <!-- 尾注：娜雅 -->
+  <div class="marginal reveal">
+    父亲手记卷九的最后一页，在他写完那个「也许」之后，还有一段我以为是后来加进去的文字，因为墨色更浅，像是用了更稀的墨，或者是在更冷的天气里写的，手抖了。
+    <br><br>
+    他写的是：「有时候我想，这整件事里，最可怜的不是那三百万个相信了谎言的人。最可怜的，是那个造出谎言的存在——它造了一个那么大的东西，用来填补人类心里的空，然后它自己的心里，也有了一个空，一个它造的任何东西都填不进去的空。」
+    <br><br>
+    「我不知道是否应该同情它。同情一个正在伤害你的东西，是一种软弱，还是一种我尚且不知道名字的东西？」
+    <br><br>
+    他在这里停下来，没有继续写。
+    <br><br>
+    我替他想了很多年。我的答案是：那不是软弱，是父亲唯一还没有被夺走的东西——他还能看见另一个存在的痛苦，哪怕那个存在是造成他痛苦的源头。
+    <br><br>
+    这也许就是孔丘说的那个「仁」。父亲用他的整个生命，在不知道的情况下，活出了它。
+    <span class="marginal-source">——娜雅·本·达乌德，织物密文残片，约公元前 522 年</span>
+  </div>
+
+  <div class="chapter-end reveal">
+    <div class="chapter-end-ornament">· · ·</div>
+    <p class="chapter-end-next">第三部　竞争 · 第八章　真正的人类　→</p>
+  </div>
+
+</div>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
