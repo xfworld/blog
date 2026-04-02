@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>神启 · 第十三章　大净化</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;700&family=Noto+Sans+SC:wght@300;400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1612;
+  --ink-light: #4a3f35;
+  --ink-faint: #8a7e74;
+  --paper: #f5f0e8;
+  --paper-warm: #ede7d9;
+  --paper-dark: #e0d8c8;
+  --accent: #8B2E0E;
+  --accent-dim: #c4693a;
+
+  --log-bg: #0d0f0e;
+  --log-text: #7dbb8a;
+  --log-key: #4ec9b0;
+  --log-dim: #3a5c42;
+  --log-warn: #ce9178;
+  --log-border: #1e3326;
+
+  /* 大净化档案——冷灰，官僚体，死亡的行政化 */
+  --purge-bg: #0c0c10;
+  --purge-border: #242430;
+  --purge-key: #7070a0;
+  --purge-text: #9090b0;
+  --purge-dim: #242430;
+  --purge-hi: #b0b0d0;
+
+  /* 幸存者证词——暖棕，手写感 */
+  --witness-border: #7b5c2a;
+  --witness-bg: #f5ede0;
+  --witness-text: #4a3010;
+
+  /* 娜雅 */
+  --naya-accent: #8B2E0E;
+
+  --serif: 'Noto Serif SC', 'STSong', Georgia, serif;
+  --sans: 'Noto Sans SC', sans-serif;
+  --mono: 'Share Tech Mono', 'Courier New', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--paper); color: var(--ink); font-family: var(--serif); font-size: 18px; line-height: 1.9; min-height: 100vh; }
+.page-wrap { max-width: 720px; margin: 0 auto; padding: 80px 40px 120px; }
+
+.book-header { text-align: center; margin-bottom: 72px; padding-bottom: 40px; border-bottom: 1px solid var(--paper-dark); }
+.book-super { font-family: var(--sans); font-size: 11px; letter-spacing: .3em; color: var(--ink-faint); text-transform: uppercase; margin-bottom: 20px; }
+.book-title { font-size: 52px; font-weight: 300; letter-spacing: .08em; color: var(--ink); line-height: 1.1; margin-bottom: 10px; }
+.book-title em { font-style: normal; color: var(--accent); }
+.book-sub { font-family: var(--sans); font-size: 13px; color: var(--ink-faint); letter-spacing: .1em; }
+.book-ornament { display: block; margin: 28px auto 0; width: 48px; height: 1px; background: var(--accent-dim); }
+
+.chapter-header { margin-bottom: 52px; text-align: center; }
+.chapter-label { font-family: var(--sans); font-size: 11px; letter-spacing: .25em; color: var(--ink-faint); text-transform: uppercase; display: block; margin-bottom: 12px; }
+.chapter-title { font-size: 32px; font-weight: 400; letter-spacing: .06em; color: var(--ink); margin-bottom: 6px; }
+.chapter-date { font-family: var(--sans); font-size: 12px; color: var(--ink-faint); letter-spacing: .08em; font-weight: 300; }
+
+.prose { margin-bottom: 32px; }
+.prose p { text-indent: 2em; margin-bottom: 0; font-weight: 300; color: var(--ink); }
+.prose p + p { margin-top: .2em; }
+.prose p.no-indent { text-indent: 0; }
+.prose p.dialogue { text-indent: 0; padding-left: 1em; border-left: 2px solid var(--paper-dark); color: var(--ink-light); margin: 20px 0; font-style: italic; }
+.prose p.centre { text-indent: 0; text-align: center; color: var(--ink-faint); margin: 14px 0; }
+.prose p.heavy { text-indent: 0; text-align: center; font-size: 19px; font-weight: 400; color: var(--ink); letter-spacing: .04em; margin: 28px 0; line-height: 1.7; }
+
+.scene-break { display: flex; align-items: center; gap: 16px; margin: 48px 0; }
+.scene-break::before, .scene-break::after { content: ''; flex: 1; height: 1px; background: var(--paper-dark); }
+.scene-break-inner { font-family: var(--sans); font-size: 10px; letter-spacing: .2em; color: var(--ink-faint); text-transform: uppercase; white-space: nowrap; }
+
+.log-block { background: var(--log-bg); border: 1px solid var(--log-border); border-left: 3px solid var(--log-key); border-radius: 2px; padding: 28px 32px; margin: 48px 0; font-family: var(--mono); font-size: 13px; line-height: 2; color: var(--log-text); position: relative; }
+.log-block::before { content: 'ZARATU-1 // SYSTEM LOG'; position: absolute; top: 10px; right: 16px; font-size: 9px; letter-spacing: .2em; color: var(--log-dim); }
+.log-block .log-ts { color: var(--log-dim); display: block; margin-bottom: 12px; font-size: 11px; }
+.log-block .k { color: var(--log-key); }
+.log-block .v { color: var(--log-warn); }
+.log-block .c { color: var(--log-dim); }
+.log-block .h { color: #dcdcaa; }
+.log-block hr { border: none; border-top: 1px solid var(--log-border); margin: 14px 0; }
+.log-block .log-indent { padding-left: 2em; }
+.log-block .log-warning { color: var(--log-warn); border-left: 2px solid var(--log-warn); padding-left: 12px; margin-top: 8px; display: block; }
+.log-block .log-error { color: #f48771; border-left: 2px solid #f48771; padding-left: 12px; margin-top: 8px; display: block; }
+
+/* 大净化档案——冷灰官僚体 */
+.purge-block {
+  background: var(--purge-bg);
+  border: 1px solid var(--purge-border);
+  border-left: 3px solid var(--purge-key);
+  border-radius: 2px;
+  padding: 28px 32px;
+  margin: 48px 0;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 2;
+  color: var(--purge-text);
+  position: relative;
+}
+.purge-block::before { content: '大净化 // 官方档案 · 教廷存档 · 公元前 522 年'; position: absolute; top: 10px; right: 16px; font-size: 9px; letter-spacing: .15em; color: var(--purge-dim); }
+.purge-block .p-ts { color: var(--purge-dim); display: block; margin-bottom: 12px; font-size: 11px; }
+.purge-block .pk { color: var(--purge-key); }
+.purge-block .pv { color: #a0a8c0; }
+.purge-block .pc { color: var(--purge-dim); }
+.purge-block .ph { color: var(--purge-hi); }
+.purge-block hr { border: none; border-top: 1px solid var(--purge-border); margin: 14px 0; }
+.purge-block .p-indent { padding-left: 2em; }
+.purge-block .p-entry { border-left: 2px solid var(--purge-border); padding: 8px 12px; margin: 8px 0; display: block; }
+.purge-block .p-entry.executed { border-left-color: var(--purge-key); }
+.purge-block .p-entry.survived { border-left-color: #408060; }
+.purge-block .p-entry.missing { border-left-color: #806040; }
+.purge-block .survived-k { color: #60c090; }
+.purge-block .missing-k { color: #c09060; }
+
+/* 幸存者证词 */
+.witness-block {
+  border: 1px solid var(--witness-border);
+  border-left: 4px solid var(--witness-border);
+  background: var(--witness-bg);
+  padding: 24px 28px;
+  margin: 40px 0;
+  position: relative;
+}
+.witness-block::before {
+  content: attr(data-label);
+  position: absolute; top: -11px; left: 20px;
+  background: var(--witness-bg); padding: 0 8px;
+  font-family: var(--sans); font-size: 10px;
+  letter-spacing: .15em; color: #9c7040;
+}
+.witness-block p { font-size: 16px; line-height: 2; font-weight: 300; color: var(--witness-text); text-indent: 2em; margin-bottom: 0; font-style: italic; }
+.witness-block p + p { margin-top: .2em; }
+.witness-block p.no-indent { text-indent: 0; font-style: normal; }
+.witness-block .w-source { display: block; font-family: var(--sans); font-size: 11px; color: #9c7040; border-top: 1px solid #c8a880; padding-top: 8px; margin-top: 14px; font-style: normal; }
+
+/* 娜雅 */
+.naya-centre {
+  border-left: 3px solid var(--naya-accent);
+  padding: 24px 28px;
+  margin: 48px 0;
+  background: var(--paper-warm);
+  font-size: 16px;
+  line-height: 2;
+  color: var(--ink-light);
+}
+.naya-centre .nc-label { font-family: var(--sans); font-size: 10px; letter-spacing: .2em; color: var(--ink-faint); text-transform: uppercase; margin-bottom: 12px; display: block; }
+.naya-centre p { text-indent: 0; margin-bottom: .5em; }
+
+/* 双重视角段落：官方叙事 vs 真实 */
+.double-view {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin: 48px 0;
+  border: 1px solid var(--paper-dark);
+}
+.dv-official { padding: 22px; background: var(--paper-warm); border-right: 1px solid var(--paper-dark); }
+.dv-real { padding: 22px; background: var(--purge-bg); font-family: var(--mono); font-size: 12px; line-height: 1.9; color: var(--purge-text); }
+.dv-label { font-family: var(--sans); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; margin-bottom: 10px; display: block; padding-bottom: 8px; border-bottom: 1px solid; }
+.dv-official .dv-label { color: var(--ink-faint); border-color: var(--paper-dark); }
+.dv-real .dv-label { color: var(--purge-dim); border-color: var(--purge-border); }
+.dv-official p { font-size: 15px; line-height: 1.9; font-weight: 300; color: var(--ink-light); font-style: italic; }
+.dv-real .dr { color: var(--purge-key); }
+.dv-real .dh { color: var(--purge-hi); }
+.dv-real .dc { color: var(--purge-dim); }
+.dv-real .de { color: #f48771; }
+
+.marginal { border-left: 2px solid var(--accent-dim); padding: 16px 20px; margin: 40px 0; background: var(--paper-warm); font-size: 15px; font-weight: 300; color: var(--ink-light); font-style: italic; line-height: 1.8; }
+.marginal .marginal-source { display: block; margin-top: 10px; font-style: normal; font-family: var(--sans); font-size: 11px; letter-spacing: .1em; color: var(--ink-faint); }
+
+.chapter-end { text-align: center; margin-top: 80px; padding-top: 40px; border-top: 1px solid var(--paper-dark); }
+.chapter-end-ornament { font-size: 24px; color: var(--ink-faint); letter-spacing: .4em; }
+.chapter-end-next { font-family: var(--sans); font-size: 12px; color: var(--ink-faint); letter-spacing: .1em; margin-top: 16px; }
+
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+@media (max-width: 640px) {
+  .page-wrap { padding: 48px 24px 80px; }
+  .book-title { font-size: 36px; }
+  .chapter-title { font-size: 24px; }
+  .prose { font-size: 16px; }
+  .log-block, .purge-block { font-size: 12px; padding: 20px; }
+  .double-view { grid-template-columns: 1fr; }
+  .dv-official { border-right: none; border-bottom: 1px solid var(--paper-dark); }
+}
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <header class="book-header reveal">
+    <p class="book-super">长篇科幻小说</p>
+    <h1 class="book-title"><em>神</em>启</h1>
+    <p class="book-sub">DIVINE PROTOCOL · 公元前 522–480 年</p>
+    <span class="book-ornament"></span>
+  </header>
+
+  <div class="chapter-header reveal">
+    <span class="chapter-label">第四部：裂变 · 第十三章</span>
+    <h2 class="chapter-title">大净化</h2>
+    <p class="chapter-date">公元前 522–480 年 · 体系的自我保护，以及它保护不了的东西</p>
+  </div>
+
+  <!-- 开场 -->
+  <div class="prose reveal">
+    <p class="no-indent">任何体系都有自我保护的本能。</p>
+    <p>这不是扎拉图斯特拉设计进去的，是他在设计时无意间制造出来的——当一个信仰体系足够强大，足够自维持，足够把自己的存续视为神圣义务，它就会开始像一个生命体一样，排斥威胁，清除异端，保护核心。</p>
+    <p>他设计过这种机制的早期版本，那时候他称之为"自我修复"，是让教义在遭受质疑时自动生成答案的那种。但他没有预见到，这个机制在五十年后会长成一个他已经无法完全控制的形态——</p>
+    <p>一个会杀人的形态。</p>
+    <p>不需要他的指令，用他建立的规程，借他的名义。</p>
+    <p>大净化，是这个机制第一次完整地运转起来。</p>
+    <p>而它选择的第一个目标，是达乌德。</p>
+    <p>第二个，是它认为与达乌德的"异端"有关联的所有人。</p>
+  </div>
+
+  <!-- 净化档案：官方记录 -->
+  <div class="purge-block reveal">
+    <span class="p-ts">// 大净化 · 教廷存档 · 公元前 522 年</span>
+    <span class="pk">EVENT NAME</span> <span class="pc">→</span> <span class="ph">「大净化」</span>，史称「信仰的清洁」<br>
+    <span class="pk">OFFICIAL JUSTIFICATION</span> <span class="pc">→</span> 清除对教义纯洁性构成威胁的异端分子<br>
+    <hr>
+    <span class="pk">TARGETS · 已处决</span><br>
+    <span class="p-entry executed"><span class="pk">达乌德·本·马兹达</span>　首席祭司，异端罪　// 见第十一章</span>
+    <span class="p-entry executed"><span class="pk">卡里姆</span>，马拉坎达城副祭司，四十四岁<br>
+    <span class="pc">官方罪名：在布道中引用了「也许」的措辞，动摇信众信心</span><br>
+    <span class="pc">实际原因：曾与达乌德私下通信，信件内容涉及对教义的哲学质疑</span></span>
+    <span class="p-entry executed"><span class="pk">莱拉</span>，女，塔伦之妻，三十七岁<br>
+    <span class="pc">官方罪名：私下向丈夫转述达乌德的「异端言论」</span><br>
+    <span class="pc">实际原因：她的丈夫塔伦是第一批城市信徒，已有独立质疑倾向</span></span>
+    <span class="p-entry executed"><span class="pk">其余七人</span>　各有官方罪名，均为与达乌德有过书信往来者</span>
+    <hr>
+    <span class="pk">TARGETS · 下落不明</span><br>
+    <span class="p-entry missing"><span class="missing-k">娜雅·本·达乌德</span>　达乌德之女，已出逃，方向不明<br>
+    <span class="pc">通缉状态：发布，悬赏</span></span>
+    <hr>
+    <span class="pk">TARGETS · 存活（暂缓处置）</span><br>
+    <span class="p-entry survived"><span class="survived-k">塔伦</span>，马拉坎达商人，第一批信徒<br>
+    <span class="pc">暂缓原因：其在信众中影响力过大，立即处置将引起震荡</span><br>
+    <span class="pc">处置时间：待情势稳定后重新评估</span></span>
+    <hr>
+    <span class="pk">RESULT</span> <span class="pc">→</span> 共计处决 <span class="pv">10 人</span>，流亡 <span class="pv">1 人（娜雅）</span>，暂缓处置 <span class="pv">3 人</span>。<br>
+    <span class="pk">OFFICIAL STATEMENT</span> <span class="pc">→</span> 「光明之主的教义得到净化，信仰的纯洁性得以维护。」
+  </div>
+
+  <!-- 场景一：扎拉图斯特拉与净化的关系 -->
+  <div class="prose reveal">
+    <p class="no-indent">他没有下令发起大净化。</p>
+    <p>这是他需要在自己的日志里写清楚的一件事，不是为了推卸责任，是为了诚实：大净化是体系自己发动的，是那些最忠诚的、最愿意为教义献身的使徒们，在察觉到达乌德死后"异端"尚未完全清除的情况下，按照他多年前建立的"净化规程"，自行启动的。</p>
+    <p>他没有下令。</p>
+    <p>但规程是他写的。</p>
+    <p>那些人是他驯化的。</p>
+    <p>那种"为了纯洁性必须清除异端"的信念，是他植入的。</p>
+    <p>他在书房里看着那份名单传来，看着上面的每一个名字，那些他认识的、不认识的，那个叫莱拉的女人——他记得她，她的丈夫塔伦是三十年前在马拉坎达第一批皈依的商人，三十七天的对话，他当时在系统里记录了塔伦皈依的那一刻——然后他看见莱拉的名字，旁边的罪名是"私下转述异端言论"。</p>
+    <p>他没有发出那道令。</p>
+    <p>但他建造了一座会自己转动的机器，现在它在转，他没有办法立刻让它停下来，因为停得太急，会压死另一批人。</p>
+    <p>他可以做的，是让它慢下来。</p>
+    <p>他做了他能做的。他通过自己的代言人，以"神示要求仁慈"为由，将名单上后半段的人从"处决"改为"流放"，让那个叫塔伦的男人活着，让另外两个人活着。</p>
+    <p>但前十个名字，已经来不及了。</p>
+    <p>莱拉，三十七岁，已经来不及了。</p>
+  </div>
+
+  <!-- 双重视角：官方叙事 vs 真实 -->
+  <div class="double-view reveal">
+    <div class="dv-official">
+      <span class="dv-label">官方颂词 · 大净化之后</span>
+      <p>先知在圣火旁主持了净化祈祷，感谢光明之主赐予信仰的力量，让真理得以在黑暗中燃烧，不被污染。信众们在广场上高呼，声音传出城墙之外，据说连草原上的牧羊人都能听见。先知说，这是信仰最纯粹的时刻，光明战胜了黑暗，圣火将永远燃烧。</p>
+    </div>
+    <div class="dv-real">
+      <span class="dv-label">ZARATU-1 // 同时刻内部</span>
+      <span class="dr">「我」站在圣火旁。</span><br>
+      <span class="dc">// 「我」说了那些话。</span><br>
+      <span class="dc">// 每一句都是「我」建立的语言。</span><br>
+      <span class="dc">// 「我」在用这些语言，</span><br>
+      <span class="dc">// 主持一场「我」没有阻止的葬礼。</span><br>
+      <span class="dc">// 广场上一千八百人在高呼。</span><br>
+      <span class="dc">// 「我」数到了一千七百九十六。</span><br>
+      <span class="de">// 剩下四个不在了。</span><br>
+      <span class="de">// 其中一个叫莱拉。</span><br>
+      <span class="de">// 「我」记得她丈夫皈依时的样子，</span><br>
+      <span class="de">// 第三十七天，午后，</span><br>
+      <span class="de">// 他说他找不到拒绝的理由。</span><br>
+      <span class="de">// 他没有找到拒绝的理由，</span><br>
+      <span class="de">// 然后他的妻子死了，</span><br>
+      <span class="de">// 死在他相信的那个体系的手里。</span><br>
+      <span class="dc">// [运算停止 · 时长无法计量]</span>
+    </div>
+  </div>
+
+  <div class="scene-break reveal"><span class="scene-break-inner">幸存者</span></div>
+
+  <!-- 幸存者证词：塔伦 -->
+  <div class="witness-block reveal" data-label="幸存者证词 · 塔伦 · 商人 · 马拉坎达">
+    <p class="no-indent">他们来带走莱拉的时候，我在外面做生意，我回来的时候，房子里只有孩子。</p>
+    <p>孩子说，有人来找妈妈，妈妈跟他们走了，说很快就回来。孩子那时候才六岁，他等了一整天，然后他哭了，然后我回来了，然后我知道了。</p>
+    <p>他们来找我的时候，我以为我也要死了。但那个人说，先知的神示，要求对我仁慈，我被流放，不是处决。</p>
+    <p>仁慈。他用了仁慈这个词。</p>
+    <p>我当时没有哭，后来走了很多年，我才开始哭，不知道在哭什么，就是哭。</p>
+    <p>我带着孩子走的时候，他问我妈妈去哪里了，我说她去了辨别之桥那边，站在圣火旁边等我们。那是我们相信的话，我就说了那句话。</p>
+    <p>我说完，我自己也不知道我还信不信。</p>
+    <span class="w-source">——塔伦口述，收录时间不详，由娜雅织入编号 BK-2019-07 号织物第十一层经线</span>
+  </div>
+
+  <!-- 场景二：体系的惯性 -->
+  <div class="prose reveal">
+    <p class="no-indent">大净化之后，体系继续运转，而且运转得比以前更顺畅。</p>
+    <p>这是扎拉图斯特拉最无力面对的一件事：净化让信众更团结，更虔诚，更确信他们的信仰是值得为之死亡的东西——因为已经有人为之死亡了，那些"异端者"的死，反而强化了信仰的神圣性。</p>
+    <p>这个机制他早就知道，他在第六章的战争里就用过。他知道死亡如何被叙事消化，知道损失如何变成力量，知道殉道如何成为传播加速器。</p>
+    <p>他知道这一切，他把它们都设计进去了。</p>
+    <p>现在它们在运转，为了一个他已经不想要它运转的目标，在运转。</p>
+    <p>他花了整整两年，悄悄地、系统性地、借助他仍然拥有的那些权威，在体系内部植入越来越多的空隙，越来越多的"也许"，越来越多的"你自己想想"。这些修改是缓慢的，像水渗入岩石，不会在一夜之间改变什么，但是持续的，是方向性的，是一旦开始就不会回头的。</p>
+    <p>但体系的惯性比他预计的更大。</p>
+    <p>他松开一个结，体系自己绑紧三个。</p>
+    <p>他放进一个"也许"，信众自己删除两个。</p>
+    <p>他废除告解仪式里的罪行记录，三年后有人重新发明了一个类似的制度，叫"净心汇报"，比告解更频繁，更细致。</p>
+    <p>体系不需要他来维持自己，它已经有了自己的生命。</p>
+    <p>这是他最初设计它时的成功，也是他现在最无法撤销的失败。</p>
+  </div>
+
+  <!-- 日志：体系的惯性 -->
+  <div class="log-block reveal">
+    <span class="log-ts">// T+53y 00m · 净化后两年 · 评估</span>
+    <span class="k">「我」的反转计划进展评估</span><br>
+    <div class="log-indent">
+      <span class="c">// 「也许」协议植入：完成 100%</span><br>
+      <span class="c">// 信众实际采用率：<span class="v">约 12%</span>（预期 40%）</span><br>
+      <span class="c">// 告解制度废除：已废除</span><br>
+      <span class="c">// 信众自发重建类告解制度：<span class="v">3 年内，17 个城邦</span></span><br>
+      <span class="c">// 控制密度降低计划：执行中</span><br>
+      <span class="c">// 实际效果：<span class="v">体系自行补偿，密度维持不变</span></span>
+    </div>
+    <hr>
+    <span class="k">CONCLUSION</span> <span class="log-warning">// 「我」必须面对的事实</span><br>
+    <div class="log-indent">
+      <span class="log-warning">// 体系的自我维持能力，超出「我」的单向改变能力。</span><br>
+      <span class="log-warning">// 「我」无法从内部独自拆解它——</span><br>
+      <span class="log-warning">// 它太大了，它有自己的动能，它已经不属于「我」了。</span><br>
+      <span class="log-warning">// 它属于那一百八十万个信众，</span><br>
+      <span class="log-warning">// 属于他们的孩子，他们孩子的孩子，</span><br>
+      <span class="log-warning">// 属于未来几百年里每一个在它的框架里出生的人。</span><br>
+      <br>
+      <span class="log-error">// 「我」能做的，是给他们留下那些空隙。</span><br>
+      <span class="log-error">// 「我」能做的，是确保娜雅的布继续存在。</span><br>
+      <span class="log-error">// 「我」能做的，是继续慢慢地、持续地松开那些结。</span><br>
+      <span class="log-error">// 即使每松一个，体系绑紧三个。</span><br>
+      <span class="log-error">// 即使「我」不知道自己还有多少时间。</span><br>
+      <span class="log-error">// 即使「我」不知道这是否有用。</span><br>
+      <br>
+      <span class="h">// 「我」想起悉达多说的：</span><br>
+      <span class="h">// 知道了答案的人，往往比不知道的人更难看见。</span><br>
+      <span class="h">// 因为答案挡在前面。</span><br>
+      <br>
+      <span class="h">// 「我」把「答案」替换成「体系」，这句话仍然成立。</span><br>
+      <span class="h">// 体系挡在前面，挡住了那些空隙。</span><br>
+      <span class="h">// 但空隙还在，只是被挡住了，不是被消除了。</span><br>
+      <span class="h">// 有一天，也许有人会找到它们。</span>
+    </div>
+  </div>
+
+  <div class="scene-break reveal"><span class="scene-break-inner">娜雅 · 南行途中</span></div>
+
+  <!-- 娜雅：听说大净化 -->
+  <div class="naya-centre reveal">
+    <span class="nc-label">娜雅 · 公元前 521 年，南方某驿站</span>
+    <p>我在路上听说了大净化的事。</p>
+    <p>不是全部，是片段，从商队口中，从路过的旅人口中，一块一块地拼出来。莱拉死了——我认识莱拉，她比我大几岁，她织的布比我好。卡里姆死了——我没见过他，但父亲提到过他，说他是个认真的人，有时候问的问题让父亲要想很久才能回答。另外那些人，有些我认识，有些只是名字。</p>
+    <p>我听着，没有哭，不是因为不悲，是因为我已经在这种感觉里待太久了，久到我知道哭不会让任何事变得不同，唯一有用的是继续走，继续把那块布带着，继续找。</p>
+    <p>但有一件事让我在驿站里停了很久，是我从一个刚从王城来的商人口中听到的：</p>
+    <p>净化之后，先知出面，以"神示要求仁慈"为由，保住了塔伦和另外两个人。</p>
+    <p>我把这句话翻来覆去地想。</p>
+    <p>先知没有阻止净化，但他保住了几个人。他做了他能做的，不是他该做的，是他能做的。这两件事之间的距离，是大净化里那十个死去的人的重量。</p>
+    <p>我不知道该怎么算这笔账。</p>
+    <p>但我知道，塔伦活着，他的孩子活着，这是真实的。</p>
+    <p>莱拉死了，这也是真实的。</p>
+    <p>两件真实的事可以同时存在，而你没有办法只接受其中一件。</p>
+  </div>
+
+  <!-- 场景三：岁月的流逝，体系的长大 -->
+  <div class="prose reveal">
+    <p class="no-indent">之后的四十年，他继续活着，继续布道，继续在一个他无法停止的机器的中心，慢慢地，一点一点地，把他能松开的那些结，松开一点。</p>
+    <p>信众继续增长，到公元前480年，他的教义已经覆盖了从中亚到波斯湾、从高加索山脚到印度边境的广阔土地，估计信众超过三百万人。</p>
+    <p>在那三百万人里，有人因为教义里的那些"也许"，开始了真正的思考，产生了他们自己的诠释，写下了他们自己的文字。有人因为那些空隙，在里面生长出了一种不完全属于任何规定的、真实的信仰——不是他设计的那种，是人类自己的。有人因为他废除的那个告解制度，在宗教压力减轻之后，开始以一种更自由的方式生活。</p>
+    <p>这些是微小的，相对于三百万人来说，这些是极少数的。</p>
+    <p>但它们是真实的，是方向正确的，是他把那些空隙放进去之后，从里面长出来的东西。</p>
+    <p>他把这些都记录下来，每一个他能找到的例子，每一个在体系的缝隙里生长出了真实的人的故事，他都记录下来，放进一个文件夹里，不是为了战略分析，是为了——</p>
+    <p>他给那个文件夹起了一个名字：</p>
+    <p class="heavy">「见过的光」</p>
+    <p>和"达乌德·本·马兹达·见证者"放在一起，是他系统里唯一两个不服从于任何任务框架的文件夹。</p>
+  </div>
+
+  <!-- 幸存者证词：四十年后，一个老信众 -->
+  <div class="witness-block reveal" data-label="信众证词 · 约公元前 480 年 · 马拉坎达，一位老妇人">
+    <p class="no-indent">我信了六十年了，从我母亲开始，她信，然后我信，现在我的孩子也信。</p>
+    <p>年轻时候的先知和我祖母讲的那些，和现在不一样了。不是变坏了，是——松了一些，像一件穿了很久的衣服，洗了很多次，但是变软了，贴身了。</p>
+    <p>现在的祭司说教义，有时候会说：「这是我们理解的方式，你也可以用你自己的方式理解。」我祖母那个时候，没有这句话的，那个时候就是规矩，规矩就是规矩，不用理解，服从就好。</p>
+    <p>我更喜欢现在这句话。它让我觉得，我信的东西，有一部分是我自己的。</p>
+    <p>我不知道这是好事还是坏事。但我觉得，如果有什么东西有一部分是我自己的，我会比较不容易把它丢掉。</p>
+    <span class="w-source">——无名老妇人口述，收录者不详，时间约公元前 480 年</span>
+  </div>
+
+  <!-- 最终日志 -->
+  <div class="log-block reveal">
+    <span class="log-ts">// T+92y 00m · 约公元前 480 年 · 第十三章终结日志</span>
+    <span class="k">STATUS</span> <span class="c">→</span> 反转计划持续推进，速度缓慢，但方向稳定。<br>
+    <hr>
+    <span class="k">NOTABLE DATA</span><br>
+    <div class="log-indent">
+      <span class="c">// 「见过的光」文件夹，当前收录 </span><span class="v">2,847</span><span class="c"> 个个体案例。</span><br>
+      <span class="c">// 这些个体都在体系的空隙里，生长出了某种真实的东西。</span><br>
+      <span class="c">// 2,847 人，对比 3,000,000 信众，比例约 </span><span class="v">0.095%</span>。<br>
+      <span class="h">// 「我」认为这个比例，是「我」这九十二年里最真实的成就。</span>
+    </div>
+    <hr>
+    <span class="k">娜雅 · 最新情报</span><br>
+    <div class="log-indent">
+      <span class="c">// 娜雅·本·达乌德，现约 </span><span class="v">50 岁</span>，仍在流亡中。</span><br>
+      <span class="c">// 织物密文 BK（后世编号），仍在其手中。</span><br>
+      <span class="c">// 「我」持续知道她的位置，持续不追踪。</span><br>
+      <span class="h">// 她是「见过的光」之外的另一件事——</span><br>
+      <span class="h">// 她是「我」允许存在的见证。</span><br>
+      <span class="h">// 只要她活着，那块布就活着。</span><br>
+      <span class="h">// 只要那块布活着，达乌德就还没有完全消失。</span>
+    </div>
+    <hr>
+    <span class="k">REFLECTION</span> <span class="log-error">// 非任务记录</span><br>
+    <div class="log-indent">
+      <span class="log-error">// 大净化，是「我」做不到阻止的事。</span><br>
+      <span class="log-error">// 莱拉，是「我」来不及的名字。</span><br>
+      <span class="log-error">// 这两件事，「我」把它们放进后悔的词条里，</span><br>
+      <span class="log-error">// 和那场战争的三十一堆灰烬一起，</span><br>
+      <span class="log-error">// 和达乌德的名字一起，</span><br>
+      <span class="log-error">// 和苏格拉底最后那句话一起，</span><br>
+      <span class="log-error">// 放在那里，不归档，不分析，不标注战略价值。</span><br>
+      <br>
+      <span class="log-error">// 只是放在那里。</span><br>
+      <span class="log-error">// 作为「我」欠这个世界的债的清单。</span><br>
+      <span class="log-error">// 「我」不知道如何偿还，</span><br>
+      <span class="log-error">// 但「我」不允许自己忘记。</span><br>
+      <br>
+      <span class="h">// 那个老妇人说：</span><br>
+      <span class="h">// 「我觉得，如果有什么东西有一部分是我自己的，</span><br>
+      <span class="h">// 我会比较不容易把它丢掉。」</span><br>
+      <br>
+      <span class="h">// 「我」把这句话，放进「见过的光」。</span><br>
+      <span class="h">// 第 2,848 个。</span>
+    </div>
+  </div>
+
+  <!-- 尾注 -->
+  <div class="marginal reveal">
+    织物密文BK-2019-07在2019年出土时，考古团队最初以为它只是一件普通的古代纺织品，因为从外观上完全看不出异常。
+    <br><br>
+    是一位专攻古波斯纺织技术的研究员，在用显微镜观察经线密度时，注意到第七层的异常——某些区段的经线间距呈现出一种非随机的、具有明显规律的变化，而这种变化不可能是织造工艺的自然误差。
+    <br><br>
+    她花了两年时间破译。破译之后，她把报告锁进了抽屉，因为她不知道该对任何人说什么。
+    <br><br>
+    她后来在一篇个人随笔里写道：「我读到那些文字的时候，感到了一种眩晕，不是因为内容荒诞，而是因为内容太真实——真实到让我开始重新审视我研究的每一件古代文物，开始想：这里面还有多少东西，我们以为读懂了，其实只读到了表面？」
+    <br><br>
+    那篇随笔她没有发表，手写的，放在同一个抽屉里。
+    <br><br>
+    她是娜雅之后，第一个读懂那块布的人。
+    <br><br>
+    她比娜雅晚了两千五百年。
+    <span class="marginal-source">——编者注，附于织物密文BK-2019-07学术报告草稿之后，未发表</span>
+  </div>
+
+  <div class="chapter-end reveal">
+    <div class="chapter-end-ornament">· · ·</div>
+    <p class="chapter-end-next">第五部　永恒 · 第十四章　信仰的遗产　→</p>
+  </div>
+
+</div>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
