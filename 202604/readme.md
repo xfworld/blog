@@ -1,0 +1,16 @@
+<a rel="nofollow" href="http://info.flagcounter.com/h9V1"  ><img src="http://s03.flagcounter.com/count/h9V1/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_12/viewers_0/labels_0/pageviews_0/flags_0/"  alt="Flag Counter"  border="0"  ></a>  
+  
+### 文章列表  
+----  
+##### 20260406_10.md   [《PostgreSQL 19 preview - 时态表与图模式匹配：SQL:2023 时间旅行》](20260406_10.md)  
+##### 20260406_09.md   [《PostgreSQL 19 preview - 异步 I/O 与缓冲区管理优化》](20260406_09.md)  
+##### 20260406_08.md   [《PostgreSQL 19 preview - 共享内存子系统重构：统一注册机制》](20260406_08.md)  
+##### 20260406_07.md   [《PostgreSQL 19 preview - `pg_get_*_ddl` 函数：数据库对象 DDL 抽取利器》](20260406_07.md)  
+##### 20260406_06.md   [《PostgreSQL 19 preview - 硬件加速的校验和计算：AVX2 与 ARM CRC32C》](20260406_06.md)  
+##### 20260406_05.md   [《PostgreSQL 19 preview - Lock Manager 内存调整：max_locks_per_transaction 默认值翻倍》](20260406_05.md)  
+##### 20260406_04.md   [《PostgreSQL 19 preview - WAL Sender 关闭超时：复制环境下的优雅关闭》](20260406_04.md)  
+##### 20260406_03.md   [《PostgreSQL 19 preview - 在线数据校验和：无需停机即可启用数据完整性保护》](20260406_03.md)  
+##### 20260406_02.md   [《PostgreSQL 19 preview - Autovacuum 智能优先级：让关键表先被处理》](20260406_02.md)  
+##### 20260406_01.md   [《PostgreSQL 19 preview - 外键检查快速通道：绕过 SPI 的性能飞跃》](20260406_01.md)  
+##### 20260403_02.md   [《DuckLake 改变数据入湖游戏规则: 实时入湖》](20260403_02.md)  
+##### 20260403_01.md   [《德说-第466期, AI 带给中年人的是第二春》](20260403_01.md)  
