@@ -2,6 +2,7 @@
   
 ### 文章列表  
 ----  
+##### 20260406_11.md   [《PostgreSQL 19 preview - pg_stash_advice：为 PostgreSQL 查询计划戴上"紧箍咒"》](20260406_11.md)  
 ##### 20260406_10.md   [《PostgreSQL 19 preview - 时态表与图模式匹配：SQL:2023 时间旅行》](20260406_10.md)  
 ##### 20260406_09.md   [《PostgreSQL 19 preview - 异步 I/O 与缓冲区管理优化》](20260406_09.md)  
 ##### 20260406_08.md   [《PostgreSQL 19 preview - 共享内存子系统重构：统一注册机制》](20260406_08.md)  
