@@ -2,6 +2,15 @@
   
 ### 文章列表  
 ----  
+##### 20260407_09.md   [《PostgreSQL 逻辑复制数据库级快照优化深度解读》](20260407_09.md)  
+##### 20260407_08.md   [《PostgreSQL pg_trgm 排序去重性能优化深度解读》](20260407_08.md)  
+##### 20260407_07.md   [《Autovacuum 并行化：PostgreSQL 大表维护的革命性突破》](20260407_07.md)  
+##### 20260407_06.md   [《auto_explain 扩展选项：让自动执行计划日志更强大》](20260407_06.md)  
+##### 20260407_05.md   [《slotsync 遗漏释放 PostmasterContext 修复与 log_lock_waits 测试增强》](20260407_05.md)  
+##### 20260407_04.md   [《REPACK CONCURRENTLY：让表维护不再阻塞业务》](20260407_04.md)  
+##### 20260407_03.md   [《WAIT FOR 优化：避免在 Hot Standby 上触发恢复冲突》](20260407_03.md)  
+##### 20260407_02.md   [《并行索引扫描的 DSM 分离：让性能监控更清晰》](20260407_02.md)  
+##### 20260407_01.md   [《pg_stat_autovacuum_scores：让 Autovacuum 优先级不再黑箱》](20260407_01.md)  
 ##### 20260406_11.md   [《PostgreSQL 19 preview - pg_stash_advice：为 PostgreSQL 查询计划戴上"紧箍咒"》](20260406_11.md)  
 ##### 20260406_10.md   [《PostgreSQL 19 preview - 时态表与图模式匹配：SQL:2023 时间旅行》](20260406_10.md)  
 ##### 20260406_09.md   [《PostgreSQL 19 preview - 异步 I/O 与缓冲区管理优化》](20260406_09.md)  
