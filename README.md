@@ -112,6 +112,15 @@ digoal's|PostgreSQL|文章|归类
   
 ### 六、所有文档如下  
 ----  
+##### 202604/20260408_09.md   [《PostgreSQL 19 preview - PostgreSQL 性能开销优化：ExecProcNodeInstr 内联化详解》](202604/20260408_09.md)  
+##### 202604/20260408_08.md   [《PostgreSQL 19 preview - 修复 Standby 晋升时 Slot 同步 Worker 阻塞问题》](202604/20260408_08.md)  
+##### 202604/20260408_07.md   [《PostgreSQL 19 preview - PostgreSQL OAuth 认证增强解读：HBA 级选项配置与调试机制细化》](202604/20260408_07.md)  
+##### 202604/20260408_06.md   [《PostgreSQL 19 preview - pg_stash_advice 持久化机制解读：让执行计划建议穿越重启》](202604/20260408_06.md)  
+##### 202604/20260408_05.md   [《PostgreSQL 19 preview - PostgreSQL 信号溯源新特性：让"谁杀了我的连接"一目了然》](202604/20260408_05.md)  
+##### 202604/20260408_04.md   [《PostgreSQL 19 preview - PostgreSQL EXPlAIN (IO) 详解：让预读和异步 I/O 不再是黑盒》](202604/20260408_04.md)  
+##### 202604/20260408_03.md   [《PostgreSQL 19 preview - PostgreSQL TSC 计时优化：大幅降低 EXPLAIN ANALYZE 性能开销》](202604/20260408_03.md)  
+##### 202604/20260408_02.md   [《PostgreSQL 19 preview - REPACK 不再和逻辑复制抢槽位: `max_repack_replication_slots` 来了》](202604/20260408_02.md)  
+##### 202604/20260408_01.md   [《PG用户怒了，Linux 7.0 新内核导致PG性能暴跌50%》](202604/20260408_01.md)  
 ##### 202604/20260407_09.md   [《PostgreSQL 19 preview - 逻辑复制数据库级快照优化深度解读》](202604/20260407_09.md)  
 ##### 202604/20260407_08.md   [《PostgreSQL 19 preview - PostgreSQL pg_trgm 排序去重性能优化深度解读》](202604/20260407_08.md)  
 ##### 202604/20260407_07.md   [《PostgreSQL 19 preview - Autovacuum 并行化：PostgreSQL 大表维护的革命性突破》](202604/20260407_07.md)  
