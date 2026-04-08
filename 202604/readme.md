@@ -2,6 +2,7 @@
   
 ### 文章列表  
 ----  
+##### 20260408_10.md   [《我如何用 AI 写 PG 代码解读和公众号爆款》](20260408_10.md)  
 ##### 20260408_09.md   [《PostgreSQL 19 preview - PostgreSQL 性能开销优化：ExecProcNodeInstr 内联化详解》](20260408_09.md)  
 ##### 20260408_08.md   [《PostgreSQL 19 preview - 修复 Standby 晋升时 Slot 同步 Worker 阻塞问题》](20260408_08.md)  
 ##### 20260408_07.md   [《PostgreSQL 19 preview - PostgreSQL OAuth 认证增强解读：HBA 级选项配置与调试机制细化》](20260408_07.md)  

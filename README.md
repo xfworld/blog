@@ -112,6 +112,7 @@ digoal's|PostgreSQL|文章|归类
   
 ### 六、所有文档如下  
 ----  
+##### 202604/20260408_10.md   [《我如何用 AI 写 PG 代码解读和公众号爆款》](202604/20260408_10.md)  
 ##### 202604/20260408_09.md   [《PostgreSQL 19 preview - PostgreSQL 性能开销优化：ExecProcNodeInstr 内联化详解》](202604/20260408_09.md)  
 ##### 202604/20260408_08.md   [《PostgreSQL 19 preview - 修复 Standby 晋升时 Slot 同步 Worker 阻塞问题》](202604/20260408_08.md)  
 ##### 202604/20260408_07.md   [《PostgreSQL 19 preview - PostgreSQL OAuth 认证增强解读：HBA 级选项配置与调试机制细化》](202604/20260408_07.md)  
