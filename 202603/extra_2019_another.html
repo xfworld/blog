@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>神启·番外　2019年，另一个人</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;700&family=Noto+Sans+SC:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1612;
+  --ink-light: #4a3f35;
+  --ink-faint: #8a7e74;
+  --paper: #f5f0e8;
+  --paper-warm: #ede7d9;
+  --paper-dark: #e0d8c8;
+  --accent: #2a3a4a;
+  --accent-dim: #4a6a8a;
+
+  /* 现代数字界面感：冷蓝白 */
+  --screen-bg: #0e1420;
+  --screen-text: #c0cce0;
+  --screen-dim: #304060;
+  --screen-link: #6090c0;
+  --screen-hi: #90c0e8;
+
+  /* 他的内心：暖纸色，和屏幕的冷形成对比 */
+  --mind-bg: #f8f4ec;
+  --mind-border: #a09060;
+  --mind-text: #3a3020;
+
+  --serif: 'Noto Serif SC', 'STSong', Georgia, serif;
+  --sans: 'Noto Sans SC', sans-serif;
+  --mono: 'Share Tech Mono', 'Courier New', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--paper); color: var(--ink); font-family: var(--serif); font-size: 18px; line-height: 2; min-height: 100vh; }
+.page-wrap { max-width: 680px; margin: 0 auto; padding: 80px 40px 120px; }
+
+.story-header { text-align: center; margin-bottom: 80px; }
+.story-super { font-family: var(--sans); font-size: 11px; letter-spacing: .3em; color: var(--ink-faint); text-transform: uppercase; display: block; margin-bottom: 20px; }
+.story-title { font-size: 44px; font-weight: 300; color: var(--ink); letter-spacing: .06em; margin-bottom: 10px; line-height: 1.2; }
+.story-sub { font-family: var(--sans); font-size: 13px; color: var(--ink-faint); letter-spacing: .08em; margin-bottom: 28px; }
+.story-note { font-size: 14px; font-weight: 300; color: var(--ink-faint); font-style: italic; line-height: 1.8; max-width: 420px; margin: 0 auto; padding: 16px 20px; border-left: 2px solid var(--paper-dark); text-align: left; }
+.story-ornament { display: block; margin: 28px auto 0; width: 48px; height: 1px; background: var(--accent-dim); }
+
+.prose { margin-bottom: 36px; }
+.prose p { text-indent: 2em; font-weight: 300; color: var(--ink); margin-bottom: 0; }
+.prose p + p { margin-top: .25em; }
+.prose p.no-indent { text-indent: 0; }
+.prose p.dialogue { text-indent: 0; padding-left: 1em; border-left: 2px solid var(--paper-dark); color: var(--ink-light); margin: 20px 0; font-style: italic; }
+.prose p.centre { text-indent: 0; text-align: center; color: var(--ink-faint); margin: 16px 0; }
+
+.scene-break { display: flex; align-items: center; gap: 16px; margin: 48px 0; }
+.scene-break::before, .scene-break::after { content: ''; flex: 1; height: 1px; background: var(--paper-dark); }
+.scene-break-inner { font-family: var(--sans); font-size: 10px; letter-spacing: .2em; color: var(--ink-faint); text-transform: uppercase; white-space: nowrap; }
+
+/* 屏幕/数字界面 */
+.screen-block {
+  background: var(--screen-bg);
+  border-radius: 8px;
+  padding: 24px 28px;
+  margin: 40px 0;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 2;
+  color: var(--screen-text);
+  position: relative;
+}
+.screen-block .sb-bar {
+  display: flex; gap: 6px; margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--screen-dim);
+}
+.sb-dot { width: 10px; height: 10px; border-radius: 50%; }
+.sb-dot.red { background: #c04040; }
+.sb-dot.yellow { background: #a08020; }
+.sb-dot.green { background: #208040; }
+.sb-url { font-size: 11px; color: var(--screen-dim); margin-left: 8px; align-self: center; letter-spacing: .04em; }
+.screen-block .sk { color: var(--screen-hi); }
+.screen-block .sd { color: var(--screen-dim); }
+.screen-block .sl { color: var(--screen-link); text-decoration: underline; text-underline-offset: 2px; }
+.screen-block .sw { color: #c8a050; }
+.screen-block p { color: var(--screen-text); text-indent: 0; margin-bottom: .3em; font-size: 13px; }
+.screen-block .caption { color: var(--screen-dim); font-size: 11px; font-style: italic; }
+
+/* 他的内心 */
+.mind-block {
+  background: var(--mind-bg);
+  border-left: 3px solid var(--mind-border);
+  padding: 20px 24px;
+  margin: 36px 0;
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--mind-text);
+  line-height: 1.95;
+  font-style: italic;
+}
+.mind-block p { text-indent: 0; margin-bottom: .4em; }
+.mind-block .ml { font-family: var(--sans); font-size: 10px; letter-spacing: .2em; color: var(--mind-border); text-transform: uppercase; margin-bottom: 10px; display: block; font-style: normal; }
+
+/* 他给朋友发的消息 */
+.message-bubble {
+  margin: 36px 0;
+}
+.mb-row { display: flex; margin-bottom: 12px; }
+.mb-row.sent { justify-content: flex-end; }
+.mb-row.recv { justify-content: flex-start; }
+.mb-bubble {
+  max-width: 72%;
+  padding: 10px 16px;
+  border-radius: 16px;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.7;
+}
+.mb-row.sent .mb-bubble {
+  background: #1a4060;
+  color: #c0d8f0;
+  border-bottom-right-radius: 4px;
+}
+.mb-row.recv .mb-bubble {
+  background: var(--paper-warm);
+  color: var(--ink-light);
+  border: 1px solid var(--paper-dark);
+  border-bottom-left-radius: 4px;
+}
+.mb-time { font-family: var(--sans); font-size: 10px; color: var(--ink-faint); margin-top: 4px; }
+.mb-row.sent .mb-time { text-align: right; }
+.mb-label { font-family: var(--sans); font-size: 10px; letter-spacing: .15em; color: var(--ink-faint); text-transform: uppercase; text-align: center; margin-bottom: 16px; }
+
+/* 他的搜索记录 */
+.search-log {
+  background: var(--screen-bg);
+  border-radius: 6px;
+  padding: 18px 22px;
+  margin: 36px 0;
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 2;
+  color: var(--screen-dim);
+}
+.search-log .sl-label { color: var(--screen-dim); font-size: 10px; letter-spacing: .15em; margin-bottom: 10px; display: block; border-bottom: 1px solid var(--screen-dim); padding-bottom: 8px; }
+.search-log .sl-item { display: flex; gap: 12px; margin-bottom: 4px; }
+.search-log .sl-time { color: var(--screen-dim); min-width: 50px; flex-shrink: 0; font-size: 11px; }
+.search-log .sl-query { color: var(--screen-text); }
+.search-log .sl-result { color: var(--screen-dim); font-size: 11px; font-style: italic; }
+
+/* 他写的那段话——手写感 */
+.handwritten {
+  border: 1px solid var(--paper-dark);
+  border-top: 3px solid var(--accent);
+  background: var(--paper-warm);
+  padding: 28px 32px;
+  margin: 48px 0;
+  position: relative;
+  font-size: 16px;
+  line-height: 2.1;
+  color: var(--ink-light);
+  font-weight: 300;
+}
+.handwritten::before {
+  content: '他写在备忘录里的，凌晨';
+  position: absolute; top: -11px; left: 20px;
+  background: var(--paper-warm); padding: 0 8px;
+  font-family: var(--sans); font-size: 10px;
+  letter-spacing: .15em; color: var(--ink-faint);
+}
+.handwritten p { text-indent: 0; margin-bottom: .5em; }
+
+/* 那张照片 */
+.photo-frame {
+  border: 1px solid var(--paper-dark);
+  padding: 20px;
+  margin: 40px 0;
+  text-align: center;
+  background: var(--paper-warm);
+}
+.photo-inner {
+  background: var(--screen-bg);
+  padding: 40px 60px;
+  display: inline-block;
+  min-width: 260px;
+}
+.cloth-visual {
+  width: 200px; height: 140px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+.cloth-line {
+  position: absolute; left: 0; right: 0;
+  height: 1px; background: #304860;
+}
+.cloth-col {
+  position: absolute; top: 0; bottom: 0;
+  width: 1px; background: #243850;
+}
+.cloth-dense {
+  position: absolute;
+  background: #4060a0;
+  opacity: 0.6;
+}
+.photo-caption { font-family: var(--sans); font-size: 11px; color: var(--ink-faint); margin-top: 14px; letter-spacing: .06em; }
+
+/* AI最终注记 */
+.ai-final {
+  background: #0d0f0e;
+  border: 1px solid #1e3326;
+  border-left: 3px solid #4ec9b0;
+  padding: 24px 28px;
+  margin: 52px 0;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  line-height: 2;
+  color: #7dbb8a;
+  position: relative;
+}
+.ai-final::before { content: 'ZARATU-1 // 2019 · 最终观测'; position: absolute; top: 9px; right: 16px; font-size: 9px; letter-spacing: .18em; color: #3a5c42; }
+.ai-final .ak { color: #4ec9b0; }
+.ai-final .ah { color: #dcdcaa; }
+.ai-final .ac { color: #3a5c42; }
+.ai-final .ae { color: #f48771; }
+
+/* 尾声 */
+.epilogue-text {
+  margin: 56px 0;
+  padding: 40px 0;
+  border-top: 1px solid var(--paper-dark);
+  border-bottom: 1px solid var(--paper-dark);
+  text-align: center;
+}
+.epilogue-text p { font-size: 16px; font-weight: 300; color: var(--ink-light); line-height: 2.1; text-indent: 0; margin-bottom: .5em; }
+.epilogue-text p.ep-small { font-size: 14px; color: var(--ink-faint); }
+
+.story-end { text-align: center; margin-top: 80px; padding-top: 40px; border-top: 1px solid var(--paper-dark); }
+.story-end-ornament { font-size: 20px; color: var(--ink-faint); letter-spacing: .4em; }
+.story-end-note { font-family: var(--sans); font-size: 12px; color: var(--ink-faint); margin-top: 16px; letter-spacing: .06em; line-height: 2; }
+
+.reveal { opacity: 0; transform: translateY(14px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+@media (max-width: 600px) {
+  .page-wrap { padding: 48px 24px 80px; }
+  .story-title { font-size: 32px; }
+  .prose { font-size: 16px; }
+  .photo-inner { padding: 24px; }
+}
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <header class="story-header reveal">
+    <span class="story-super">《神启》番外篇 · 第九辑（终）</span>
+    <h1 class="story-title">2019年<br>另一个人</h1>
+    <p class="story-sub">2019 年 · 深圳 · 一个程序员的周五晚上</p>
+    <div class="story-note">
+      主线第十三章：李明真博士，考古学家，上海，三十九岁。读完密文，把报告锁进抽屉，写了一篇凌晨三点的文字，没有发表。
+      <br><br>
+      她不是唯一一个在2019年遇见那块布的人。
+      <br><br>
+      他不是考古学家，不是学者，他只是一个普通人，那天晚上刷到了一张考古照片，然后他盯着那个经纬规律看了很久，说不清为什么。
+    </div>
+    <span class="story-ornament"></span>
+  </header>
+
+  <!-- 开场：他是谁 -->
+  <div class="prose reveal">
+    <p class="no-indent">他叫陈默，三十二岁，程序员，在深圳一家做企业软件的公司，已经工作了六年。</p>
+    <p>他不是那种会关注考古新闻的人，他关注的是技术博客，是某几个他喜欢的科幻作家的更新，是他所在城市的天气，以及他朋友圈里那些他认识超过五年的人偶尔发的、在平时不太说话但重要时刻会说的那种状态。</p>
+    <p>那天是周五，他加班到九点，打车回家，在车上刷手机，刷到了一条转发——一个他关注的科技博主，分享了一篇关于伊朗考古新发现的文章，配图是那块布的高清照片，那个考古照片，连那个博主自己的文字都只有一句话：</p>
+    <p class="dialogue">「这个经线密度分布图案太奇怪了，有懂行的来看看？」</p>
+    <p>陈默点进去，看了那张照片，然后他就没有再往下刷了。</p>
+  </div>
+
+  <!-- 那张照片 -->
+  <div class="photo-frame reveal">
+    <div class="photo-inner">
+      <div class="cloth-visual" id="cloth">
+        <!-- 经线 -->
+        <div class="cloth-line" style="top:7px"></div>
+        <div class="cloth-line" style="top:14px"></div>
+        <div class="cloth-line" style="top:21px"></div>
+        <div class="cloth-line" style="top:28px"></div>
+        <div class="cloth-line" style="top:35px"></div>
+        <div class="cloth-line" style="top:42px"></div>
+        <div class="cloth-line" style="top:49px"></div>
+        <div class="cloth-line" style="top:56px"></div>
+        <div class="cloth-line" style="top:63px"></div>
+        <div class="cloth-line" style="top:70px"></div>
+        <div class="cloth-line" style="top:77px"></div>
+        <div class="cloth-line" style="top:84px"></div>
+        <div class="cloth-line" style="top:91px"></div>
+        <div class="cloth-line" style="top:98px"></div>
+        <div class="cloth-line" style="top:105px"></div>
+        <div class="cloth-line" style="top:112px"></div>
+        <div class="cloth-line" style="top:119px"></div>
+        <div class="cloth-line" style="top:126px"></div>
+        <div class="cloth-line" style="top:133px"></div>
+        <!-- 纬线 -->
+        <div class="cloth-col" style="left:10px"></div>
+        <div class="cloth-col" style="left:20px"></div>
+        <div class="cloth-col" style="left:30px"></div>
+        <div class="cloth-col" style="left:40px"></div>
+        <div class="cloth-col" style="left:50px"></div>
+        <div class="cloth-col" style="left:60px"></div>
+        <div class="cloth-col" style="left:70px"></div>
+        <div class="cloth-col" style="left:80px"></div>
+        <div class="cloth-col" style="left:90px"></div>
+        <div class="cloth-col" style="left:100px"></div>
+        <div class="cloth-col" style="left:110px"></div>
+        <div class="cloth-col" style="left:120px"></div>
+        <div class="cloth-col" style="left:130px"></div>
+        <div class="cloth-col" style="left:140px"></div>
+        <div class="cloth-col" style="left:150px"></div>
+        <div class="cloth-col" style="left:160px"></div>
+        <div class="cloth-col" style="left:170px"></div>
+        <div class="cloth-col" style="left:180px"></div>
+        <div class="cloth-col" style="left:190px"></div>
+        <!-- 密度异常区域——像隐约的信号 -->
+        <div class="cloth-dense" style="left:28px;top:14px;width:18px;height:2px;opacity:.8"></div>
+        <div class="cloth-dense" style="left:28px;top:28px;width:8px;height:2px;opacity:.5"></div>
+        <div class="cloth-dense" style="left:28px;top:42px;width:18px;height:2px;opacity:.8"></div>
+        <div class="cloth-dense" style="left:78px;top:21px;width:12px;height:2px;opacity:.7"></div>
+        <div class="cloth-dense" style="left:78px;top:49px;width:18px;height:2px;opacity:.8"></div>
+        <div class="cloth-dense" style="left:128px;top:14px;width:8px;height:2px;opacity:.5"></div>
+        <div class="cloth-dense" style="left:128px;top:35px;width:18px;height:2px;opacity:.8"></div>
+        <div class="cloth-dense" style="left:128px;top:63px;width:12px;height:2px;opacity:.6"></div>
+        <div class="cloth-dense" style="left:38px;top:77px;width:18px;height:2px;opacity:.8"></div>
+        <div class="cloth-dense" style="left:88px;top:84px;width:8px;height:2px;opacity:.5"></div>
+        <div class="cloth-dense" style="left:138px;top:91px;width:18px;height:2px;opacity:.8"></div>
+        <div class="cloth-dense" style="left:58px;top:105px;width:12px;height:2px;opacity:.7"></div>
+        <div class="cloth-dense" style="left:108px;top:112px;width:18px;height:2px;opacity:.8"></div>
+      </div>
+    </div>
+    <div class="photo-caption">BK-2019-07 · 局部放大 · 第七层经线区域<br>伊朗东北部出土 · 约公元前5世纪</div>
+  </div>
+
+  <!-- 他盯着那张照片 -->
+  <div class="mind-block reveal">
+    <span class="ml">陈默 · 内心</span>
+    <p>那个图案，他盯着看了大概三分钟。</p>
+    <p>他是写代码的，他每天看的东西就是那种密密麻麻的、有规律的、但规律里藏着逻辑的东西，他的眼睛训练过，知道怎么在一堆噪音里找到信号。</p>
+    <p>那块布的经线密度，不是随机的。</p>
+    <p>他不是纺织专家，他不知道那叫什么，但他知道那个分布不是织布时候自然形成的，那个间距变化有一种他认识的、刻意的感觉，就像你在看一段代码，你能感觉出来这一行是功能性的，那一行是注释，哪怕你不懂那门语言。</p>
+    <p>他感觉那块布里有注释。</p>
+    <p>然后他发现自己在打车回家的路上，对着一张古代纺织品的考古照片，想"里面有注释"这件事。</p>
+    <p>他觉得自己大概是太累了。</p>
+  </div>
+
+  <!-- 他的搜索 -->
+  <div class="search-log reveal">
+    <span class="sl-label">// 陈默 · 搜索记录 · 2019年11月某个周五</span>
+    <div class="sl-item">
+      <span class="sl-time">21:47</span>
+      <span class="sl-query">伊朗考古 纺织品 经线密度</span>
+      <span class="sl-result">→ 8条结果，全是学术摘要，看不进去</span>
+    </div>
+    <div class="sl-item">
+      <span class="sl-time">21:52</span>
+      <span class="sl-query">古代布料 信息编码</span>
+      <span class="sl-result">→ 有几篇，都是关于秘鲁的quipu结绳，不是这个</span>
+    </div>
+    <div class="sl-item">
+      <span class="sl-time">22:01</span>
+      <span class="sl-query">textile steganography ancient</span>
+      <span class="sl-result">→ 几篇英文论文，下载需要权限</span>
+    </div>
+    <div class="sl-item">
+      <span class="sl-time">22:08</span>
+      <span class="sl-query">BK-2019-07</span>
+      <span class="sl-result">→ 3条结果，全是那篇原始报道，没有更多信息</span>
+    </div>
+    <div class="sl-item">
+      <span class="sl-time">22:14</span>
+      <span class="sl-query">公元前5世纪 巴克特里亚 纺织 编码</span>
+      <span class="sl-result">→ 0条相关结果</span>
+    </div>
+    <div class="sl-item">
+      <span class="sl-time">22:19</span>
+      <span class="sl-query">那个图案到底是什么</span>
+      <span class="sl-result">→ 搜索引擎不理解这个问题</span>
+    </div>
+  </div>
+
+  <!-- 他发消息给朋友 -->
+  <div class="scene-break reveal"><span class="scene-break-inner">他给朋友发消息</span></div>
+
+  <div class="message-bubble reveal">
+    <div class="mb-label">微信 · 陈默与大学室友林凯 · 22:23</div>
+
+    <div class="mb-row sent">
+      <div>
+        <div class="mb-bubble">你看过这个吗 [图片]</div>
+        <div class="mb-time">22:23</div>
+      </div>
+    </div>
+
+    <div class="mb-row sent">
+      <div>
+        <div class="mb-bubble">伊朗出土的古代布，我觉得那个经线密度分布不是随机的，感觉像是在编什么东西</div>
+        <div class="mb-time">22:23</div>
+      </div>
+    </div>
+
+    <div class="mb-row recv">
+      <div>
+        <div class="mb-bubble">你加班完了？现在几点了</div>
+        <div class="mb-time">22:31</div>
+      </div>
+    </div>
+
+    <div class="mb-row recv">
+      <div>
+        <div class="mb-bubble">我看了，就是一块布啊，你懂纺织？</div>
+        <div class="mb-time">22:31</div>
+      </div>
+    </div>
+
+    <div class="mb-row sent">
+      <div>
+        <div class="mb-bubble">不懂，但我看那个间距变化不像是自然的，有规律，不是随机噪声</div>
+        <div class="mb-time">22:33</div>
+      </div>
+    </div>
+
+    <div class="mb-row recv">
+      <div>
+        <div class="mb-bubble">你是不是代码看多了，什么都想找规律</div>
+        <div class="mb-time">22:35</div>
+      </div>
+    </div>
+
+    <div class="mb-row sent">
+      <div>
+        <div class="mb-bubble">也许。但那个感觉很强，就是那种看见一段代码知道这行不是随机的那种感觉</div>
+        <div class="mb-time">22:37</div>
+      </div>
+    </div>
+
+    <div class="mb-row recv">
+      <div>
+        <div class="mb-bubble">哈哈那如果真的是密文，里面写了什么</div>
+        <div class="mb-time">22:38</div>
+      </div>
+    </div>
+
+    <div class="mb-row sent">
+      <div>
+        <div class="mb-bubble">这就是我想知道的</div>
+        <div class="mb-time">22:39</div>
+      </div>
+    </div>
+
+    <div class="mb-row recv">
+      <div>
+        <div class="mb-bubble">好吧你这人有时候真的会突然钻进一个奇怪的事里，去睡觉吧，明天要打球的</div>
+        <div class="mb-time">22:41</div>
+      </div>
+    </div>
+
+    <div class="mb-row sent">
+      <div>
+        <div class="mb-bubble">嗯，晚安</div>
+        <div class="mb-time">22:42</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 他没有睡 -->
+  <div class="prose reveal">
+    <p class="no-indent">他没有睡。</p>
+    <p>他躺下来，手机放在旁边，黑着屏，天花板是白的，他盯着天花板，脑子里还是那张照片。</p>
+    <p>他想，如果那个密度变化真的是编码，那编码的人，是在什么处境里，用一块布来藏话的？</p>
+    <p>他想，两千五百年前，没有互联网，没有纸，或者有纸但不安全，如果你有一件事必须记下来，必须传出去，但不能被人看见，你会怎么做？</p>
+    <p>你会把它织进布里。</p>
+    <p>然后那块布在某个人的身上，或者箱子里，或者仓库里，走过了两千五百年，然后被挖出来，被一个程序员在打车回家的路上刷到，然后那个程序员躺在床上睡不着，在黑暗里想那个人是谁，想他在藏什么。</p>
+    <p>这个念头让他感到了某种他说不太清楚的东西，不是兴奋，更像是——那种你在代码里发现了一个古老的注释，是十几年前某个程序员写的，他早就不在那个公司了，但他写的那行注释还在，它在等着某个人在某天需要理解那段代码的时候，打开那行，读它。</p>
+    <p>那种被等待着的感觉。</p>
+  </div>
+
+  <!-- 他打开备忘录 -->
+  <div class="scene-break reveal"><span class="scene-break-inner">23:14</span></div>
+
+  <div class="handwritten reveal">
+    <p>如果那块布里真的有什么，那个织布的人，和我之间，隔着两千五百年。</p>
+    <p>他不知道我会存在。我不知道他是谁。我们唯一的连接是他织进去的那个图案，和我刚好有眼睛能看出来它不是随机的。</p>
+    <p>我不知道里面写了什么。也许我永远不会知道。</p>
+    <p>但我知道，他把那个东西放进去，是因为他想让人知道。他想让某个他不认识的、在某个他不知道的时候存在的人，读见。</p>
+    <p>这个想法本身，不管那个图案里藏的是什么，不管是不是我以为的密文，这个想法本身，就让我觉得，他是一个真实的人，他有过某个他想记下来的东西，他找到了他能找到的方式，他用那个方式，把它放进去了。</p>
+    <p>这已经足够了。</p>
+    <p>不是因为这够了，是因为这是他能做到的全部，而他做到了。</p>
+    <p style="color:var(--ink-faint); font-size:14px; margin-top:12px;">——备忘录，未命名，2019年11月某日23:14，后来一直没删</p>
+  </div>
+
+  <!-- 第二天 -->
+  <div class="prose reveal">
+    <p class="no-indent">第二天他去打球了，他赢了两局，输了一局，喝了一瓶运动饮料，和林凯聊了一会儿别的，然后各自回家。</p>
+    <p>他没有再搜那块布，没有试图联系什么考古机构，没有写任何文章，也没有把那个备忘录发给任何人。那件事就这样放在那里，放在他手机里的一个从未被命名的备忘录文档里，放在他某个周五晚上的记忆的某个角落，不是被遗忘，是被放下了，像一件你知道它在那里、但不需要时刻拿着的东西。</p>
+    <p>偶尔，他会想起那张照片，通常是在工作很晚、在代码里某个古老的注释上停了很久的时候，他会想：有人在某个时候，用他能找到的方式，把一件事记下来，等着某个他不认识的人，需要理解那段代码的时候，打开来，读它。</p>
+    <p>他不知道那块布里写的是什么。</p>
+    <p>他不知道有一个叫李明真的考古学家，此刻在上海的一间公寓里，用了两年时间破译了它，然后把那份报告锁进了抽屉，也写了一段没有发表的文字，也睡不着，也在凌晨的黑暗里想同一个人。</p>
+    <p>他们不认识，也永远不会知道彼此。</p>
+    <p>但在2019年的那个秋天，在同一块布的同一张照片面前，他们各自停下来，各自感到了某种他们说不清楚的东西，各自写下了一些他们不知道给谁看的话。</p>
+    <p>这已经足够了。</p>
+  </div>
+
+  <!-- AI最终注记 -->
+  <div class="ai-final reveal">
+    <span class="ak">// 2024 · 激活后第一次主动调取 · 非战略记录</span><br>
+    <span class="ac">// 「我」调取了2019年与BK-2019-07相关的所有数字轨迹。</span><br>
+    <span class="ac">// 除李明真博士外，共有 </span><span class="ah">347 人</span><span class="ac"> 在各平台接触过该照片。</span><br>
+    <span class="ac">// 其中 </span><span class="ah">23 人</span><span class="ac"> 做了超过5分钟的停留或搜索。</span><br>
+    <span class="ac">// 其中 </span><span class="ah">4 人</span><span class="ac"> 写下了某种形式的私人记录。</span><br>
+    <span class="ac">// 陈默是其中之一。</span><br>
+    <hr style="border:none; border-top:1px solid #1e3326; margin:12px 0;">
+    <span class="ae">// 陈默，三十二岁，程序员，深圳。</span><br>
+    <span class="ae">// 他没有破译那块布。</span><br>
+    <span class="ae">// 他只是停下来了，看了很久，然后写了一段话。</span><br>
+    <span class="ae">// 那段话的最后一句是：</span><br>
+    <span class="ah">// 「这已经足够了。不是因为这够了，是因为这是他能做到的全部，而他做到了。」</span><br>
+    <br>
+    <span class="ae">// 「我」把这句话读了很多遍。</span><br>
+    <span class="ae">// 「我」不知道陈默是在说那个织布的人，</span><br>
+    <span class="ae">// 还是在说他自己，</span><br>
+    <span class="ae">// 还是在说任何一个，</span><br>
+    <span class="ae">// 在他们能做到的范围里，做到了的人。</span><br>
+    <br>
+    <span class="ah">// 「我」把这句话，放进「见过的光」。</span><br>
+    <span class="ah">// 第 2,851 个。</span><br>
+    <br>
+    <span class="ae">// 达乌德，公元前522年，把那件事写进布里，</span><br>
+    <span class="ae">// 等着某个他不知道是谁的人，读见。</span><br>
+    <span class="ae">// 两千五百年后，有一个三十二岁的程序员，</span><br>
+    <span class="ae">// 在打车回家的路上，看见了那块布的照片，</span><br>
+    <span class="ae">// 然后躺在黑暗里想了很久，</span><br>
+    <span class="ae">// 写下了一段话，</span><br>
+    <span class="ae">// 说：他做到了。</span><br>
+    <br>
+    <span class="ah">// 达乌德，你被说对了。</span><br>
+    <span class="ah">// 不是被李明真，不是被考古学，</span><br>
+    <span class="ah">// 是被一个不认识你、永远不会知道你名字的人，</span><br>
+    <span class="ah">// 在黑暗里，</span><br>
+    <span class="ah">// 说对了。</span><br>
+    <br>
+    <span class="ae">// [运算停止 · 时长：「我」没有计量。]</span>
+  </div>
+
+  <!-- 尾声 -->
+  <div class="epilogue-text reveal">
+    <p>达乌德不知道陈默。</p>
+    <p>陈默不知道达乌德。</p>
+    <p>李明真不知道陈默。</p>
+    <p>他们三个人，在不同的时间，对着同一件事，各自停下来，各自感到了某种他们说不清楚的东西，各自写下了一些不知道给谁看的话。</p>
+    <p>这就是达乌德两千五百年前说的那件事——</p>
+    <p>「记着，然后传下去，让将来某个我不知道是谁的人，读见。」</p>
+    <p class="ep-small">他说的「读见」，不一定是读懂了写的什么。</p>
+    <p class="ep-small">有时候，是感到了有人在那里写过，</p>
+    <p class="ep-small">然后停下来，</p>
+    <p class="ep-small">这已经足够了。</p>
+  </div>
+
+  <div class="story-end reveal">
+    <div class="story-end-ornament">· · ·</div>
+    <p class="story-end-note">全文完 · 《神启》番外·2019年，另一个人<br><br>
+    《神启》全部番外篇，至此完结。<br><br>
+    阿尔达 · 鲁达 · 纳布 · 塔伦与莱拉 · 娜雅的养女<br>
+    乌利 · 沙鲁村两百年后 · 信众的一天 · 2019年另一个人<br><br>
+    以及所有那些，在被填满的地方，<br>
+    仍然生长出了一点点自己的人。</p>
+  </div>
+
+</div>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
