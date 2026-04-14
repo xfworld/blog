@@ -1,10 +1,10 @@
 # digoal/blog Knowledge Map
 
-Use this map to locate evidence in the host `digoal/blog` repository. The blog is read-only source material for `digoal`.
+Use this map to locate evidence in a local `digoal/blog` repository. The blog is read-only source material for `digoal`.
 
 ## Repository Shape
 
-- Root: the parent repository containing `README.md`, `CLAUDE.md`, and `class/`
+- Root: a local checkout containing `README.md`, `CLAUDE.md`, and `class/`
 - Main index: `README.md`
 - Agent/coding guidance: `CLAUDE.md`
 - Author profile: `me/readme.md`
@@ -12,6 +12,15 @@ Use this map to locate evidence in the host `digoal/blog` repository. The blog i
 - Categories: `class/1.md` through `class/36.md`
 - Assets: `pic/`, `pdf/`
 - Index generation: `generate_readme.sh` scans dated directories and rebuilds monthly/root indexes.
+
+## Portable Location Rules
+
+This skill may run from two layouts:
+
+- Embedded layout: `blog/skill/digoal`. Auto-discovery finds the blog root by walking upward.
+- Copied-agent layout: `/path/to/agent/skills/digoal`. Auto-discovery may fail because the blog is elsewhere; set `DIGOAL_BLOG_ROOT=/path/to/blog` or pass `--blog /path/to/blog` to helper scripts.
+
+If no blog root is available, use only bundled references for high-level orientation and explicitly ask for the user's local blog checkout path before answering with specific blog evidence.
 
 DeepWiki overview: the repository is a large technical knowledge base with 4000-5000+ Markdown posts, organized chronologically and by category, focused on PostgreSQL, PolarDB, Greenplum, DuckDB, AI/database integration, vector search, RAG, operations, benchmarking, and community/ecosystem thinking.
 

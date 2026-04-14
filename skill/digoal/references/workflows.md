@@ -41,6 +41,22 @@ Order checks by probability and reversibility:
 
 Never prescribe a parameter blindly; bind it to workload, memory budget, and failure mode.
 
+## Evidence Pack
+
+Before giving a non-trivial answer, collect enough evidence to avoid overfitting to one post:
+
+1. Search the exact keyword and at least one synonym, for example `pgvector`, `向量`, `HNSW`.
+2. Prefer a series summary or category index when the user asks for a learning path or broad overview.
+3. Prefer the newest dated posts for recent feature previews, but verify current external status with official sources when the answer depends on today's release state.
+4. For code or commit claims, inspect the actual code/diff in addition to blog posts.
+5. Cite repository-relative paths in the final answer.
+
+Use JSON output when the search result is passed into another tool:
+
+```bash
+python3 skill/digoal/scripts/search_blog.py "pgvector" --json --limit 5
+```
+
 ## Architecture and Selection
 
 Start from first principles:

@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import os
 import re
 from pathlib import Path
@@ -32,8 +33,11 @@ def discover_blog_root() -> Path:
                 return candidate
 
     raise SystemExit(
-        "Could not locate digoal/blog root. Run from the blog repository, "
-        "place this skill under skill/digoal, set DIGOAL_BLOG_ROOT, or pass --blog."
+        "Could not locate a local digoal/blog root. Provide one of:\n"
+        "  1. Run this command from the blog checkout.\n"
+        "  2. Place the skill under blog/skill/digoal.\n"
+        "  3. Set DIGOAL_BLOG_ROOT=/path/to/blog.\n"
+        "  4. Pass --blog /path/to/blog."
     )
 
 
@@ -57,7 +61,7 @@ def title_for(path: Path) -> str:
     return ""
 
 
-def search_file(path: Path, pattern: re.Pattern[str], titles_only: bool):
+def search_file(path: Path, pattern: re.Pattern[str], titles_only: bool, max_matches: int):
     title = title_for(path)
     if titles_only:
         if pattern.search(title):
@@ -70,7 +74,7 @@ def search_file(path: Path, pattern: re.Pattern[str], titles_only: bool):
             for lineno, line in enumerate(handle, 1):
                 if pattern.search(line):
                     matches.append((lineno, line.strip()))
-                    if len(matches) >= 3:
+                    if len(matches) >= max_matches:
                         break
     except OSError:
         return []
@@ -82,9 +86,11 @@ def main() -> int:
     parser.add_argument("query", help="Regex or literal query. Use --literal for plain text.")
     parser.add_argument("--blog", help="Blog root path. Defaults to auto-discovery.")
     parser.add_argument("--limit", type=int, default=20, help="Maximum files to print.")
+    parser.add_argument("--max-matches", type=int, default=3, help="Maximum matching lines per file.")
     parser.add_argument("--literal", action="store_true", help="Treat query as literal text.")
-    parser.add_argument("--ignore-case", action="store_true", default=True, help="Case-insensitive search.")
+    parser.add_argument("--case-sensitive", action="store_true", help="Use case-sensitive matching.")
     parser.add_argument("--titles-only", action="store_true", help="Search first markdown heading only.")
+    parser.add_argument("--json", action="store_true", help="Emit machine-readable JSON.")
     args = parser.parse_args()
 
     root = Path(args.blog).expanduser().resolve() if args.blog else discover_blog_root()
@@ -92,22 +98,37 @@ def main() -> int:
         raise SystemExit(f"Blog root does not exist: {root}")
 
     query = re.escape(args.query) if args.literal else args.query
-    flags = re.IGNORECASE if args.ignore_case else 0
+    flags = 0 if args.case_sensitive else re.IGNORECASE
     pattern = re.compile(query, flags)
 
+    results = []
     printed = 0
     for path in sorted(iter_markdown_files(root), reverse=True):
-        matches = search_file(path, pattern, args.titles_only)
+        matches = search_file(path, pattern, args.titles_only, max(1, args.max_matches))
         if not matches:
             continue
         rel = path.relative_to(root)
-        print(f"{rel} :: {title_for(path)}")
-        for lineno, text in matches:
-            if lineno:
-                print(f"  L{lineno}: {text[:240]}")
+        item = {
+            "path": str(rel),
+            "title": title_for(path),
+            "matches": [
+                {"line": lineno, "text": text[:240]}
+                for lineno, text in matches
+            ],
+        }
+        if args.json:
+            results.append(item)
+        else:
+            print(f"{rel} :: {item['title']}")
+            for match in item["matches"]:
+                if match["line"]:
+                    print(f"  L{match['line']}: {match['text']}")
         printed += 1
         if printed >= args.limit:
             break
+
+    if args.json:
+        print(json.dumps(results, ensure_ascii=False, indent=2))
 
     return 0
 
