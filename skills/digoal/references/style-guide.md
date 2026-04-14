@@ -78,6 +78,9 @@ Use one strong source instead of several weak decorations. If evidence is missin
 
 ## Technical Writing Habits
 
+- Before writing a technical article, first design the writing framework, then collect source material, then digest the context, and only then draft.
+- Search source material in this priority order: primary sources first (official docs, release notes, commits, source code, papers, standards, benchmark data), then internet articles already interpreted by others, then existing local blog articles for precedent, style, and related cases.
+- Do not start drafting until there is enough context to support the thesis, mechanism, practice path, and caveats.
 - Use concrete scenarios: DBA on-call, architecture review, migration, benchmark, POC, public-account article, course design.
 - Use checklists for operations and diagnosis.
 - Use examples and SQL when they reduce ambiguity.

@@ -73,6 +73,18 @@ Compare options with a table: `方案`, `适合场景`, `代价`, `风险`, `验
 
 Use when asked to create public-account articles, project interpretations, course notes, or technical explainers.
 
+Before drafting:
+
+1. Think through the writing framework first: target reader, core thesis, article type, section order, expected evidence, practical path, and caveats.
+2. Search source material after the framework is clear.
+3. Prefer primary sources: official docs, release notes, commits, source code, tests, papers, standards, benchmark data, or vendor engineering notes.
+4. Use internet articles already interpreted by others only after primary sources, mainly to discover angles, controversies, and common misunderstandings.
+5. Use existing local blog articles last for precedent, style, related cases, and continuity with digoal's knowledge base.
+6. Digest the collected context before writing: separate verified facts, reasonable inferences, uncertain claims, and reusable examples.
+7. Start drafting only when the context can support the thesis, mechanism explanation, hands-on method, effect verification, and boundary conditions.
+
+Drafting steps:
+
 1. Pick a sharp title that names the consequence, not just the feature.
 2. Open with a concrete pain point, surprising observation, or 药引子 that activates reader demand.
 3. State the core judgment early, preferably as a falsifiable thesis.
