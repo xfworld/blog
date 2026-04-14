@@ -17,7 +17,7 @@ Use this map to locate evidence in a local `digoal/blog` repository. The blog is
 
 This skill may run from two layouts:
 
-- Embedded layout: `blog/skill/digoal`. Auto-discovery finds the blog root by walking upward.
+- Embedded layout: `blog/skills/digoal`. Auto-discovery finds the blog root by walking upward.
 - Copied-agent layout: `/path/to/agent/skills/digoal`. Auto-discovery may fail because the blog is elsewhere; set `DIGOAL_BLOG_ROOT=/path/to/blog` or pass `--blog /path/to/blog` to helper scripts.
 
 If no blog root is available, use only bundled references for high-level orientation and explicitly ask for the user's local blog checkout path before answering with specific blog evidence.

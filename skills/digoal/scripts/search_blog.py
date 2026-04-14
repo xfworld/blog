@@ -35,14 +35,14 @@ def discover_blog_root() -> Path:
     raise SystemExit(
         "Could not locate a local digoal/blog root. Provide one of:\n"
         "  1. Run this command from the blog checkout.\n"
-        "  2. Place the skill under blog/skill/digoal.\n"
+        "  2. Place the skill under blog/skills/digoal.\n"
         "  3. Set DIGOAL_BLOG_ROOT=/path/to/blog.\n"
         "  4. Pass --blog /path/to/blog."
     )
 
 
 def iter_markdown_files(root: Path):
-    skip = {".git", "skill"}
+    skip = {".git", "skills"}
     for path in root.rglob("*.md"):
         if any(part in skip for part in path.parts):
             continue
@@ -96,6 +96,8 @@ def main() -> int:
     root = Path(args.blog).expanduser().resolve() if args.blog else discover_blog_root()
     if not root.exists():
         raise SystemExit(f"Blog root does not exist: {root}")
+    if not looks_like_blog_root(root):
+        raise SystemExit(f"Path is not a digoal/blog root: {root}")
 
     query = re.escape(args.query) if args.literal else args.query
     flags = 0 if args.case_sensitive else re.IGNORECASE

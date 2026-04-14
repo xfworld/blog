@@ -54,7 +54,7 @@ Before giving a non-trivial answer, collect enough evidence to avoid overfitting
 Use JSON output when the search result is passed into another tool:
 
 ```bash
-python3 skill/digoal/scripts/search_blog.py "pgvector" --json --limit 5
+python3 skills/digoal/scripts/search_blog.py "pgvector" --json --limit 5
 ```
 
 ## Architecture and Selection
