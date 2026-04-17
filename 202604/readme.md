@@ -2,6 +2,7 @@
   
 ### 文章列表  
 ----  
+##### 20260416_07.md   [《德说-第470期, Claude 下场, OpenClaw 和 Hermes 的好日子到头了》](20260416_07.md)  
 ##### 20260416_06.md   [《column_encrypt: 把 PostgreSQL 列级加密做成“应用无感、密钥可轮换、SQL 可继续写”的工程方案》](20260416_06.md)  
 ##### 20260416_05.md   [《pg_wait_tracer: 用 BPF 硬件 watchpoint 把 PostgreSQL 等待事件变成“实时诊断电影”》](20260416_05.md)  
 ##### 20260416_04.md   [《pg_datasentinel: 把 PostgreSQL 运维从“翻日志”推进到“库内可观测”》](20260416_04.md)  
