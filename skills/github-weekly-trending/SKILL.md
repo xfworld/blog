@@ -70,6 +70,14 @@ markdown/github-weekly-trending-YYYY-WW.md
 - 用户粘贴内容中展示的本周新增 stars 或热度指标
 - 仓库地址
 
+当用户只提供 `owner/repo` 或类似 `owner / repo` 的项目名时，自动补齐：
+
+- 标准项目名：去掉 `/` 两侧空格，规范为 `owner/repo`
+- GitHub 仓库地址：`https://github.com/owner/repo`
+- DeepWiki MCP `repoName` 参数：使用同一个标准项目名 `owner/repo`
+
+示例：用户提供 `microsoft / markitdown` 时，记录项目名为 `microsoft/markitdown`，仓库地址为 `https://github.com/microsoft/markitdown`，并在 DeepWiki MCP 中使用 `repoName: "microsoft/markitdown"`。
+
 注意：“本周新增 stars”或热度指标以用户粘贴内容为准，不等同于完整历史审计数据。
 
 如果用户粘贴内容无法解析出足够候选项目，先向用户请求补充榜单内容。不要自行抓取 GitHub Trending 页面替代用户输入。
