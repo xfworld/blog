@@ -22,6 +22,47 @@
 ## only for claude web
 `skills_for_claude_web` 目录中的 skill 仅用于 Claude web 版.
   
-`.skill` 可能是 claude skill 的二进制格式.  
+`.skill` 是 claude web skill 的压缩包.  
   
 - `paper-interpreter`: 输入论文 PDF 或论文 URL , 通俗易懂解读论文.   
+  
+## 依赖  
+1、  
+  
+```bash  
+pip3 install pymupdf pypdf pdfplumber pdfminer.six  
+```  
+  
+对应关系：  
+  
+- `pymupdf`：提供 `fitz`，用于 PDF 文本和图片提取  
+- `pypdf`：`PyMuPDF` 不可用时的文本提取 fallback  
+- `pdfplumber`：表格候选提取  
+- `pdfminer.six`：`skills_for_claude_web/paper-interpreter` 中明确写了 `pip install pdfminer.six`  
+  
+  
+2、  
+  
+PDF/OCR fallback 工具，`skills/paper-interpretation` 提到扫描 PDF 时可用 OCR 或本地 PDF/image 工具，建议装：  
+  
+```bash  
+brew install poppler tesseract  
+```  
+  
+说明：  
+  
+- `poppler` 提供 `pdftotext`、`pdfinfo`、`pdfimages`  
+- `tesseract` 用于 OCR 扫描型 PDF/图片  
+  
+3、  
+  
+DeepWiki MCP / Node 工具  
+  
+`open-source-project-article` 和 `pgfaq` 依赖 DeepWiki MCP。若本地没有配置，可安装/运行对应 MCP 包：  
+  
+```bash  
+npx --yes @seflless/deepwiki  
+```  
+  
+如果要把它加入 Codex MCP，需要用你当前环境对应的 MCP 配置命令；从技能内容本身看，只能确定它需要 DeepWiki MCP 能力，不能确定唯一安装方式。  
+  
