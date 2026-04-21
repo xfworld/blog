@@ -16,6 +16,8 @@
 - `postgres-commit-history-article`: 先进入 postgres 项目目录, 输入 `commitid1 commitid2` , 分析并解读这两个 commitid 中间的所有提交 (也包括这两个 commit), 输出到当前项目 markdown 目录中.
   
 - `paper-interpretation`: 输入论文 PDF 或论文 URL , 通俗易懂解读论文. 例如用于解读 AI 论文 https://huggingface.co/papers/trending https://arxiv.org/abs/2604.14141 https://arxiv.org/abs/2508.02739 
+  
+- `pgfaq`: clone https://github.com/postgres/postgres 源码, 将其作为项目目录. 输入 PostgreSQL 相关的问题, 将回答结果保存到项目目录的 markdown 子目录中. 回答时会参考代码、文档和deepwiki, 并对回答内容正确性进行校验.  
 
 ## only for claude web
 `skills_for_claude_web` 目录中的 skill 仅用于 Claude web 版.
