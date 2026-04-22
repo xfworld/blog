@@ -28,6 +28,8 @@
   
 - `paper-interpreter`: 输入论文 PDF 或论文 URL , 通俗易懂解读论文.   
   
+- `db-foundation-course`: 数据库筑基课 写作 skill, 输入数据库筑基课的文章标题 以及 相关的参考资料(通常是该篇数据库筑基课相关的技术文档、产品手册、开源项目地址、deepwiki地址、论文地址等). 输出最终 markdown 文件.   
+  
 ## 依赖  
 1、  
   
