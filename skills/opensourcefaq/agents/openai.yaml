@@ -1,0 +1,4 @@
+interface:
+  display_name: "opensourcefaq"
+  short_description: "解答开源产品源码、DeepWiki与网络资料范围内的问题并保存Markdown"
+  default_prompt: "使用 $opensourcefaq 解答一个开源产品相关问题。请先提供问题、所有相关开源项目源码目录和DeepWiki repoName，并确保源码已clone且已用init生成项目框架说明。"
