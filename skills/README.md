@@ -60,6 +60,10 @@
     postgres/postgres
   ```
   
+- `douban-book-notes`: 输入豆瓣链接, 生成读书笔记.  
+  
+- `axiom-explainer`: 输入公理/定理/观点, 输出把“观点 / 公理 / 定理 / 理论系统”生成面向学生的中文 Markdown 文章. 参考 [《德说-第100期, 人生最重要的事3: 建立公理体系和逻辑能力》](../202206/20220610_01.md)  
+  
 ## only for claude web
 `skills_for_claude_web` 目录中的 skill 仅用于 Claude web 版.
   
