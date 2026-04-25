@@ -1,94 +1,94 @@
 # 企业画像框架
 
-Use this reference to diagnose the company before writing recommendations. Planning is the bridge from the company's current A point to a feasible future B point.
+在撰写建议前，使用本参考框架诊断企业。规划的本质，是从企业当前的 A 点走向可行未来 B 点的桥梁。
 
-## 1. Internal Information
+## 1. 内部信息
 
-### Current State: "Who Are We and Where Are We?"
+### 当前状态：“我们是谁，处在什么位置？”
 
-#### Business Fundamentals
+#### 业务基本面
 
-- Financial statements: 3-5 years of revenue, cost, margin, asset quality, debt ratio, operating cash flow, investing cash flow, financing cash flow. Treat cash flow as the survival line.
-- Product/service portfolio: revenue, profit, growth, resource consumption, and lifecycle of each line. Use a BCG-style matrix when data allows.
-- Customer assets: customer segments, concentration, retention, repeat purchase, NPS or proxies, why customers pay, and what pain is solved.
-- Operating efficiency: revenue/profit per employee, inventory turnover, delivery cycle, R&D conversion, fulfillment quality, sales cycle, customer acquisition cost when available.
+- 财务报表：近 3-5 年营收、成本、毛利率、资产质量、负债率、经营现金流、投资现金流、融资现金流。把现金流视为生存线。
+- 产品/服务组合：各业务线的收入、利润、增长、资源消耗和生命周期。数据允许时使用 BCG 风格矩阵。
+- 客户资产：客户分层、集中度、留存、复购、NPS 或替代指标、客户为什么付费、解决了什么痛点。
+- 运营效率：人均收入/利润、库存周转、交付周期、研发转化、履约质量、销售周期、可获得时的获客成本。
 
-#### Organization and People
+#### 组织与人员
 
-- Founders and executives: background, track record, decision style, incentives, strengths, blind spots.
-- Talent structure: key role depth, turnover signals, hiring priorities, capability gaps, whether employees understand strategy.
-- Culture and values: observable behavior under conflict, customer commitments, quality standards, speed, cost discipline, compliance attitude.
+- 创始人与高管：背景、过往业绩、决策风格、激励机制、优势、盲点。
+- 人才结构：关键岗位厚度、流失信号、招聘重点、能力缺口、员工是否理解战略。
+- 文化与价值观：冲突下的可观察行为、客户承诺、质量标准、速度、成本纪律、合规态度。
 
-#### Resources and Capabilities
+#### 资源与能力
 
-- Core resources: licenses, patents, brands, supply chain relationships, data assets, channels, mines/land/factories, government/customer access.
-- Core capabilities: marketing, technology, manufacturing, supply chain, service delivery, ecosystem operation, cost control, compliance, or data/AI capability.
-- Capability durability: identify whether the capability is embedded in process/system or depends on a few individuals; judge imitation difficulty.
+- 核心资源：牌照、专利、品牌、供应链关系、数据资产、渠道、矿山/土地/工厂、政府/客户入口。
+- 核心能力：营销、技术、制造、供应链、服务交付、生态运营、成本控制、合规或数据/AI 能力。
+- 能力耐久性：识别能力是嵌入流程/系统，还是依赖少数个人；判断模仿难度。
 
-### Future Capacity: "Where Do We Want to Go and Where Can We Go?"
+### 未来能力：“我们想去哪里，能够去哪里？”
 
-- Strategic intent: founder/shareholder goal, time horizon, risk appetite, listing/sale/long-term operation preference.
-- Innovation and evolution: reactions to major market changes, structural changes over the past 3 years, new product success rate.
-- Transferable assets: technologies, customer relationships, channels, brand trust, data, manufacturing or service capabilities that can move into adjacent fields.
-- Constraints: capital, talent, brand permission, regulation, supply chain, channel conflict, legacy systems, organizational inertia.
+- 战略意图：创始人/股东目标、时间周期、风险偏好、上市/出售/长期经营偏好。
+- 创新与演化：对重大市场变化的反应、过去 3 年的结构性变化、新产品成功率。
+- 可迁移资产：可进入相邻领域的技术、客户关系、渠道、品牌信任、数据、制造或服务能力。
+- 约束条件：资本、人才、品牌许可边界、监管、供应链、渠道冲突、遗留系统、组织惯性。
 
-## 2. External Information
+## 2. 外部信息
 
-### Current Battlefield
+### 当前战场
 
-#### Market Structure
+#### 市场结构
 
-- Market size, growth, cycle position, and profit pool.
-- Value chain and ecosystem role: who controls pricing power, traffic, data, supply, standards, channels, or financing.
-- The company's current position: high-profit zone, volume zone, low-margin contractor, bottleneck controller, or replaceable service provider.
+- 市场规模、增长、周期位置和利润池。
+- 价值链与生态角色：谁控制定价权、流量、数据、供应、标准、渠道或融资。
+- 企业当前位置：高利润区、规模区、低毛利承包商、瓶颈控制者或可替代服务商。
 
-#### Customer and Demand Insight
+#### 客户与需求洞察
 
-- Purchase journey: discovery, comparison, trial, procurement, usage, renewal, referral.
-- Decision roles: decision maker, buyer, user, influencer, budget owner, compliance gatekeeper.
-- Deep pain: costly, frequent, urgent, or risky problems customers tolerate today.
-- Payment trigger: budget category, ROI logic, risk reduction, revenue increase, compliance requirement, labor saving, status/meaning.
+- 购买旅程：发现、比较、试用、采购、使用、续约、转介绍。
+- 决策角色：决策者、购买者、使用者、影响者、预算负责人、合规把关人。
+- 深层痛点：客户今天仍在忍受的高成本、高频、紧急或高风险问题。
+- 付费触发：预算类别、ROI 逻辑、风险降低、收入提升、合规要求、节省人力、身份/意义。
 
-#### Competition and Cooperation
+#### 竞争与合作
 
-- Direct competitors: same customer and same need; compare product, price, channel, trust, switching cost, service, speed.
-- Substitutes: different solution to the same job-to-be-done, including technology, platforms, outsourcing, self-built internal teams, or adjacent industries.
-- Potential entrants: major platforms, tech giants, upstream/downstream integrators, local champions, policy-backed players.
-- Cooperation map: suppliers, distributors, platforms, integrators, associations, universities, regulators, financiers.
+- 直接竞争者：同一客户、同一需求；比较产品、价格、渠道、信任、切换成本、服务和速度。
+- 替代方案：完成同一任务的不同解决方案，包括技术、平台、外包、自建团队或相邻行业。
+- 潜在进入者：大型平台、科技巨头、上下游整合者、地方龙头、政策支持型玩家。
+- 合作地图：供应商、经销商、平台、集成商、协会、高校、监管方、金融方。
 
-#### Macro and Policy Temperature
+#### 宏观与政策温度
 
-- Current regulation, credit/liquidity, public procurement, employment market, energy/material prices, trade restrictions, industry subsidies, tax policy.
+- 当前监管、信用/流动性、公共采购、就业市场、能源/材料价格、贸易限制、行业补贴、税收政策。
 
-### Future Wind and Currents
+### 未来风向与水流
 
-- Technology discontinuities: technologies that can change cost structure by an order of magnitude or replace the current solution.
-- Social and demographic structure: aging, household size, urbanization phase, generational values, labor supply, health/education/consumption shifts.
-- Economic and policy anchors: carbon neutrality, digital economy, industrial security, domestic substitution, global supply-chain reconstruction, data governance.
-- Value-driven consumption migration: from ownership to usage, from function to meaning, local culture confidence, sustainability, privacy/security, convenience.
+- 技术断点：能够以数量级改变成本结构或替代当前方案的技术。
+- 社会与人口结构：老龄化、家庭规模、城市化阶段、代际价值观、劳动力供给、健康/教育/消费变化。
+- 经济与政策锚点：碳中和、数字经济、产业安全、国产替代、全球供应链重构、数据治理。
+- 价值驱动的消费迁移：从拥有到使用、从功能到意义、本土文化自信、可持续、隐私/安全、便利性。
 
-## 3. Connection Logic
+## 3. 连接逻辑
 
-Use these links to turn profile into planning:
+用以下连接关系把画像转化为规划：
 
-| Comparison | Question | Planning Output |
+| 对比关系 | 问题 | 规划输出 |
 |---|---|---|
-| Current external vs current internal | Where is the market profit pool, and which current business is inefficient or under-monetized? | Efficiency improvement, product mix shift, pricing/channel change |
-| Future external vs future internal | Which long-term trend matches the company's intent and evolution capacity? | Strategic option and investment priority |
-| Future external vs current internal | Which disruptive risk can break today's advantage? | Survival, transformation, hedge, or exit plan |
-| Internal transferable asset vs adjacent demand | Where can existing resources move with lower customer acquisition cost? | New scenario, new product, or partnership path |
+| 当前外部 vs 当前内部 | 市场利润池在哪里？当前哪些业务低效或变现不足？ | 效率提升、产品组合调整、定价/渠道变化 |
+| 未来外部 vs 未来内部 | 哪个长期趋势匹配企业意图和演化能力？ | 战略选项与投资优先级 |
+| 未来外部 vs 当前内部 | 哪个颠覆性风险会击穿今天的优势？ | 生存、转型、对冲或退出计划 |
+| 内部可迁移资产 vs 相邻需求 | 现有资源能以更低获客成本迁移到哪里？ | 新场景、新产品或合作路径 |
 
-## 4. Minimum Profile Output
+## 4. 最小画像输出
 
-Produce a concise profile table before writing recommendations:
+在撰写建议前，先输出一张简明画像表：
 
-| Dimension | Known facts | Inferences | Assumptions | Unknowns | Planning implication |
+| 维度 | 已知事实 | 推断 | 假设 | 未知项 | 规划含义 |
 |---|---|---|---|---|---|
-| Business |  |  |  |  |  |
-| Product |  |  |  |  |  |
-| Customer |  |  |  |  |  |
-| Operations |  |  |  |  |  |
-| Team |  |  |  |  |  |
-| Resources |  |  |  |  |  |
-| External market |  |  |  |  |  |
-| Future trends |  |  |  |  |  |
+| 业务 |  |  |  |  |  |
+| 产品 |  |  |  |  |  |
+| 客户 |  |  |  |  |  |
+| 运营 |  |  |  |  |  |
+| 团队 |  |  |  |  |  |
+| 资源 |  |  |  |  |  |
+| 外部市场 |  |  |  |  |  |
+| 未来趋势 |  |  |  |  |  |

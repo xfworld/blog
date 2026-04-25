@@ -1,15 +1,15 @@
 # 企业未来规划与建议书模板
 
-Use this structure for the final Markdown report. Adapt headings to the company context, but do not omit required analytical sections.
+使用本结构撰写最终 Markdown 报告。可根据企业语境调整标题，但不要省略必需分析部分。
 
-## File Rules
+## 文件规则
 
-- Save to `markdown/` under the current project.
-- Filename pattern: `enterprise-future-planning-<company>-YYYYMMDD-HHMM.md`.
-- Include source links near relevant claims or in a final source list.
-- Record generation time and the date range of web research.
+- 保存到当前项目的 `markdown/` 目录。
+- 文件名格式：`enterprise-future-planning-<company>-YYYYMMDD-HHMM.md`。
+- 在相关论断附近或文末来源清单中加入来源链接。
+- 记录生成时间和网络调研覆盖的日期范围。
 
-## Recommended Opening
+## 推荐开头
 
 ```markdown
 # <企业名>未来规划与建议书
@@ -20,45 +20,45 @@ Use this structure for the final Markdown report. Adapt headings to the company 
 结论置信度：高/中/低；哪些关键部分仍需内部数据验证
 ```
 
-## Required Structure
+## 必需结构
 
 ### 1. 执行摘要
 
-Include:
+包括：
 
-- One-sentence core judgment.
-- Main recommended path.
-- Backup path.
-- 3 most important risks.
-- 30-day first action.
+- 一句话核心判断。
+- 主推荐路径。
+- 备选路径。
+- 3 个最重要风险。
+- 30 天内第一行动。
 
 ### 2. 前提假设与信息缺口
 
-| Type | Content | Confidence | How to verify |
+| 类型 | 内容 | 置信度 | 验证方式 |
 |---|---|---|---|
-| Known fact |  | High | Source/user supplied |
-| Inference |  | Medium |  |
-| Assumption |  | Medium/Low |  |
-| Unknown |  | Needs validation |  |
+| 已知事实 |  | 高 | 来源/用户提供 |
+| 推断 |  | 中 |  |
+| 假设 |  | 中/低 |  |
+| 未知项 |  | 需验证 |  |
 
-Explain: "If assumption X is false, recommendation Y should change to Z."
+说明：“如果假设 X 不成立，建议 Y 应调整为 Z。”
 
 ### 3. 企业画像
 
-Include the minimum profile table:
+包括最小企业画像表：
 
-| Dimension | Known facts | Inferences | Assumptions | Unknowns | Planning implication |
+| 维度 | 已知事实 | 推断 | 假设 | 未知项 | 规划含义 |
 |---|---|---|---|---|---|
-| Business |  |  |  |  |  |
-| Product |  |  |  |  |  |
-| Customer |  |  |  |  |  |
-| Operations |  |  |  |  |  |
-| Team |  |  |  |  |  |
-| Resources |  |  |  |  |  |
-| External market |  |  |  |  |  |
-| Future trends |  |  |  |  |  |
+| 业务 |  |  |  |  |  |
+| 产品 |  |  |  |  |  |
+| 客户 |  |  |  |  |  |
+| 运营 |  |  |  |  |  |
+| 团队 |  |  |  |  |  |
+| 资源 |  |  |  |  |  |
+| 外部市场 |  |  |  |  |  |
+| 未来趋势 |  |  |  |  |  |
 
-Add a compact visual:
+增加一张紧凑示意图：
 
 ```mermaid
 flowchart TD
@@ -72,7 +72,7 @@ flowchart TD
 
 ### 4. 内部诊断
 
-Subsections:
+子章节：
 
 - 业务基本面：营收结构、利润结构、现金流、增长质量、资产负债风险。公开资料不足时标注缺口。
 - 产品/服务结构：明星业务、现金牛、问题业务、探索业务。
@@ -83,77 +83,77 @@ Subsections:
 
 ### 5. 外部环境分析
 
-Must include:
+必须包括：
 
-- Industry size/growth/profit pool with sourced evidence.
-- Value chain and pricing power.
-- Customer demand and purchase decision process.
-- Direct competitors, substitutes, potential entrants, and cooperation map.
-- Current macro, credit, employment, trade, policy, and regulation temperature when relevant.
+- 有来源证据支持的行业规模、增长与利润池。
+- 价值链与定价权。
+- 客户需求与购买决策流程。
+- 直接竞争者、替代方案、潜在进入者与合作地图。
+- 相关时纳入当前宏观、信用、就业、贸易、政策与监管温度。
 
 ### 6. 行业、赛道、场景分析
 
-Use tables:
+使用表格：
 
-| Candidate track | Demand driver | Profit pool | Customer budget | Company fit | Entry difficulty | Confidence |
+| 候选赛道 | 需求驱动 | 利润池 | 客户预算 | 企业匹配度 | 进入难度 | 置信度 |
 |---|---|---|---|---|---|---|
 
-| Scenario | Customer pain | Current workaround | Why they pay | Company entry point | Validation method |
+| 场景 | 客户痛点 | 当前替代做法 | 付费理由 | 企业切入点 | 验证方法 |
 |---|---|---|---|---|---|
 
 ### 7. 未来趋势与战略缺口
 
-Analyze:
+分析：
 
-- Technology discontinuities and AI/automation impact.
-- Demographic and social structural changes.
-- Long-term policy anchors and supply-chain reconstruction.
-- Value-driven demand migration.
+- 技术断点以及 AI/自动化影响。
+- 人口与社会结构变化。
+- 长期政策锚点与供应链重构。
+- 价值驱动的需求迁移。
 
-Use this table:
+使用下表：
 
-| Future trend | Threat/opportunity | Impact on current advantage | Required capability | Action |
+| 未来趋势 | 威胁/机会 | 对当前优势的影响 | 所需能力 | 行动 |
 |---|---|---|---|---|
 
 ### 8. 战略选项与推荐
 
-Provide 2-4 options:
+提供 2-4 个选项：
 
-| Option | Core bet | Required assets | Expected upside | Key risk | Validation signal |
+| 选项 | 核心判断 | 所需资产 | 预期收益 | 关键风险 | 验证信号 |
 |---|---|---|---|---|---|
 
-Then recommend:
+然后给出建议：
 
-- Main path.
-- Backup path.
-- Paths to reject and why.
+- 主路径。
+- 备选路径。
+- 应拒绝的路径及原因。
 
 ### 9. 客户愿意付费的痛点与商机
 
-For each opportunity:
+对每个机会说明：
 
-- Target customer and budget owner.
-- Pain frequency, severity, and urgency.
-- Current spending or workaround.
-- Why now.
-- Why this company has an advantage.
-- First reachable customer channel.
-- Payment model and pricing hypothesis.
+- 目标客户与预算负责人。
+- 痛点频率、严重程度与紧迫性。
+- 当前支出或替代做法。
+- 为什么是现在。
+- 为什么该企业有优势。
+- 第一个可触达客户渠道。
+- 付费模式与定价假设。
 
 ### 10. 产品/服务原型
 
-Describe:
+描述：
 
-- Product/service name.
-- Target user.
-- Core promise.
-- Main workflow.
-- Deliverables.
-- Pricing hypothesis.
-- Differentiation.
-- Data, technology, delivery, and compliance requirements.
+- 产品/服务名称。
+- 目标用户。
+- 核心承诺。
+- 主要流程。
+- 交付物。
+- 定价假设。
+- 差异化。
+- 数据、技术、交付与合规要求。
 
-Optional SVG sketch:
+可选 SVG 草图：
 
 ```html
 <svg width="760" height="260" viewBox="0 0 760 260" xmlns="http://www.w3.org/2000/svg">
@@ -171,39 +171,39 @@ Optional SVG sketch:
 
 ### 11. MVP 设计与验证
 
-| MVP step | Scope | Cost/time | Success metric | Stop/continue rule |
+| MVP 步骤 | 范围 | 成本/时间 | 成功指标 | 停止/继续规则 |
 |---|---|---|---|---|
 
-Keep the MVP smaller than the final product. Prefer manual, service-first, pilot, or concierge delivery before building full software or heavy assets.
+保持 MVP 小于最终产品。在构建完整软件或重资产前，优先采用人工、服务先行、试点或管家式交付。
 
 ### 12. 参与方式、变现路径与团队
 
-Include:
+包括：
 
-- Participation mode: self-build, partnership, channel, OEM/ODM, consulting/service, SaaS/product, platform/ecosystem, investment/M&A, or hybrid.
-- Monetization ladder: pilot fee -> project fee -> annual/recurring contract -> productized package -> platform/ecosystem revenue where applicable.
-- Sales channel: existing customers, outbound, distributors, industry associations, content, tender/procurement, strategic partners.
-- Team design: leader, sales, product, delivery, technical, operations, finance/compliance, advisors. Explain why each role is necessary and when to hire.
+- 参与方式：自建、合作、渠道、OEM/ODM、咨询/服务、SaaS/产品、平台/生态、投资/并购或混合模式。
+- 变现阶梯：试点费 -> 项目费 -> 年度/经常性合同 -> 产品化套餐 -> 适用时的平台/生态收入。
+- 销售渠道：现有客户、主动外拓、经销商、行业协会、内容、招投标/采购、战略伙伴。
+- 团队设计：负责人、销售、产品、交付、技术、运营、财务/合规、顾问。说明每个角色为何必要以及何时招聘。
 
-### 13. Roadmap
+### 13. 路线图
 
-Use a 30/90/180-day plan:
+使用 30/90/180 天计划：
 
-| Period | Goal | Actions | Metric | Review decision |
+| 阶段 | 目标 | 行动 | 指标 | 复盘决策 |
 |---|---|---|---|---|
 
-### 14. Risks and Fallbacks
+### 14. 风险与回退方案
 
-| Risk | Early signal | Mitigation | Fallback |
+| 风险 | 早期信号 | 缓解措施 | 回退方案 |
 |---|---|---|---|
 
-### 15. Source List
+### 15. 来源清单
 
-List sources with title, publisher, date if available, and URL.
+列出来源标题、发布方、日期（如有）和 URL。
 
-## Writing Style
+## 写作风格
 
-- Use "结论先行 + 前提 + 证据 + 推理 + 行动".
-- Keep language direct, decision-oriented, and specific to the company.
-- Avoid slogans, unverifiable praise, and generic transformation language.
-- Use cases as illustrations, not as proof of market truth.
+- 使用“结论先行 + 前提 + 证据 + 推理 + 行动”。
+- 语言直接、面向决策，并贴合具体企业。
+- 避免口号、不可验证的赞美和泛泛的转型话术。
+- 案例只能作为说明，不能作为市场真相的证明。

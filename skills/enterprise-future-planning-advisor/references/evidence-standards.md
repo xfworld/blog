@@ -1,75 +1,75 @@
 # 证据与推理标准
 
-Use this reference when researching companies, industries, market demand, regulation, technology trends, and commercial opportunities.
+研究企业、行业、市场需求、监管、技术趋势和商业机会时，使用本参考文件。
 
-## Source Priority
+## 来源优先级
 
-Prefer sources in this order:
+按以下顺序优先使用来源：
 
-1. Company official website, audited annual reports, exchange filings, bond prospectuses, investor presentations, official announcements.
-2. Government, regulator, statistics bureau, central bank, customs, standards bodies, public procurement data.
-3. Listed-company filings, earnings transcripts, industry leaders' annual reports, customer or supplier disclosures.
-4. Reputable international organizations, universities, peer-reviewed papers, think tanks.
-5. Major consulting, brokerage, or industry reports with transparent methodology.
-6. Patent databases, app stores, hiring pages, job posts, product documentation, customer reviews.
-7. Reputable media reports and expert interviews.
-8. Startup examples, founder posts, social media, and marketing materials.
+1. 企业官网、经审计年报、交易所文件、债券募集说明书、投资者演示材料、官方公告。
+2. 政府、监管机构、统计局、央行、海关、标准组织、公共采购数据。
+3. 上市公司公告、业绩会纪要、行业龙头年报、客户或供应商披露。
+4. 可信国际组织、高校、同行评议论文、智库。
+5. 方法透明的大型咨询、券商或行业报告。
+6. 专利数据库、应用商店、招聘页、职位发布、产品文档、客户评价。
+7. 可信媒体报道与专家访谈。
+8. 创业公司案例、创始人文章、社交媒体和营销材料。
 
-Do not use low-priority sources as the only basis for a major recommendation.
+不要把低优先级来源作为重大建议的唯一依据。
 
-## Required Evidence for Claims
+## 论断所需证据
 
-Use current web research for:
+以下内容必须使用当前网络调研：
 
-- Company status, website facts, products, leadership, financing, financials, customers, lawsuits, regulation, hiring.
-- Market size, growth rate, margin/profit pool, industry cycle, competitor landscape.
-- Policy, subsidy, regulatory risk, procurement rules, export controls, data/security requirements.
-- Technology adoption, AI/productivity claims, cost changes, substitution risk.
-- Pricing, willingness to pay, procurement budgets, customer pain and demand.
+- 企业状态、官网事实、产品、领导层、融资、财务、客户、诉讼、监管、招聘。
+- 市场规模、增长率、利润率/利润池、行业周期、竞争格局。
+- 政策、补贴、监管风险、采购规则、出口管制、数据/安全要求。
+- 技术采用、AI/生产力相关论断、成本变化、替代风险。
+- 定价、付费意愿、采购预算、客户痛点与需求。
 
-When public sources do not provide internal metrics, mark them as assumptions or unknowns. Do not invent revenue, margins, customer concentration, or NPS.
+当公开来源不提供内部指标时，将其标为假设或未知项。不要编造收入、利润率、客户集中度或 NPS。
 
-## Reasoning Discipline
+## 推理纪律
 
-For every major recommendation, include:
+每个重大建议都要包含：
 
-- Premise: what must be true.
-- Evidence: what sources support it.
-- Inference: why the evidence implies this company can act.
-- Constraint: capital, people, channel, regulation, brand, time, or technology limit.
-- Risk: what could break the conclusion.
-- Fallback: what to do if the premise fails.
+- 前提：什么必须成立。
+- 证据：哪些来源支持它。
+- 推理：为什么这些证据说明该企业可以行动。
+- 约束：资本、人员、渠道、监管、品牌、时间或技术限制。
+- 风险：什么会击穿结论。
+- 回退方案：如果前提不成立，应当怎么做。
 
-Use this table for strategic claims:
+战略性论断使用下表：
 
-| Recommendation | Premise | Evidence | Company fit | Main risk | If premise fails |
+| 建议 | 前提 | 证据 | 企业匹配度 | 主要风险 | 前提不成立时 |
 |---|---|---|---|---|---|
 |  |  |  |  |  |  |
 
-## Avoid These Errors
+## 避免这些错误
 
-- Do not infer broad demand from one successful competitor or one viral case.
-- Do not treat "large market" as "this company can enter it".
-- Do not recommend diversification unless there is transferable asset, customer access, channel leverage, or credible partnership.
-- Do not recommend software/AI/productization without a repeatable workflow and measurable customer ROI.
-- Do not confuse customer pain with willingness to pay; identify budget owner and purchase trigger.
-- Do not ignore channel conflict, regulation, implementation cost, or organizational inertia.
-- Do not present speculative trends as certainties.
+- 不要从一个成功竞品或一个爆款案例推断广泛需求。
+- 不要把“大市场”当成“这家公司能够进入这个市场”。
+- 除非存在可迁移资产、客户入口、渠道杠杆或可信合作伙伴，否则不要建议多元化。
+- 如果没有可复用流程和可衡量客户 ROI，不要建议软件化、AI 化或产品化。
+- 不要混淆客户痛点与付费意愿；必须识别预算负责人和购买触发点。
+- 不要忽视渠道冲突、监管、实施成本或组织惯性。
+- 不要把推测性趋势表述为确定事实。
 
-## Confidence Labels
+## 置信度标签
 
-- High confidence: multiple reliable sources, current data, and company capability fit.
-- Medium confidence: reliable external evidence but company internal fit or customer access needs validation.
-- Low confidence: plausible path with weak public evidence, niche demand, or unclear payment path.
-- Needs validation: must be tested by interviews, pilots, signed LOIs, paid trials, procurement feedback, or prototype usage.
+- 高置信度：有多个可靠来源、当前数据，并且匹配企业能力。
+- 中置信度：外部证据可靠，但企业内部匹配度或客户入口仍需验证。
+- 低置信度：路径合理，但公开证据较弱、需求较窄或付费路径不清晰。
+- 需验证：必须通过访谈、试点、签署意向书、付费试用、采购反馈或原型使用来检验。
 
-## Validation Methods
+## 验证方法
 
-Choose methods that match the path:
+选择与路径匹配的方法：
 
-- B2B service: 15 customer interviews, 3 paid pilots, ROI case, repeatable proposal.
-- B2B product/SaaS: landing page, waitlist, concierge MVP, usage activation, retention, procurement feedback.
-- Channel expansion: distributor interviews, small regional pilot, sales-cycle measurement, gross margin test.
-- New category: problem interviews, concept test, pre-order, benchmark alternatives, willingness-to-pay test.
-- Industrial upgrade: process audit, small-line pilot, yield/cost/quality metric, payback period.
-- Ecosystem partnership: signed partner intent, joint pipeline, revenue-sharing model, compliance review.
+- B2B 服务：15 个客户访谈、3 个付费试点、ROI 案例、可复用方案书。
+- B2B 产品/SaaS：落地页、候补名单、管家式 MVP、使用激活、留存、采购反馈。
+- 渠道扩张：经销商访谈、小区域试点、销售周期测量、毛利测试。
+- 新品类：问题访谈、概念测试、预订、替代方案对标、付费意愿测试。
+- 工业升级：流程审计、小产线试点、良率/成本/质量指标、回收期。
+- 生态合作：签署伙伴意向、联合管线、收入分成模型、合规审查。
