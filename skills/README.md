@@ -84,6 +84,8 @@
   
 - `enterprise-future-planning-advisor`: 基于用户提供的企业名、企业简介、公司网站等信息, 给这家企业编写未来规划与建议书. 以 markdown 格式保存到当前项目的 markdown 目录中. 
   
+- `higher-order-article-writer`: 给出 url 或文章内容, 仔细阅读并消化后, 写一篇更高层次的博弈文章. 
+  
 ## only for claude web
 `skills_for_claude_web` 目录中的 skill 仅用于 Claude web 版.
   
